@@ -1,0 +1,17 @@
+tierId: community
+name: Community Supporter
+amountLabel: '$250'
+amountNumeric: 250
+order: 1
+featured: false
+badgeLabel: Local Roots
+impactHeadline: Equips volunteer ride pods with first-aid supplies, cones, and trailside repair essentials.
+jerseyPlacement: '—'
+tentBannerPlacement: Club supporter wall recognition at community events
+digitalRecognition: Name or business listing on the Flyers Sponsors directory
+perks:
+  - 100% 501(c)(3) tax-deductible receipt via Lake Mountain Bicycle Club
+  - Business or family name listed on the Flyers Cycling Club Sponsors page
+  - Optional designation to club-wide operations or a specific program (XC, Enduro, or Jr. Flyers)
+  - Social media thank-you shoutout during seasonal kickoff
+zeffyUrl: https://www.zeffy.com/

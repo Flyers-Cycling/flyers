@@ -1,0 +1,165 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/site';
+import { withBase } from '../lib/urls';
+
+const leadership = (await getCollection('leadership')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="About Flyers Cycling Club & Our 501(c)(3) Mission"
+  description="Learn how Lake Mountain Bicycle Club (501c3) unites volunteer coaches, local sponsors, and NICA high school partnerships to keep youth cycling affordable."
+>
+  <section class="bg-slate-950 py-14 text-white sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-extrabold tracking-widest text-amber-300 uppercase">
+        {siteConfig.legalEntity} · {siteConfig.nonProfitStatus}
+      </p>
+      <h1 class="mt-3 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl">
+        100% Volunteer-Led. Built for Northwest Utah County Families.
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+        Born on the trails of Eagle Mountain, Lake Mountain, and Lehi, Flyers Cycling Club exists to
+        prove that youth cycling can be both genuinely competitive and radically welcoming—without
+        costing families thousands of dollars.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission & Financial Transparency -->
+  <section aria-labelledby="mission-heading" class="py-14 sm:py-18">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+      <div class="space-y-6 lg:col-span-7">
+        <h2 id="mission-heading" class="text-3xl font-black tracking-tight text-slate-900">
+          How Our Non-Profit Model Works
+        </h2>
+        <p class="text-base leading-relaxed text-slate-700">
+          Operating legally as <strong>{siteConfig.legalEntity}</strong>, a registered 501(c)(3)
+          non-profit organization, Flyers Cycling Club brings together <strong>Flyers XC</strong> (founded
+          in 2020), <strong>Flyers Enduro</strong>, and <strong>Jr. Flyers</strong> under one unified
+          community umbrella.
+        </p>
+        <p class="text-base leading-relaxed text-slate-700">
+          Every board member, program director, and pod ride leader donates their time as a
+          volunteer. When a family registers a rider for <strong>$50 or $150</strong> depending on the
+          program, that fee goes strictly toward covering the athlete's club t-shirt and rider insurance.
+          Community businesses and tax-deductible donors fund coach safety certifications, first-aid kits,
+          pit tents, mechanical tools, and financial-hardship support.
+        </p>
+      </div>
+
+      <aside class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs lg:col-span-5">
+        <h2 class="text-lg font-black text-slate-900">Communities We Serve</h2>
+        <p class="mt-2 text-sm leading-relaxed text-slate-700">
+          Centered on the west and north shores of Utah Lake across:
+        </p>
+        <ul class="mt-4 grid grid-cols-2 gap-2.5 text-sm font-bold text-slate-800">
+          <li class="rounded-lg bg-slate-50 px-3 py-2">Eagle Mountain</li>
+          <li class="rounded-lg bg-slate-50 px-3 py-2">Lehi</li>
+          <li class="rounded-lg bg-slate-50 px-3 py-2">Saratoga Springs</li>
+          <li class="rounded-lg bg-slate-50 px-3 py-2">Cedar Fort &amp; Fairfield</li>
+          <li class="rounded-lg bg-slate-50 px-3 py-2">Highland / Alpine</li>
+          <li class="rounded-lg bg-slate-50 px-3 py-2">NW Utah County</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- NICA High School Partnerships & Trail Stewardship -->
+  <section
+    aria-labelledby="partnerships-heading"
+    class="border-y border-slate-200 bg-white py-14 sm:py-16"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div>
+          <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+            High School &amp; Junior Devo Collaboration
+          </p>
+          <h2
+            id="partnerships-heading"
+            class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+          >
+            Supporting Local NICA Teams
+          </h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">
+            Utah's high school mountain bike league (NICA) has transformed youth riding. Flyers
+            works alongside local NICA coaches and teams so riders have winter/spring endurance base
+            miles, gravity descending skills, and K–6 sibling programs that feed right into fall
+            school racing:
+          </p>
+          <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+            {
+              siteConfig.nicaPartners.map((team) => (
+                <li class="rounded-xl border border-slate-200 bg-slate-50 p-3.5">
+                  <p class="text-sm font-extrabold text-slate-900">{team.name}</p>
+                  <p class="text-xs text-slate-600">
+                    {team.school} · {team.city}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div
+          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-7"
+        >
+          <div>
+            <p class="text-xs font-extrabold tracking-widest text-emerald-800 uppercase">
+              Dig Where You Ride
+            </p>
+            <h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900">
+              Lake Mountain &amp; Eagle Mountain Trail Stewardship
+            </h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">
+              Great riders respect the dirt beneath their tires. Every season, Flyers athletes and
+              parents volunteer alongside local trail builders and city partners to maintain
+              drainage, clear brush, and keep Eagle Mountain and Lake Mountain singletrack
+              sustainable for hikers, runners, and riders alike.
+            </p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href={withBase('/schedule')}
+              class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-extrabold text-white transition hover:bg-slate-800"
+            >
+              Join Next Trail Workday &rarr;
+            </a>
+            <a
+              href={`mailto:${siteConfig.contact.email}`}
+              class="inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 transition hover:bg-slate-100"
+            >
+              Volunteer as a Parent Coach
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Leadership -->
+  <section aria-labelledby="leadership-heading" class="py-14 sm:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2
+        id="leadership-heading"
+        class="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+      >
+        All-Volunteer Leadership &amp; Coaching Teams
+      </h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          leadership.map((leader) => (
+            <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
+              <p class="text-xs font-extrabold text-sky-800">{leader.data.programFocus}</p>
+              <h3 class="mt-1.5 text-lg font-black text-slate-900">{leader.data.name}</h3>
+              <p class="text-xs font-semibold text-slate-600">{leader.data.role}</p>
+              <p class="mt-3 text-sm leading-relaxed text-slate-700">{leader.data.bio}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

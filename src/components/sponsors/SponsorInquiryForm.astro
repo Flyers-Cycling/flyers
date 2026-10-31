@@ -1,0 +1,437 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { siteConfig } from '../../data/site';
+
+interface Props {
+  tiers: CollectionEntry<'tiers'>[];
+}
+
+const { tiers } = Astro.props;
+const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
+---
+
+<section
+  id="sponsor-inquiry"
+  aria-labelledby="sponsor-inquiry-heading"
+  class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10"
+>
+  <div class="max-w-3xl">
+    <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+      Corporate, Check &amp; In-Kind Partnerships
+    </p>
+    <h2
+      id="sponsor-inquiry-heading"
+      class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+    >
+      Start a 2027 Sponsorship Conversation
+    </h2>
+    <p class="mt-2 text-base text-slate-700">
+      Want to pay by corporate check/ACH, coordinate vector jersey artwork, or donate bike shop gear
+      and trail support? Complete the form below and our volunteer board will follow up with W-9 /
+      501(c)(3) documentation.
+    </p>
+  </div>
+
+  <form
+    id="sponsor-inquiry-form"
+    method="POST"
+    action={siteConfig.integrations.sponsorFormEndpoint ||
+      `mailto:${siteConfig.contact.sponsorshipEmail}`}
+    data-endpoint={siteConfig.integrations.sponsorFormEndpoint}
+    data-recipient={siteConfig.contact.sponsorshipEmail}
+    class="mt-8 space-y-6"
+    novalidate
+  >
+    <!-- Spam honeypot -->
+    <div class="sr-only" aria-hidden="true">
+      <label for="sponsor-botcheck">Leave this field empty</label>
+      <input type="text" id="sponsor-botcheck" name="botcheck" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      <div class="form-field">
+        <label for="organizationName" class="block text-sm font-extrabold text-slate-900">
+          Business or Family Name <span class="text-red-700">*</span>
+        </label>
+        <span id="org-hint" class="mt-0.5 block text-xs text-slate-600">
+          Name as it should appear on jerseys, banners, or our partner directory
+        </span>
+        <input
+          type="text"
+          id="organizationName"
+          name="organizationName"
+          required
+          minlength="2"
+          maxlength="120"
+          autocomplete="organization"
+          aria-describedby="org-hint"
+          aria-errormessage="org-error"
+          class="mt-1.5 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-2xs"
+        />
+        <p
+          id="org-error"
+          class="field-error mt-1.5 items-center gap-1.5 text-xs font-bold text-red-700"
+        >
+          <span aria-hidden="true">!</span> Please enter your business or family name (at least 2 characters).
+        </p>
+      </div>
+
+      <div class="form-field">
+        <label for="contactName" class="block text-sm font-extrabold text-slate-900">
+          Full Name <span class="text-red-700">*</span>
+        </label>
+        <span id="name-hint" class="mt-0.5 block text-xs text-slate-600">
+          Primary contact person for logo artwork &amp; tax receipt
+        </span>
+        <input
+          type="text"
+          id="contactName"
+          name="contactName"
+          required
+          minlength="2"
+          maxlength="100"
+          autocomplete="name"
+          aria-describedby="name-hint"
+          aria-errormessage="name-error"
+          class="mt-1.5 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-2xs"
+        />
+        <p
+          id="name-error"
+          class="field-error mt-1.5 items-center gap-1.5 text-xs font-bold text-red-700"
+        >
+          <span aria-hidden="true">!</span> Please enter a contact name.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-field max-w-xl">
+      <label for="sponsorEmail" class="block text-sm font-extrabold text-slate-900">
+        Work or Personal Email <span class="text-red-700">*</span>
+      </label>
+      <span id="email-hint" class="mt-0.5 block text-xs text-slate-600">
+        Format: partner@company.com — we never share sponsor contact emails
+      </span>
+      <input
+        type="email"
+        id="sponsorEmail"
+        name="email"
+        required
+        inputmode="email"
+        autocomplete="email"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-describedby="email-hint"
+        aria-errormessage="email-error"
+        class="mt-1.5 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-2xs"
+      />
+      <p
+        id="email-error"
+        class="field-error mt-1.5 items-center gap-1.5 text-xs font-bold text-red-700"
+      >
+        <span aria-hidden="true">!</span> Please enter a valid email address (for example, name@company.com).
+      </p>
+    </div>
+
+    <!-- Tier Radio Group (5 choices => visible radio buttons) -->
+    <fieldset>
+      <legend class="text-sm font-extrabold text-slate-900">Preferred Sponsorship Tier</legend>
+      <div class="mt-2.5 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-5">
+        {
+          sortedTiers.map((tier) => (
+            <label class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white">
+              <input
+                type="radio"
+                name="tier"
+                value={tier.data.name}
+                checked={tier.data.featured}
+                class="h-4 w-4 accent-amber-400"
+              />
+              <span>
+                {tier.data.name} ({tier.data.amountLabel})
+              </span>
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      <!-- Program Designation Radio Group (4 choices => visible radio buttons) -->
+      <fieldset>
+        <legend class="text-sm font-extrabold text-slate-900">Program Designation</legend>
+        <div class="mt-2.5 grid gap-2 sm:grid-cols-2">
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+          >
+            <input
+              type="radio"
+              name="programScope"
+              value="Club-Wide (All 3 Programs)"
+              checked
+              class="h-4 w-4 accent-amber-400"
+            />
+            <span>Club-Wide (All 3 Programs)</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+          >
+            <input
+              type="radio"
+              name="programScope"
+              value="Flyers XC Spotlight"
+              class="h-4 w-4 accent-amber-400"
+            />
+            <span>Flyers XC Spotlight</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+          >
+            <input
+              type="radio"
+              name="programScope"
+              value="Flyers Enduro Spotlight"
+              class="h-4 w-4 accent-amber-400"
+            />
+            <span>Flyers Enduro Spotlight</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+          >
+            <input
+              type="radio"
+              name="programScope"
+              value="Jr. Flyers (K–6) Spotlight"
+              class="h-4 w-4 accent-amber-400"
+            />
+            <span>Jr. Flyers (K–6) Spotlight</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Support Format Radio Group (3 choices => visible radio buttons) -->
+      <fieldset>
+        <legend class="text-sm font-extrabold text-slate-900">Preferred Contribution Format</legend>
+        <div class="mt-2.5 grid gap-2 sm:grid-cols-3">
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+          >
+            <input
+              type="radio"
+              name="supportType"
+              value="Check or ACH"
+              checked
+              class="h-4 w-4 accent-amber-400"
+            />
+            <span>Check / ACH</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+          >
+            <input
+              type="radio"
+              name="supportType"
+              value="In-Kind Gear or Services"
+              class="h-4 w-4 accent-amber-400"
+            />
+            <span>In-Kind Gear</span>
+          </label>
+          <label
+            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+          >
+            <input
+              type="radio"
+              name="supportType"
+              value="Online via Zeffy"
+              class="h-4 w-4 accent-amber-400"
+            />
+            <span>Zeffy Online</span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="form-field">
+      <label for="sponsorNotes" class="block text-sm font-extrabold text-slate-900">
+        Goals, Timeline, or In-Kind Details (Optional)
+      </label>
+      <textarea
+        id="sponsorNotes"
+        name="notes"
+        rows="3"
+        maxlength="1000"
+        class="mt-1.5 block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-2xs"
+      ></textarea>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-4 pt-2">
+      <button
+        type="submit"
+        id="sponsor-submit-btn"
+        class="inline-flex min-h-12 items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-base font-extrabold text-white transition hover:bg-slate-800"
+      >
+        Prepare &amp; Send Sponsorship Inquiry
+      </button>
+      <p class="text-xs text-slate-600">
+        100% volunteer board · Tax-deductible via {siteConfig.legalEntity}
+      </p>
+    </div>
+
+    <div
+      id="sponsor-form-status"
+      role="status"
+      aria-live="polite"
+      class="hidden rounded-2xl border border-emerald-300 bg-emerald-50 p-5 text-sm text-emerald-950"
+    >
+    </div>
+  </form>
+</section>
+
+<script>
+  import { buildSponsorInquiryMailto } from '../../lib/sponsors';
+
+  const form = document.getElementById('sponsor-inquiry-form') as HTMLFormElement | null;
+  const statusBox = document.getElementById('sponsor-form-status');
+  const submitBtn = document.getElementById('sponsor-submit-btn') as HTMLButtonElement | null;
+
+  if (form) {
+    // Sync aria-invalid with CSS :user-invalid + provide WeakMap fallback for older browsers
+    const dirtyState = new WeakMap<Element, { hasInteracted: boolean; hasBlurred: boolean }>();
+    const supportsUserInvalid =
+      typeof CSS !== 'undefined' && typeof CSS.supports === 'function'
+        ? CSS.supports('selector(:user-invalid)')
+        : false;
+
+    const syncFieldValidity = (el: EventTarget | null) => {
+      if (!(
+        el instanceof HTMLInputElement ||
+        el instanceof HTMLTextAreaElement ||
+        el instanceof HTMLSelectElement
+      )) {
+        return;
+      }
+
+      if (supportsUserInvalid) {
+        el.setAttribute('aria-invalid', el.matches(':user-invalid') ? 'true' : 'false');
+      } else {
+        const valid = el.checkValidity();
+        el.classList.toggle('user-invalid-fallback', !valid);
+        el.classList.toggle('user-valid-fallback', valid);
+        if (!valid) {
+          el.setAttribute('aria-invalid', 'true');
+        } else {
+          el.removeAttribute('aria-invalid');
+        }
+      }
+    };
+
+    form.addEventListener(
+      'blur',
+      (event) => {
+        const target = event.target;
+        if (target instanceof Element) {
+          const state = dirtyState.get(target) || { hasInteracted: false, hasBlurred: false };
+          state.hasBlurred = true;
+          dirtyState.set(target, state);
+          if (supportsUserInvalid || state.hasInteracted) {
+            syncFieldValidity(target);
+          }
+        }
+      },
+      true,
+    );
+
+    form.addEventListener('input', (event) => {
+      const target = event.target;
+      if (target instanceof Element) {
+        const state = dirtyState.get(target) || { hasInteracted: false, hasBlurred: false };
+        state.hasInteracted = true;
+        dirtyState.set(target, state);
+        if (target.hasAttribute('aria-invalid') || state.hasBlurred) {
+          syncFieldValidity(target);
+        }
+      }
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // If honeypot triggered, exit silently
+      const data = new FormData(form);
+      if (data.get('botcheck')) return;
+
+      if (!form.checkValidity()) {
+        const controls = Array.from(form.elements);
+        for (const control of controls) {
+          if (
+            control instanceof HTMLInputElement ||
+            control instanceof HTMLTextAreaElement ||
+            control instanceof HTMLSelectElement
+          ) {
+            control.classList.toggle('user-invalid-fallback', !control.checkValidity());
+            control.setAttribute('aria-invalid', control.checkValidity() ? 'false' : 'true');
+          }
+        }
+        const firstInvalid = form.querySelector<HTMLElement>(':invalid, [aria-invalid="true"]');
+        firstInvalid?.focus();
+        return;
+      }
+
+      const payload = {
+        organizationName: String(data.get('organizationName') || '').trim(),
+        contactName: String(data.get('contactName') || '').trim(),
+        email: String(data.get('email') || '').trim(),
+        tier: String(data.get('tier') || 'Gold Kit & Pit Partner'),
+        programScope: String(data.get('programScope') || 'Club-Wide (All 3 Programs)'),
+        supportType: String(data.get('supportType') || 'Check or ACH'),
+        notes: String(data.get('notes') || '').trim(),
+      };
+
+      const endpoint = form.dataset.endpoint || '';
+      const recipient = form.dataset.recipient || 'info@lakemountainflyers.com';
+      const mailtoHref = buildSponsorInquiryMailto(payload, recipient);
+
+      if (endpoint && submitBtn) {
+        submitBtn.disabled = true;
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          if (response.ok && statusBox) {
+            statusBox.textContent = `Thank you, ${payload.contactName}! Your ${payload.tier} sponsorship inquiry for ${payload.organizationName} has been sent to our volunteer board.`;
+            statusBox.classList.remove('hidden');
+            form.reset();
+            submitBtn.disabled = false;
+            return;
+          }
+        } catch {
+          // Graceful fallback to direct email draft below
+        } finally {
+          submitBtn.disabled = false;
+        }
+      }
+
+      if (statusBox) {
+        statusBox.innerHTML = '';
+        const heading = document.createElement('p');
+        heading.className = 'font-extrabold text-emerald-950';
+        heading.textContent = `Inquiry ready for ${payload.organizationName} (${payload.tier})!`;
+
+        const detail = document.createElement('p');
+        detail.className = 'mt-1 text-emerald-900';
+        detail.textContent = `Click the button below to open your pre-addressed sponsorship email to ${recipient}, or email us directly anytime.`;
+
+        const link = document.createElement('a');
+        link.href = mailtoHref;
+        link.className =
+          'mt-3 inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-800 px-4 py-2 text-xs font-extrabold text-white hover:bg-emerald-900';
+        link.textContent = `Open Email Draft to ${recipient} →`;
+
+        statusBox.append(heading, detail, link);
+        statusBox.classList.remove('hidden');
+      }
+    });
+  }
+</script>

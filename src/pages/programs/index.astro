@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProgramCards from '../../components/programs/ProgramCards.astro';
+import ProgramPathwayFinder from '../../components/programs/ProgramPathwayFinder.astro';
+import { siteConfig } from '../../data/site';
+
+const programs = await getCollection('programs');
+---
+
+<BaseLayout
+  title="Youth Mountain Bike Programs (XC, Enduro & Jr. Flyers)"
+  description="Compare Flyers XC, Flyers Enduro (Gravity), and Jr. Flyers (K–6) — 100% volunteer-led youth mountain bike programs in Eagle Mountain and Lehi, Utah."
+>
+  <section class="bg-slate-950 py-14 text-white sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-extrabold tracking-widest text-amber-300 uppercase">
+        Flyers Cycling Club Pathways
+      </p>
+      <h1 class="mt-3 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl">
+        Three Youth Programs. One Welcoming Dirt Community.
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+        Every Flyers program is 100% volunteer-led. Registration is just <strong
+          class="text-amber-300">$50 or $150</strong
+        > depending on the program—strictly covering your rider's t-shirt and insurance.
+      </p>
+    </div>
+  </section>
+
+  <section aria-labelledby="all-programs-heading" class="py-14 sm:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 id="all-programs-heading" class="sr-only">Compare Programs</h2>
+      <ProgramCards programs={programs} />
+    </div>
+  </section>
+
+  <section class="pb-14 sm:pb-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ProgramPathwayFinder />
+    </div>
+  </section>
+
+  <!-- NICA Synergy & Seasonal Matrix -->
+  <section aria-labelledby="nica-synergy-heading" class="border-t border-slate-200 bg-white py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+          Year-Round Utah Cycling Ecosystem
+        </p>
+        <h2
+          id="nica-synergy-heading"
+          class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+        >
+          How Flyers Works Hand-in-Hand With Local NICA High School Teams
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-slate-700">
+          We never ask student-athletes to choose between Flyers and their school mountain bike
+          team. Our seasons are purposefully structured to build endurance, technical descending,
+          and trail community alongside local NICA teams:
+        </p>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2.5" aria-label="Supported NICA high school teams">
+        {
+          siteConfig.nicaPartners.map((partner) => (
+            <span class="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-extrabold text-slate-800">
+              {partner.name} <span class="font-medium text-slate-600">({partner.school})</span>
+            </span>
+          ))
+        }
+      </div>
+
+      <div class="mt-8 overflow-x-auto rounded-2xl border border-slate-200">
+        <table class="min-w-full divide-y divide-slate-200 text-left text-sm">
+          <thead class="bg-slate-900 text-xs font-extrabold tracking-wider text-white uppercase">
+            <tr>
+              <th scope="col" class="px-4 py-3.5">Program</th>
+              <th scope="col" class="px-4 py-3.5">Grades / Ages</th>
+              <th scope="col" class="px-4 py-3.5">Primary Season</th>
+              <th scope="col" class="px-4 py-3.5">Registration Fee</th>
+              <th scope="col" class="px-4 py-3.5">Discipline Focus</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 bg-white text-slate-800">
+            <tr>
+              <th scope="row" class="px-4 py-3.5 font-extrabold text-slate-900">Jr. Flyers</th>
+              <td class="px-4 py-3.5">Grades K–6 (Ages 5–12)</td>
+              <td class="px-4 py-3.5">June – August</td>
+              <td class="px-4 py-3.5 font-bold">$50 (t-shirt + insurance)</td>
+              <td class="px-4 py-3.5">Trail safety, braking/shifting, skill games &amp; fun</td>
+            </tr>
+            <tr>
+              <th scope="row" class="px-4 py-3.5 font-extrabold text-slate-900">Flyers XC</th>
+              <td class="px-4 py-3.5">Grades 7–12 (Ages 13–19)</td>
+              <td class="px-4 py-3.5">Jan – Aug (Winter/Spring/Summer)</td>
+              <td class="px-4 py-3.5 font-bold">$50 (t-shirt + insurance)</td>
+              <td class="px-4 py-3.5">Endurance pods, ICUP XC racing &amp; NICA pre-season prep</td>
+            </tr>
+            <tr>
+              <th scope="row" class="px-4 py-3.5 font-extrabold text-slate-900">Flyers Enduro</th>
+              <td class="px-4 py-3.5">Grades 5–12 (Ages 10–19)</td>
+              <td class="px-4 py-3.5">Jan – Aug (Reg: Dec–Jan)</td>
+              <td class="px-4 py-3.5 font-bold">$150 (t-shirt + insurance)</td>
+              <td class="px-4 py-3.5"
+                >Technical descending, drops/corners &amp; gravity stage races</td
+              >
+            </tr>
+            <tr class="bg-slate-50">
+              <th scope="row" class="px-4 py-3.5 font-extrabold text-slate-900">
+                Local NICA Teams
+              </th>
+              <td class="px-4 py-3.5">Grades 7–12</td>
+              <td class="px-4 py-3.5">July – October (Fall Season)</td>
+              <td class="px-4 py-3.5 font-semibold text-slate-700"
+                >Set by Utah High School League</td
+              >
+              <td class="px-4 py-3.5">
+                Representing Westlake, Lehi, Cedar Valley, Skyridge &amp; Lone Peak
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

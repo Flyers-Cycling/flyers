@@ -1,0 +1,179 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/site';
+
+const updates = (await getCollection('updates')).sort((a, b) =>
+  b.data.publishedDate.localeCompare(a.data.publishedDate),
+);
+
+const renderedUpdates = await Promise.all(
+  updates.map(async (entry) => ({
+    entry,
+    rendered: await render(entry),
+  })),
+);
+---
+
+<BaseLayout
+  title="Team Kits, Merch Shop & Club Updates"
+  description="Seasonal Volt Cyclewear custom jersey windows, Zeffy Flyers merch shop, and official announcements for Flyers Cycling Club."
+>
+  <section class="bg-slate-950 py-14 text-white sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-extrabold tracking-widest text-amber-300 uppercase">
+        Apparel, Gear &amp; Club Dispatches
+      </p>
+      <h1 class="mt-3 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl">
+        Team Kits, Merch Store &amp; Seasonal News
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+        Designed to keep riders looking sharp on Utah trails and start lines without requiring
+        expensive head-to-toe custom kits.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kit & Merch Cards -->
+  <section aria-labelledby="gear-stores-heading" class="py-14 sm:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2
+        id="gear-stores-heading"
+        class="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+      >
+        Club Apparel &amp; Supporter Gear
+      </h2>
+
+      <div class="mt-8 grid gap-8 lg:grid-cols-2">
+        <!-- Volt Cyclewear Custom Kit Store -->
+        <article
+          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-7 shadow-xs"
+        >
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span
+                class="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-extrabold text-sky-900"
+              >
+                {siteConfig.integrations.voltKitStore.vendor}
+              </span>
+              <span
+                class="rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-bold text-amber-950"
+              >
+                {siteConfig.integrations.voltKitStore.windowLabel}
+              </span>
+            </div>
+            <h3 class="mt-4 text-2xl font-black text-slate-900">
+              Custom Flyers XC &amp; Enduro Team Kits
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">
+              {siteConfig.integrations.voltKitStore.notes}
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-700">
+              <li class="flex items-start gap-2">
+                <span class="font-black text-emerald-700" aria-hidden="true">&#10003;</span>
+                <span
+                  >Breathable 4-way stretch XC &amp; trail jerseys + Alpine Thermal cold-weather
+                  layers</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="font-black text-emerald-700" aria-hidden="true">&#10003;</span>
+                <span
+                  >Pairs cleanly with plain black bibs or mountain bike shorts you already own</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="font-black text-emerald-700" aria-hidden="true">&#10003;</span>
+                <span>Proudly showcases our 501(c)(3) community sponsors across Utah trails</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4">
+            <a
+              href={siteConfig.integrations.voltKitStore.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-extrabold text-white transition hover:bg-slate-800"
+            >
+              Check Kit Window Details &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Zeffy Enduro & Supporter Shop -->
+        <article
+          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-7 shadow-xs"
+        >
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span
+                class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-extrabold text-orange-900"
+              >
+                Zeffy Non-Profit Portal
+              </span>
+              <span
+                class="rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-950"
+              >
+                100% Proceeds to Club
+              </span>
+            </div>
+            <h3 class="mt-4 text-2xl font-black text-slate-900">
+              Flyers Enduro &amp; Community Merch Shop
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-700">
+              Remember that every registered rider already receives a club t-shirt included with
+              their $50 or $150 registration! Extra parent/family tees, hats, stickers, and Enduro
+              apparel are available through our zero-fee Zeffy shop.
+            </p>
+          </div>
+          <div class="mt-6 pt-4">
+            <a
+              href={siteConfig.integrations.zeffyShopUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-11 items-center justify-center rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-extrabold text-slate-950 transition hover:bg-amber-300"
+            >
+              Visit Flyers Zeffy Shop &rarr;
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Club Announcements & Updates -->
+  <section
+    aria-labelledby="updates-heading"
+    class="border-t border-slate-200 bg-white py-14 sm:py-16"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2
+        id="updates-heading"
+        class="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+      >
+        Club Updates &amp; Seasonal Announcements
+      </h2>
+
+      <div class="mt-8 space-y-6">
+        {
+          renderedUpdates.map(({ entry, rendered }) => {
+            const { Content } = rendered;
+            return (
+              <article class="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+                <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-600">
+                  <time datetime={entry.data.publishedDate}>{entry.data.publishedDate}</time>
+                  <span aria-hidden="true">·</span>
+                  <span class="uppercase">{entry.data.category}</span>
+                </div>
+                <h3 class="mt-2 text-xl font-black text-slate-900">{entry.data.title}</h3>
+                <div class="club-prose mt-3 text-sm">
+                  <Content />
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

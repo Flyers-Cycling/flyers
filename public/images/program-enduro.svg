@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Flyers Enduro technical gravity descent illustration">
+  <rect width="800" height="500" fill="#1c120c"/>
+  <circle cx="640" cy="115" r="70" fill="#f97316" opacity="0.2"/>
+  <path d="M0 190 L210 250 L390 165 L590 295 L800 240 L800 500 L0 500 Z" fill="#2b1a10"/>
+  <path d="M0 280 L260 355 L470 290 L800 410 L800 500 L0 500 Z" fill="#140c08"/>
+  <path d="M120 195 Q 310 270 390 245 T 690 460" fill="none" stroke="#f97316" stroke-width="9" stroke-linecap="round"/>
+  <text x="40" y="64" fill="#fdba74" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="3">FLYERS ENDURO · GRAVITY</text>
+</svg>

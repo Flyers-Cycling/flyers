@@ -1,0 +1,164 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import Differentiators from '../components/home/Differentiators.astro';
+import ProgramCards from '../components/programs/ProgramCards.astro';
+import ProgramPathwayFinder from '../components/programs/ProgramPathwayFinder.astro';
+import SponsorGrid from '../components/sponsors/SponsorGrid.astro';
+import { siteConfig } from '../data/site';
+import { withBase } from '../lib/urls';
+
+const programs = await getCollection('programs');
+const sponsors = await getCollection('sponsors');
+const events = (await getCollection('events'))
+  .sort((a, b) => a.data.startDate.localeCompare(b.data.startDate))
+  .slice(0, 3);
+
+const programLabels: Record<string, string> = {
+  all: 'All Club',
+  xc: 'Flyers XC',
+  enduro: 'Flyers Enduro',
+  'jr-flyers': 'Jr. Flyers',
+  community: 'Trail & Community',
+};
+---
+
+<BaseLayout title={siteConfig.name}>
+  <Hero />
+
+  <Differentiators />
+
+  <!-- 3 Unified Programs -->
+  <section
+    aria-labelledby="home-programs-heading"
+    class="border-t border-slate-200 bg-slate-50 py-16 sm:py-20"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <div class="max-w-2xl">
+          <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+            Our 3 Club Programs
+          </p>
+          <h2
+            id="home-programs-heading"
+            class="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+          >
+            From First K–6 Trail Rides to Utah XC &amp; Enduro Podiums
+          </h2>
+        </div>
+        <a
+          href={withBase('/programs')}
+          class="text-sm font-extrabold text-sky-800 underline hover:text-sky-950"
+        >
+          Compare all 3 programs &amp; NICA calendar &rarr;
+        </a>
+      </div>
+
+      <div class="mt-10">
+        <ProgramCards programs={programs} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Pathway Finder -->
+  <section class="bg-slate-50 pb-16 sm:pb-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ProgramPathwayFinder />
+    </div>
+  </section>
+
+  <!-- Upcoming Key Dates & Schedule Preview -->
+  <section
+    aria-labelledby="home-schedule-heading"
+    class="border-t border-slate-200 bg-white py-16 sm:py-20"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+            Seasonal Rhythm
+          </p>
+          <h2
+            id="home-schedule-heading"
+            class="mt-2 text-3xl font-black tracking-tight text-slate-900"
+          >
+            Upcoming Windows, Clinics &amp; Trail Days
+          </h2>
+        </div>
+        <a
+          href={withBase('/schedule')}
+          class="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-900 transition hover:bg-slate-50"
+        >
+          View Full Club Schedule &rarr;
+        </a>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {
+          events.map((event) => (
+            <article class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div>
+                <div class="flex items-center justify-between gap-2 text-xs font-bold">
+                  <span class="rounded-full bg-slate-900 px-2.5 py-0.5 text-white">
+                    {programLabels[event.data.program]}
+                  </span>
+                  <time datetime={event.data.startDate} class="text-slate-700">
+                    {event.data.startDate}
+                  </time>
+                </div>
+                <h3 class="mt-4 text-lg font-extrabold text-slate-900">{event.data.title}</h3>
+                <p class="mt-1 text-xs font-semibold text-slate-600">
+                  {event.data.timeLabel} · {event.data.location}
+                </p>
+                <p class="mt-3 text-sm leading-relaxed text-slate-700">{event.data.summary}</p>
+              </div>
+              {event.data.actionUrl && event.data.actionLabel && (
+                <div class="mt-5 pt-3">
+                  <a
+                    href={event.data.actionUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs font-extrabold text-sky-800 underline hover:text-sky-950"
+                  >
+                    {event.data.actionLabel} &rarr;
+                  </a>
+                </div>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Club Sponsors & 501(c)(3) Support -->
+  <section
+    aria-labelledby="home-sponsors-heading"
+    class="border-t border-slate-200 bg-slate-50 py-16 sm:py-20"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+          Community-Funded Youth Cycling
+        </p>
+        <h2
+          id="home-sponsors-heading"
+          class="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+        >
+          Sponsors Keep Our Riders Rolling
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-slate-700">
+          Because all Flyers coaches volunteer their time and registration ({
+            siteConfig.feePhilosophy.rangeLabel
+          }) covers t-shirt and insurance only, our sponsors directly make affordable youth mountain
+          biking possible.
+        </p>
+      </div>
+
+      <div class="mt-10">
+        <SponsorGrid sponsors={sponsors} scope="club" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { siteConfig } from '../data/site';
+import { withBase } from '../lib/urls';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = `${siteConfig.name} — 100% volunteer-led 501(c)(3) youth mountain bike club offering Flyers XC, Flyers Enduro, and Jr. Flyers in Northwest Utah County.`,
+} = Astro.props;
+
+const fullTitle =
+  title === siteConfig.name
+    ? `${siteConfig.name} | Youth XC, Enduro & Jr. MTB`
+    : `${title} | ${siteConfig.name}`;
+const canonicalUrl = new URL(
+  Astro.url.pathname,
+  Astro.site || 'https://www.flyerscycling.org',
+).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteConfig.name} />
+  </head>
+  <body class="flex min-h-dvh flex-col bg-slate-50 text-slate-900 antialiased">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-amber-400 focus:px-4 focus:py-2.5 focus:text-sm focus:font-extrabold focus:text-slate-950 focus:shadow-lg"
+    >
+      Skip to main content
+    </a>
+    <Header currentPath={Astro.url.pathname} />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

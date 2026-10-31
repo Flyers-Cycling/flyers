@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../data/site';
+import { withBase } from '../lib/urls';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Official Sponsorship Prospectus for Flyers Cycling Club (Lake Mountain Bicycle Club 501(c)(3)).',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | {siteConfig.name}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+  </head>
+  <body class="min-h-dvh bg-slate-100 text-slate-900 antialiased">
+    <header class="no-print sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6"
+      >
+        <a
+          href={withBase('/sponsors')}
+          class="inline-flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-sky-700"
+        >
+          &larr; Back to Sponsorships &amp; Giving
+        </a>
+        <div class="flex items-center gap-2.5">
+          <span class="hidden text-xs font-medium text-slate-600 sm:inline">
+            Formatted for Letter PDF / Print
+          </span>
+          <button
+            type="button"
+            id="print-prospectus-btn"
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-800"
+          >
+            Print / Save as PDF
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="mx-auto max-w-5xl px-4 py-8 sm:px-6 print:max-w-none print:p-0">
+      <slot />
+    </main>
+
+    <script>
+      const printBtn = document.getElementById('print-prospectus-btn');
+      if (printBtn) {
+        printBtn.addEventListener('click', () => {
+          window.print();
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,288 @@
+---
+import { siteConfig } from '../../data/site';
+import { withBase } from '../../lib/urls';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+const navItems = [
+  { label: 'Programs', href: withBase('/programs'), matchPrefix: '/programs' },
+  { label: 'Schedule', href: withBase('/schedule'), matchPrefix: '/schedule' },
+  { label: 'Sponsors', href: withBase('/sponsors'), matchPrefix: '/sponsors' },
+  { label: 'Gear & News', href: withBase('/store'), matchPrefix: '/store' },
+  { label: 'About', href: withBase('/about'), matchPrefix: '/about' },
+  { label: 'FAQ', href: withBase('/faq'), matchPrefix: '/faq' },
+];
+
+const programQuickLinks = [
+  {
+    label: 'Flyers XC',
+    sub: 'Grades 7–12 · Endurance',
+    href: withBase('/programs/xc'),
+    dot: 'bg-sky-400',
+  },
+  {
+    label: 'Flyers Enduro',
+    sub: 'Ages 10–19 · Gravity',
+    href: withBase('/programs/enduro'),
+    dot: 'bg-orange-400',
+  },
+  {
+    label: 'Jr. Flyers',
+    sub: 'Grades K–6 · Youth Skills',
+    href: withBase('/programs/jr-flyers'),
+    dot: 'bg-emerald-400',
+  },
+];
+
+function isActive(matchPrefix: string): boolean {
+  const cleanPath = currentPath.replace(import.meta.env.BASE_URL || '/', '/');
+  const normalized = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
+  return normalized === matchPrefix || normalized.startsWith(`${matchPrefix}/`);
+}
+---
+
+<header
+  class="no-print sticky top-0 z-40 border-b border-slate-800 bg-slate-950/95 text-white backdrop-blur"
+>
+  <!-- Subtle program quick-jump strip -->
+  <div class="border-b border-slate-800/80 bg-slate-900/90">
+    <div
+      class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-1.5 text-xs sm:px-6 lg:px-8"
+    >
+      <p class="font-medium text-slate-300">
+        <span class="font-semibold text-white">501(c)(3) Youth Cycling</span> · 100% Volunteer-Led · Northwest
+        Utah County
+      </p>
+      <div class="hidden items-center gap-4 md:flex" aria-label="Quick program links">
+        {
+          programQuickLinks.map((prog) => (
+            <a
+              href={prog.href}
+              class="inline-flex items-center gap-1.5 font-medium text-slate-200 transition hover:text-amber-300"
+            >
+              <span class={`h-2 w-2 rounded-full ${prog.dot}`} aria-hidden="true" />
+              <span>{prog.label}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Main navigation bar -->
+  <div
+    class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8"
+  >
+    <a href={withBase('/')} class="group flex items-center gap-3">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 64 64"
+        width="42"
+        height="42"
+        aria-hidden="true"
+        class="shrink-0 rounded-xl ring-1 ring-slate-700 transition group-hover:ring-sky-400"
+      >
+        <rect width="64" height="64" rx="14" fill="#0f172a"></rect>
+        <path d="M14 44L26 20h10l-7 14h11l-5 10H14z" fill="#38bdf8"></path>
+        <path d="M32 44l8-16h10l-8 16H32z" fill="#f97316"></path>
+      </svg>
+      <div>
+        <span class="block text-lg font-black tracking-tight text-white uppercase sm:text-xl">
+          {siteConfig.name}
+        </span>
+        <span class="block text-xs font-medium text-slate-300"> XC · Enduro · Jr. Flyers </span>
+      </div>
+    </a>
+
+    <nav aria-label="Main navigation" class="hidden items-center gap-1 lg:flex">
+      <ul class="flex items-center gap-1">
+        {
+          navItems.map((item) => {
+            const active = isActive(item.matchPrefix);
+            return (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={active ? 'page' : undefined}
+                  class={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
+                    active
+                      ? 'bg-slate-800 text-white'
+                      : 'text-slate-200 hover:bg-slate-900 hover:text-white'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+
+    <div class="hidden items-center gap-2.5 sm:flex">
+      <a
+        href={withBase('/programs#pathway-finder')}
+        class="rounded-lg border border-slate-700 bg-slate-900 px-3.5 py-2 text-sm font-semibold text-white transition hover:border-slate-500 hover:bg-slate-800"
+      >
+        Find a Program
+      </a>
+      <a
+        href={withBase('/sponsors')}
+        class="rounded-lg bg-amber-400 px-4 py-2 text-sm font-extrabold text-slate-950 shadow-sm transition hover:bg-amber-300"
+      >
+        Sponsor / Donate
+      </a>
+    </div>
+
+    <button
+      type="button"
+      id="mobile-menu-open"
+      aria-haspopup="dialog"
+      aria-controls="mobile-nav-dialog"
+      class="inline-flex min-h-12 min-w-12 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 p-2.5 text-slate-100 transition hover:bg-slate-800 lg:hidden"
+      aria-label="Open navigation menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Native accessible light-dismiss modal drawer -->
+  <dialog
+    id="mobile-nav-dialog"
+    closedby="any"
+    aria-labelledby="mobile-nav-title"
+    class="m-0 ml-auto h-dvh max-h-none w-full max-w-sm border-l border-slate-800 bg-slate-950 p-0 text-white shadow-2xl"
+  >
+    <div class="flex h-full flex-col justify-between p-6">
+      <div>
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <h2
+            id="mobile-nav-title"
+            class="text-base font-extrabold tracking-wide text-white uppercase"
+          >
+            Flyers Navigation
+          </h2>
+          <form method="dialog">
+            <button
+              type="submit"
+              class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800"
+            >
+              Close
+            </button>
+          </form>
+        </div>
+
+        <nav aria-label="Mobile navigation" class="mt-5">
+          <p class="px-2 text-xs font-bold tracking-wider text-slate-400 uppercase">
+            3 Club Programs
+          </p>
+          <ul class="mt-2 space-y-1.5">
+            {
+              programQuickLinks.map((prog) => (
+                <li>
+                  <a
+                    href={prog.href}
+                    class="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-900/80 px-3.5 py-3 transition hover:border-slate-600"
+                  >
+                    <span class="flex items-center gap-2.5 font-bold text-white">
+                      <span class={`h-2.5 w-2.5 rounded-full ${prog.dot}`} aria-hidden="true" />
+                      {prog.label}
+                    </span>
+                    <span class="text-xs text-slate-300">{prog.sub}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+
+          <p class="mt-6 px-2 text-xs font-bold tracking-wider text-slate-400 uppercase">
+            Explore Club
+          </p>
+          <ul class="mt-2 space-y-1">
+            {
+              navItems.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class="block rounded-lg px-3 py-2.5 text-base font-semibold text-slate-200 transition hover:bg-slate-900 hover:text-white"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+
+      <div class="space-y-2.5 border-t border-slate-800 pt-4">
+        <a
+          href={withBase('/programs#pathway-finder')}
+          class="block w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-center text-sm font-bold text-white hover:bg-slate-800"
+        >
+          Find Your Rider's Program
+        </a>
+        <a
+          href={withBase('/sponsors')}
+          class="block w-full rounded-lg bg-amber-400 px-4 py-3 text-center text-sm font-extrabold text-slate-950 hover:bg-amber-300"
+        >
+          Sponsor or Donate (501c3)
+        </a>
+      </div>
+    </div>
+  </dialog>
+</header>
+
+<script>
+  const openBtn = document.getElementById('mobile-menu-open');
+  const dialog = document.getElementById('mobile-nav-dialog') as HTMLDialogElement | null;
+
+  if (openBtn && dialog) {
+    openBtn.addEventListener('click', () => {
+      dialog.showModal();
+    });
+
+    // Close drawer when following same-page hash links
+    dialog.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (dialog.open) dialog.close();
+      });
+    });
+
+    // Safari / cross-browser fallback for declarative <dialog closedby="any">
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      dialog.addEventListener('click', (event) => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        const isDialogContent =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width;
+
+        if (!isDialogContent) {
+          dialog.close();
+        }
+      });
+    }
+  }
+</script>

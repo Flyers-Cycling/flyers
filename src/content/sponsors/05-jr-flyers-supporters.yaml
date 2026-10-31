@@ -1,0 +1,11 @@
+name: Eagle Mountain Youth & Family Supporters
+tier: bronze
+order: 5
+logo: /images/sponsor-community.svg
+websiteUrl: https://www.zeffy.com/
+scopes:
+  - club
+  - jr-flyers
+summary: Local families and small businesses underwriting Jr. Flyers K–6 summer skills equipment and rider fee scholarships.
+location: Eagle Mountain & Lehi, UT
+active: true

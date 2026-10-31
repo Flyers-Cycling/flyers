@@ -1,0 +1,135 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { filterSponsorsByScope, type SponsorScope } from '../../lib/sponsors';
+import { withBase } from '../../lib/urls';
+
+interface Props {
+  sponsors: CollectionEntry<'sponsors'>[];
+  scope?: SponsorScope;
+  showCta?: boolean;
+}
+
+const { sponsors, scope, showCta = true } = Astro.props;
+
+const records = sponsors.map((entry) => ({
+  id: entry.id,
+  ...entry.data,
+}));
+
+const filtered = filterSponsorsByScope(records, scope);
+
+const tierBadgeLabels: Record<string, { label: string; style: string }> = {
+  title: { label: 'Title Partner', style: 'bg-amber-100 text-amber-950 border-amber-300' },
+  gold: { label: 'Gold Partner', style: 'bg-sky-50 text-sky-900 border-sky-200' },
+  silver: { label: 'Silver Partner', style: 'bg-slate-100 text-slate-800 border-slate-300' },
+  bronze: { label: 'Bronze Partner', style: 'bg-orange-50 text-orange-950 border-orange-200' },
+  community: {
+    label: 'Community Supporter',
+    style: 'bg-emerald-50 text-emerald-950 border-emerald-200',
+  },
+};
+
+const scopeLabels: Record<SponsorScope, string> = {
+  club: 'Club-Wide',
+  xc: 'Flyers XC',
+  enduro: 'Flyers Enduro',
+  'jr-flyers': 'Jr. Flyers',
+};
+---
+
+<div class="space-y-8">
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      filtered.map((sponsor) => {
+        const badge = tierBadgeLabels[sponsor.tier];
+        return (
+          <article class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-xs transition hover:border-slate-300">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span
+                  class={`rounded-full border px-2.5 py-0.5 text-xs font-extrabold ${badge.style}`}
+                >
+                  {badge.label}
+                </span>
+                {sponsor.location && (
+                  <span class="text-xs font-semibold text-slate-600">{sponsor.location}</span>
+                )}
+              </div>
+
+              <div class="mt-4 flex h-20 items-center justify-center rounded-xl bg-slate-50 p-2">
+                <img
+                  src={withBase(sponsor.logo)}
+                  alt={`${sponsor.name} logo`}
+                  width="240"
+                  height="80"
+                  loading="lazy"
+                  class="max-h-16 w-auto object-contain"
+                />
+              </div>
+
+              <h3 class="mt-4 text-lg font-extrabold text-slate-900">
+                <a
+                  href={sponsor.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:underline"
+                >
+                  {sponsor.name}
+                </a>
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-700">{sponsor.summary}</p>
+            </div>
+
+            <div class="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3.5">
+              <div class="flex flex-wrap gap-1.5" aria-label="Supported programs">
+                {sponsor.scopes.map((s) => (
+                  <span class="rounded bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-700">
+                    {scopeLabels[s]}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={sponsor.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs font-extrabold text-sky-800 underline hover:text-sky-950"
+              >
+                Visit Partner &rarr;
+              </a>
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+
+  {
+    showCta && (
+      <div class="flex flex-col items-start justify-between gap-4 rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white sm:flex-row sm:items-center sm:p-8">
+        <div>
+          <h3 class="text-xl font-black text-white">
+            Put Your Brand Behind Local Youth Mountain Bikers
+          </h3>
+          <p class="mt-1 text-sm text-slate-200">
+            100% 501(c)(3) tax-deductible sponsorships keep rider fees at $50 or $150 (t-shirt &amp;
+            insurance only) across Eagle Mountain &amp; Lehi.
+          </p>
+        </div>
+        <div class="flex shrink-0 flex-wrap gap-3">
+          <a
+            href={withBase('/sponsors')}
+            class="inline-flex min-h-11 items-center justify-center rounded-lg bg-amber-400 px-5 py-2.5 text-sm font-extrabold text-slate-950 transition hover:bg-amber-300"
+          >
+            View Sponsorship Tiers
+          </a>
+          <a
+            href={withBase('/sponsors/prospectus')}
+            class="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800"
+          >
+            Printable Prospectus
+          </a>
+        </div>
+      </div>
+    )
+  }
+</div>

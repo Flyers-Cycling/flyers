@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/urls';
+---
+
+<BaseLayout title="Page Not Found (404)">
+  <section class="py-24 text-center">
+    <div class="mx-auto max-w-xl px-4 sm:px-6">
+      <p class="text-sm font-extrabold tracking-widest text-sky-800 uppercase">
+        404 · Wrong Turn on the Trail
+      </p>
+      <h1 class="mt-3 text-4xl font-black tracking-tight text-slate-900">
+        That Trail Marker Moved
+      </h1>
+      <p class="mt-4 text-base leading-relaxed text-slate-700">
+        Looking for an older link from <code>lakemountainflyers.com</code> or <code
+          >flyersxc.com</code
+        >? Everything for Flyers XC, Flyers Enduro, and Jr. Flyers now lives right here.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a
+          href={withBase('/')}
+          class="inline-flex min-h-12 items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-sm font-extrabold text-white hover:bg-slate-800"
+        >
+          Back to Home
+        </a>
+        <a
+          href={withBase('/programs')}
+          class="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-900 hover:bg-slate-50"
+        >
+          Explore 3 Programs
+        </a>
+        <a
+          href={withBase('/sponsors')}
+          class="inline-flex min-h-12 items-center justify-center rounded-xl bg-amber-400 px-5 py-3 text-sm font-extrabold text-slate-950 hover:bg-amber-300"
+        >
+          Sponsorships
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

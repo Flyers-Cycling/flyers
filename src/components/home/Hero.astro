@@ -1,0 +1,100 @@
+---
+import { siteConfig } from '../../data/site';
+import { withBase } from '../../lib/urls';
+---
+
+<section class="relative overflow-hidden bg-slate-950 text-white">
+  <!-- Background LCP illustration with fetchpriority="high" -->
+  <div class="pointer-events-none absolute inset-0 opacity-55">
+    <img
+      src={withBase('/images/hero-trail.svg')}
+      alt="Lake Mountain and Wasatch range singletrack mountain biking terrain"
+      width="1200"
+      height="720"
+      fetchpriority="high"
+      class="h-full w-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40">
+    </div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <div class="max-w-3xl">
+      <div
+        class="inline-flex flex-wrap items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-3.5 py-1.5 text-xs font-bold tracking-wide text-amber-300 uppercase"
+      >
+        <span>501(c)(3) Non-Profit</span>
+        <span aria-hidden="true">·</span>
+        <span>100% Volunteer-Led</span>
+        <span aria-hidden="true">·</span>
+        <span>Eagle Mountain &amp; Lehi, UT</span>
+      </div>
+
+      <h1 class="mt-6 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+        One Cycling Club. <span class="text-sky-300">Three Dirt Pathways.</span> Built for Every Local
+        Kid.
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200 sm:text-xl">
+        Uniting <strong class="text-white">Flyers XC</strong>, <strong class="text-white"
+          >Flyers Enduro (Gravity)</strong
+        >, and <strong class="text-white">Jr. Flyers (K–6)</strong> under one community-powered roof.
+        Registration is just <strong class="text-amber-300"
+          >{siteConfig.feePhilosophy.rangeLabel}</strong
+        > (covering t-shirt &amp; insurance only) because sponsors—not steep member fees—power our riders.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3.5">
+        <a
+          href={withBase('/programs')}
+          class="inline-flex min-h-12 items-center justify-center rounded-xl bg-amber-400 px-6 py-3 text-base font-extrabold text-slate-950 shadow-md transition hover:bg-amber-300"
+        >
+          Explore the 3 Programs
+        </a>
+        <a
+          href="#pathway-finder"
+          class="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-600 bg-slate-900/90 px-6 py-3 text-base font-bold text-white transition hover:border-slate-400 hover:bg-slate-800"
+        >
+          Find Your Rider's Fit
+        </a>
+        <a
+          href={withBase('/sponsors')}
+          class="inline-flex min-h-12 items-center justify-center rounded-xl border border-sky-400/50 bg-sky-950/60 px-5 py-3 text-base font-bold text-sky-200 transition hover:bg-sky-900/70 hover:text-white"
+        >
+          Become a Sponsor &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Impact & Differentiator Metrics Strip -->
+    <dl class="mt-14 grid gap-4 border-t border-slate-800/90 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
+        <dt class="text-xs font-bold tracking-wider text-slate-300 uppercase">
+          3 Unified Programs
+        </dt>
+        <dd class="mt-1 text-xl font-black text-white">XC · Enduro · Jr. (K–12)</dd>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
+        <dt class="text-xs font-bold tracking-wider text-slate-300 uppercase">
+          Rider Registration
+        </dt>
+        <dd class="mt-1 text-xl font-black text-amber-300">$50 or $150 Only</dd>
+        <p class="mt-0.5 text-xs text-slate-300">Covers rider t-shirt &amp; insurance</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
+        <dt class="text-xs font-bold tracking-wider text-slate-300 uppercase">Club Leadership</dt>
+        <dd class="mt-1 text-xl font-black text-white">100% Volunteer-Led</dd>
+        <p class="mt-0.5 text-xs text-slate-300">501(c)(3) Lake Mountain Bicycle Club</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
+        <dt class="text-xs font-bold tracking-wider text-slate-300 uppercase">
+          NICA Team Partners
+        </dt>
+        <dd class="mt-1 text-xl font-black text-sky-300">5 Local High Schools</dd>
+        <p class="mt-0.5 text-xs text-slate-300">
+          Westlake · Lehi · Cedar Valley · Skyridge · Lone Peak
+        </p>
+      </div>
+    </dl>
+  </div>
+</section>

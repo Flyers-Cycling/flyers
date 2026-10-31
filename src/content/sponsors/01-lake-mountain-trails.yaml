@@ -1,0 +1,13 @@
+name: Lake Mountain Trails Coalition
+tier: gold
+order: 1
+logo: /images/sponsor-trails.svg
+websiteUrl: https://www.lakemountaintrails.org/
+scopes:
+  - club
+  - xc
+  - enduro
+  - jr-flyers
+summary: Local trail stewardship partner building and maintaining sustainable singletrack across Eagle Mountain and Lake Mountain.
+location: Eagle Mountain, UT
+active: true

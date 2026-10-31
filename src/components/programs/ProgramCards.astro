@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getProgramAccentMeta, getRegistrationStatusMeta } from '../../lib/programs';
+import { withBase } from '../../lib/urls';
+
+interface Props {
+  programs: CollectionEntry<'programs'>[];
+}
+
+const { programs } = Astro.props;
+const sorted = [...programs].sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="grid gap-8 lg:grid-cols-3">
+  {
+    sorted.map((program) => {
+      const { data } = program;
+      const statusMeta = getRegistrationStatusMeta(data.registrationStatus);
+      const accentMeta = getProgramAccentMeta(data.accentKey);
+      const programHref = withBase(`/programs/${data.programId}`);
+
+      return (
+        <article
+          class={`group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition ${accentMeta.borderClass}`}
+        >
+          <div class={`h-2 w-full ${accentMeta.topBarClass}`} aria-hidden="true" />
+          <div class="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+            <img
+              src={withBase(data.heroImage)}
+              alt={data.heroImageAlt}
+              width="800"
+              height="500"
+              loading="lazy"
+              class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+            />
+          </div>
+
+          <div class="flex flex-1 flex-col justify-between p-6">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span
+                  class={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-extrabold ${accentMeta.badgeClass}`}
+                >
+                  {data.discipline}
+                </span>
+                <span
+                  class={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-bold ${statusMeta.badgeClass}`}
+                >
+                  <span class={`h-2 w-2 rounded-full ${statusMeta.dotClass}`} aria-hidden="true" />
+                  {statusMeta.label}
+                </span>
+              </div>
+
+              <h3 class="mt-4 text-2xl font-black tracking-tight text-slate-900">
+                <a href={programHref} class="hover:underline">
+                  {data.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-700">{data.summary}</p>
+
+              <dl class="mt-5 grid grid-cols-2 gap-3 rounded-xl bg-slate-50 p-3.5 text-xs">
+                <div>
+                  <dt class="font-bold text-slate-600">Rider Ages</dt>
+                  <dd class="mt-0.5 font-extrabold text-slate-900">
+                    {data.gradesLabel} ({data.agesLabel})
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-bold text-slate-600">Program Fee</dt>
+                  <dd class="mt-0.5 font-extrabold text-slate-900">
+                    {data.feeAmount} <span class="font-medium text-slate-600">(shirt + ins.)</span>
+                  </dd>
+                </div>
+                <div class="col-span-2 border-t border-slate-200 pt-2">
+                  <dt class="font-bold text-slate-600">Season</dt>
+                  <dd class="mt-0.5 font-semibold text-slate-800">{data.seasonLabel}</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
+              <a
+                href={programHref}
+                class="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-800"
+              >
+                Explore {data.shortTitle} &rarr;
+              </a>
+              <a
+                href={data.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs font-extrabold text-slate-700 underline hover:text-slate-950"
+              >
+                {statusMeta.ctaLabel}
+              </a>
+            </div>
+          </div>
+        </article>
+      );
+    })
+  }
+</div>

@@ -1,0 +1,151 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --club-navy: #0f172a;
+    --club-xc: #0284c7;
+    --club-enduro: #ea580c;
+    --club-jr: #16a34a;
+    scroll-padding-top: 5.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* High-contrast accessible focus ring */
+  :focus-visible {
+    outline: 3px solid #0284c7;
+    outline-offset: 2px;
+  }
+}
+
+/* Native modal dialog backdrop styling (modern-web-guidance: light-dismiss-a-dialog) */
+dialog::backdrop {
+  background-color: rgb(15 23 42 / 0.65);
+  backdrop-filter: blur(3px);
+}
+
+/* Post-interaction form validation feedback + fallback (modern-web-guidance: validate-input-after-interaction) */
+.form-field .field-error {
+  display: none;
+}
+
+.form-field input:user-invalid,
+.form-field textarea:user-invalid,
+.form-field select:user-invalid,
+.form-field input.user-invalid-fallback,
+.form-field textarea.user-invalid-fallback,
+.form-field select.user-invalid-fallback {
+  border-color: #b91c1c;
+  background-color: #fef2f2;
+}
+
+.form-field input:user-valid,
+.form-field textarea:user-valid,
+.form-field input.user-valid-fallback,
+.form-field textarea.user-valid-fallback {
+  border-color: #15803d;
+}
+
+.form-field:has(input:user-invalid) .field-error,
+.form-field:has(textarea:user-invalid) .field-error,
+.form-field:has(.user-invalid-fallback) .field-error {
+  display: flex;
+}
+
+/* Native <details> FAQ disclosure styling (modern-web-guidance: html) */
+details.faq-item > summary {
+  list-style: none;
+}
+
+details.faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* Rich markdown prose styling for program & update bodies */
+.club-prose h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.club-prose h3 {
+  font-size: 1.15rem;
+  line-height: 1.65rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.club-prose p {
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.club-prose ul {
+  list-style-type: disc;
+  padding-left: 1.35rem;
+  margin-bottom: 1.25rem;
+  color: #334155;
+}
+
+.club-prose li {
+  margin-bottom: 0.45rem;
+  line-height: 1.65;
+}
+
+.club-prose strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* Print / Save-as-PDF styles for /sponsors/prospectus */
+@media print {
+  @page {
+    margin: 0.5in;
+    size: letter portrait;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10.5pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
