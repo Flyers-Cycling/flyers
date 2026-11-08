@@ -1,10 +1,10 @@
 # Flyers Cycling Club
 
-Official static website for **Flyers Cycling Club** — unifying **Flyers XC**, **Flyers Enduro (Gravity)**, and **Jr. Flyers (Grades K–6)** under **Lake Mountain Bicycle Club, Inc.** (a registered 501(c)(3) non-profit organization in Northwest Utah County).
+Official static website for **Flyers Cycling Club** — unifying **Flyers XC**, **Flyers Enduro (Gravity)**, and **Jr. Flyers (Grades K–6)** under **Lake Mountain Bicycle Club, Inc.** (a registered 501(c)(3) non-profit organization in Utah).
 
 ## Club Differentiators Highlighted on the Site
 
-1. **501(c)(3) Community Non-Profit (100% Volunteer-Led)**: Every coach, ride leader, and board member donates their time. We steward Lake Mountain & Eagle Mountain trails and partner with local NICA high school squads (**Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak**).
+1. **501(c)(3) Community Non-Profit (100% Volunteer-Led)**: Every coach, ride leader, and board member donates their time. We steward local Utah trails and partner with local NICA high school squads (**Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak**).
 2. **Gravity + Endurance + Youth Under One Roof**: Serving **Jr. Flyers (K–6)**, **Flyers XC (Grades 7–12)**, and **Flyers Enduro (Ages 10–19)** in one easy-to-navigate platform.
 3. **Sponsor-Powered Affordability**: Rider registration is just **$50 or $150** depending on the program (strictly covering rider t-shirt and insurance). Community & corporate sponsors fund coaching certifications, pit support, and financial-hardship access.
 

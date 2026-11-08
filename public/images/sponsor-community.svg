@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Eagle Mountain and Lehi Community Families">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Flyers Community Family Donors">
   <rect width="240" height="80" rx="10" fill="#203746"/>
   <circle cx="38" cy="40" r="15" fill="#9D112A"/>
   <path d="M31 44 L38 33 L45 44 Z" fill="#FFFFFF"/>
-  <text x="64" y="38" fill="#FFFFFF" font-family="'Barlow Condensed', system-ui, sans-serif" font-size="15.5" font-weight="800" letter-spacing="0.8">NW UTAH COUNTY</text>
-  <text x="64" y="55" fill="#CECECE" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.6">JR. FLYERS FAMILY DONORS</text>
+  <text x="64" y="38" fill="#FFFFFF" font-family="'Barlow Condensed', system-ui, sans-serif" font-size="15.5" font-weight="800" letter-spacing="0.8">FLYERS COMMUNITY</text>
+  <text x="64" y="55" fill="#CECECE" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.6">YOUTH &amp; FAMILY DONORS</text>
 </svg>

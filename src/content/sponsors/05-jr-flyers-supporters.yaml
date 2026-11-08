@@ -1,4 +1,4 @@
-name: Eagle Mountain Youth & Family Supporters
+name: Flyers Youth & Family Supporters
 tier: bronze
 order: 5
 logo: /images/sponsor-community.svg
@@ -7,5 +7,5 @@ scopes:
   - club
   - jr-flyers
 summary: Local families and small businesses underwriting Jr. Flyers K–6 summer skills equipment and rider fee scholarships.
-location: Eagle Mountain & Lehi, UT
+location: Utah
 active: true

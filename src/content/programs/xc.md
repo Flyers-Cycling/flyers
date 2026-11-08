@@ -46,4 +46,4 @@ Every practice splits into pace- and skill-matched pods led by trained volunteer
 
 ### Community & Stewardship First
 
-Riders learn that fast trails don't maintain themselves. Flyers XC athletes participate in seasonal trail stewardship days on Lake Mountain and Eagle Mountain trail networks alongside local trail associations and families.
+Riders learn that fast trails don't maintain themselves. Flyers XC athletes participate in seasonal trail stewardship days on local Utah trail networks alongside trail associations and families.

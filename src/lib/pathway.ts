@@ -31,7 +31,7 @@ export function matchProgramPathway(ageBand: AgeBand, focus: RidingFocus): Pathw
       primaryProgram: 'jr-flyers',
       headline: 'Recommended: Jr. Flyers (Grades K–6 Summer Program)',
       explanation:
-        'Designed specifically for Kindergarten through 6th grade riders in Eagle Mountain and Northwest Utah County, focusing on skill games, safe braking/shifting, and fun summer singletrack pods.',
+        'Designed specifically for Kindergarten through 6th grade riders, focusing on skill games, safe braking/shifting, and fun summer singletrack pods.',
       feeNote:
         '$50 registration covers your Jr. Flyers t-shirt and rider insurance (all volunteer-led).',
       nicaNote:

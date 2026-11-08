@@ -11,7 +11,7 @@ export const siteConfig = {
   legalEntity: 'Lake Mountain Bicycle Club, Inc.',
   nonProfitStatus: '501(c)(3) Non-Profit Organization',
   einPlaceholder: 'Available upon request for corporate & foundation matching',
-  region: 'Northwest Utah County (Eagle Mountain, Lehi, Saratoga Springs, Cedar Fort & Fairfield)',
+  region: 'Utah County & Surrounding Communities',
   feePhilosophy: {
     rangeLabel: '$50 or $150',
     shortSummary: '$50–$150 registration covers t-shirt & insurance only',
@@ -21,7 +21,7 @@ export const siteConfig = {
   contact: {
     email: 'info@lakemountainflyers.com',
     sponsorshipEmail: 'info@lakemountainflyers.com',
-    location: 'Eagle Mountain & Lehi, Utah',
+    location: 'Utah County, Utah',
   },
   integrations: {
     zeffyDonateUrl: 'https://www.zeffy.com/',
