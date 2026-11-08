@@ -62,6 +62,8 @@ const sponsors = defineCollection({
     summary: z.string(),
     location: z.string().optional(),
     active: z.boolean().default(true),
+    // An open sponsorship spot, not a real sponsor. Shown only in the "open spots" list on /sponsors.
+    openSlot: z.boolean().default(false),
   }),
 });
 
