@@ -1,6 +1,14 @@
+// Grade bands shown in the program finder. Values are stable IDs; labels live in the component.
+//   'k-6'   → Grades K–4 (Jr. Flyers only)
+//   '10-12' → Grades 5–6 (Jr. Flyers or Flyers Enduro)
+//   '7-8'   → Grades 7–8
+//   '9-12'  → Grades 9–12
 export type AgeBand = 'k-6' | '10-12' | '7-8' | '9-12';
 export type RidingFocus = 'fundamentals' | 'endurance' | 'gravity' | 'nica-offseason';
 export type ProgramSlug = 'xc' | 'enduro' | 'jr-flyers';
+
+/** Registration fee per program, read from the program content collection (e.g. "$50"). */
+export type ProgramFees = Record<ProgramSlug, string>;
 
 export interface PathwayRecommendation {
   primaryProgram: ProgramSlug;
@@ -11,31 +19,33 @@ export interface PathwayRecommendation {
   nicaNote: string;
 }
 
-export function matchProgramPathway(ageBand: AgeBand, focus: RidingFocus): PathwayRecommendation {
+const COVERS = 'covers a club t-shirt and rider insurance';
+
+export function matchProgramPathway(
+  ageBand: AgeBand,
+  focus: RidingFocus,
+  fees: ProgramFees,
+): PathwayRecommendation {
   if (ageBand === 'k-6') {
     if (focus === 'gravity') {
       return {
         primaryProgram: 'jr-flyers',
         secondaryProgram: 'enduro',
-        headline: 'Start with Jr. Flyers (K–6) — or explore Flyers Enduro at ages 10–12',
+        headline: 'Start with Jr. Flyers',
         explanation:
-          'Elementary riders build essential braking, cornering, and singletrack confidence in Jr. Flyers (June–August). Experienced 5th–6th graders (ages 10+) with full-suspension trail bikes can also evaluate Flyers Enduro.',
-        feeNote:
-          'Jr. Flyers is $50 and Flyers Enduro is $150 (covering rider t-shirt & insurance only; 100% volunteer-led).',
-        nicaNote:
-          'Gives young riders years of dirt confidence before joining local junior devo & NICA school squads.',
+          'Jr. Flyers (June–August) builds the braking, cornering, and balance skills every descender needs. Flyers Enduro opens up in 5th grade, so it’s a good one to plan for.',
+        feeNote: `Jr. Flyers registration is ${fees['jr-flyers']} and ${COVERS}.`,
+        nicaNote: 'Years of trail confidence before middle school and NICA.',
       };
     }
 
     return {
       primaryProgram: 'jr-flyers',
-      headline: 'Recommended: Jr. Flyers (Grades K–6 Summer Program)',
+      headline: 'Start with Jr. Flyers',
       explanation:
-        'Designed specifically for Kindergarten through 6th grade riders, focusing on skill games, safe braking/shifting, and fun summer singletrack pods.',
-      feeNote:
-        '$50 registration covers your Jr. Flyers t-shirt and rider insurance (all volunteer-led).',
-      nicaNote:
-        'Builds the foundation to step smoothly into Flyers XC, Flyers Enduro, and middle-school NICA.',
+        'Jr. Flyers is a summer program (June–August) for kids who can ride a two-wheeler. Small groups play skill games, learn to brake and shift, and ride beginner singletrack together.',
+      feeNote: `Registration is ${fees['jr-flyers']} and ${COVERS}.`,
+      nicaNote: 'A fun first step before Flyers XC, Flyers Enduro, or a middle school NICA team.',
     };
   }
 
@@ -44,23 +54,22 @@ export function matchProgramPathway(ageBand: AgeBand, focus: RidingFocus): Pathw
       return {
         primaryProgram: 'jr-flyers',
         secondaryProgram: 'enduro',
-        headline: 'Recommended: Jr. Flyers (K–6) with a pathway into Flyers Enduro',
+        headline: 'Start with Jr. Flyers',
         explanation:
-          'For ages 10–12 still mastering dirt fundamentals, Jr. Flyers offers encouraging summer skill progression. Once comfortable on blue/black trails with disc brakes, Flyers Enduro opens gravity coaching starting at age 10.',
-        feeNote: '$50 (Jr. Flyers) or $150 (Flyers Enduro) — covers t-shirt & insurance only.',
-        nicaNote: 'Prepares 5th & 6th graders ahead of 7th-grade NICA and Flyers XC eligibility.',
+          'If your rider is still building trail basics, Jr. Flyers is a relaxed place to do it. Once they’re comfortable on intermediate trails, Flyers Enduro is open to 5th and 6th graders too.',
+        feeNote: `Jr. Flyers is ${fees['jr-flyers']} and Flyers Enduro is ${fees.enduro}. Each ${COVERS}.`,
+        nicaNote: 'Good preparation for Flyers XC and NICA, which start in 7th grade.',
       };
     }
 
     return {
       primaryProgram: 'enduro',
       secondaryProgram: 'jr-flyers',
-      headline: 'Recommended: Flyers Enduro (Ages 10–19 Gravity Program)',
+      headline: 'Try Flyers Enduro',
       explanation:
-        'Riders ages 10–12 who already ride singletrack confidently can join Flyers Enduro (Jan–Aug) for structured coaching on technical descents, braking zones, drops, and regional enduro stages.',
-      feeNote: '$150 registration covers your Flyers Enduro t-shirt and gravity rider insurance.',
-      nicaNote:
-        'Sharpens technical bike handling right before riders enter 7th–12th grade NICA and Flyers XC.',
+        'For 5th and 6th graders who already ride singletrack with confidence. Flyers Enduro (January–August) coaches braking, cornering, drops, and line choice, with optional enduro races.',
+      feeNote: `Registration is ${fees.enduro} and ${COVERS}.`,
+      nicaNote: 'Strong bike handling helps riders when they join Flyers XC or NICA in 7th grade.',
     };
   }
 
@@ -69,13 +78,11 @@ export function matchProgramPathway(ageBand: AgeBand, focus: RidingFocus): Pathw
     return {
       primaryProgram: 'enduro',
       secondaryProgram: 'xc',
-      headline: 'Recommended: Flyers Enduro — optionally paired with Flyers XC',
+      headline: 'Try Flyers Enduro',
       explanation:
-        'Flyers Enduro (Jan–Aug) delivers dedicated gravity progression, suspension setup, track walks, and stage-race support across Utah. Many 7th–12th grade riders also ride Flyers XC to keep climbing fitness sharp.',
-      feeNote:
-        '$150 for Flyers Enduro ($50 if adding Flyers XC) — covers t-shirt & insurance; 100% volunteer-led.',
-      nicaNote:
-        'Pairs seamlessly with fall NICA racing at Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak.',
+        'Flyers Enduro (January–August) is for riders who love technical descents: bike setup, line choice, track walks, and support at enduro races. Some riders add Flyers XC to keep their climbing fitness up.',
+      feeNote: `Flyers Enduro is ${fees.enduro}, and adding Flyers XC is ${fees.xc}. Each ${COVERS}.`,
+      nicaNote: 'Better descending skills carry straight into fall NICA racing.',
     };
   }
 
@@ -83,24 +90,21 @@ export function matchProgramPathway(ageBand: AgeBand, focus: RidingFocus): Pathw
     return {
       primaryProgram: 'xc',
       secondaryProgram: 'enduro',
-      headline: 'Recommended: Flyers XC (Winter/Spring/Summer) + Optional Enduro Skills',
+      headline: 'Try Flyers XC',
       explanation:
-        'Flyers XC runs weekly winter base rides, 1–2x/week spring ICUP prep, and Saturday summer mountain adventures—specifically scheduled so student-athletes transition smoothly into their fall NICA high school teams.',
-      feeNote:
-        '$50 registration covers your Flyers t-shirt and rider insurance, led 100% by volunteer coaches.',
-      nicaNote:
-        'Built in active partnership with Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak NICA riders.',
+        'Flyers XC rides once a week in winter, once or twice a week in spring, and on select summer Saturdays. It’s scheduled around the fall NICA season so riders stay fit and sharp all year.',
+      feeNote: `Registration is ${fees.xc} and ${COVERS}.`,
+      nicaNote: 'Designed to fit alongside your fall school team, not replace it.',
     };
   }
 
   return {
     primaryProgram: 'xc',
     secondaryProgram: focus === 'endurance' ? 'enduro' : undefined,
-    headline: 'Recommended: Flyers XC (Grades 7–12 Endurance & Singletrack)',
+    headline: 'Try Flyers XC',
     explanation:
-      'Pace- and skill-matched pods welcome both newer middle/high school riders building trail confidence and experienced racers targeting spring ICUP podiums.',
-    feeNote: '$50 registration covers your Flyers t-shirt and rider insurance (all volunteer-led).',
-    nicaNote:
-      'Complements fall NICA teams across Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak.',
+      'Riders are grouped by pace and skill, so newer riders building trail confidence and experienced racers both have a place. Racing is optional.',
+    feeNote: `Registration is ${fees.xc} and ${COVERS}.`,
+    nicaNote: 'Winter-to-summer riding that fits around your fall school team.',
   };
 }

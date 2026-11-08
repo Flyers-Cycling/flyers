@@ -1,6 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import { siteConfig } from '../../data/site';
 import { withBase } from '../../lib/urls';
+
+const programs = await getCollection('programs');
+const byId = Object.fromEntries(programs.map((p) => [p.data.programId, p.data]));
+const gradesFor = (id: 'xc' | 'enduro' | 'jr-flyers') =>
+  byId[id]?.gradesLabel.replace(/^Grades/, 'grades') ?? '';
 ---
 
 <section class="dark-surface bg-flyers-slate-dark relative overflow-hidden text-white">
@@ -49,18 +55,16 @@ import { withBase } from '../../lib/urls';
       <h1
         class="font-display mt-6 text-5xl leading-[0.95] font-black tracking-wide text-white uppercase sm:text-6xl lg:text-7xl"
       >
-        One Cycling Club. <span class="text-flyers-gold">Three Dirt Pathways.</span> Built for Every Local
-        Kid.
+        Mountain biking for Utah kids, <span class="text-flyers-gold"
+          >kindergarten through 12th grade.</span
+        >
       </h1>
 
       <p class="mt-5 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl">
-        Uniting <strong class="text-white">Flyers XC</strong>, <strong class="text-white"
-          >Flyers Enduro (Gravity)</strong
-        >, and <strong class="text-white">Jr. Flyers (K–6)</strong> under one community-powered roof.
-        Registration is just <strong class="text-flyers-gold"
-          >{siteConfig.feePhilosophy.rangeLabel}</strong
-        > (covering t-shirt &amp; insurance only) because local sponsors—not steep club fees—power our
-        riders.
+        Jr. Flyers is for {gradesFor('jr-flyers')}, Flyers XC is for {gradesFor('xc')}, and Flyers
+        Enduro is for riders in {gradesFor('enduro')} who love to descend. Volunteer coaches, friendly
+        teammates, and registration of {siteConfig.feePhilosophy.rangeLabel}. You don't need to be
+        fast, and racing is optional.
       </p>
 
       <div class="mt-8 flex flex-wrap items-center gap-3.5">
@@ -68,19 +72,19 @@ import { withBase } from '../../lib/urls';
           href={withBase('/programs')}
           class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-12 items-center justify-center rounded-xl px-7 py-3 text-lg font-black tracking-wider text-white uppercase shadow-lg transition"
         >
-          Explore the 3 Programs &rarr;
+          Explore programs &rarr;
         </a>
         <a
           href="#pathway-finder"
           class="text-flyers-slate-dark hover:bg-flyers-snow inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-6 py-3 text-base font-extrabold shadow-md transition"
         >
-          Find Your Rider's Fit
+          Which program fits my rider?
         </a>
         <a
           href={withBase('/sponsors')}
           class="border-flyers-gold/65 bg-flyers-slate-dark/80 text-flyers-gold hover:bg-flyers-gold hover:text-flyers-slate-dark inline-flex min-h-12 items-center justify-center rounded-xl border px-5 py-3 text-base font-extrabold backdrop-blur-xs transition"
         >
-          Become a Sponsor
+          Support the club
         </a>
       </div>
     </div>
@@ -91,12 +95,12 @@ import { withBase } from '../../lib/urls';
         class="border-t-flyers-red bg-flyers-slate-dark/85 rounded-xl border border-t-3 border-white/15 p-4 backdrop-blur-xs"
       >
         <dt class="text-flyers-silver text-xs font-extrabold tracking-wider uppercase">
-          3 Unified Programs
+          3 Programs
         </dt>
         <dd class="font-display mt-1 text-2xl font-black tracking-wide text-white uppercase">
-          XC · Enduro · Jr. (K–12)
+          Jr. Flyers · XC · Enduro
         </dd>
-        <p class="text-flyers-silver mt-0.5 text-xs">Endurance, gravity &amp; youth fundamentals</p>
+        <dd class="text-flyers-silver mt-0.5 text-xs">Grades K–12, beginners welcome</dd>
       </div>
       <div
         class="border-t-flyers-gold bg-flyers-slate-dark/85 rounded-xl border border-t-3 border-white/15 p-4 backdrop-blur-xs"
@@ -105,35 +109,31 @@ import { withBase } from '../../lib/urls';
           Rider Registration
         </dt>
         <dd class="text-flyers-gold font-display mt-1 text-2xl font-black tracking-wide uppercase">
-          $50 or $150 Only
+          {siteConfig.feePhilosophy.rangeLabel}
         </dd>
-        <p class="text-flyers-silver mt-0.5 text-xs">
-          Strictly covers rider t-shirt &amp; insurance
-        </p>
+        <dd class="text-flyers-silver mt-0.5 text-xs">Covers a rider t-shirt and insurance</dd>
       </div>
       <div
         class="border-t-flyers-red bg-flyers-slate-dark/85 rounded-xl border border-t-3 border-white/15 p-4 backdrop-blur-xs"
       >
         <dt class="text-flyers-silver text-xs font-extrabold tracking-wider uppercase">
-          Club Leadership
+          Coaches &amp; Board
         </dt>
         <dd class="font-display mt-1 text-2xl font-black tracking-wide text-white uppercase">
           100% Volunteer-Led
         </dd>
-        <p class="text-flyers-silver mt-0.5 text-xs">501(c)(3) Lake Mountain Bicycle Club</p>
+        <dd class="text-flyers-silver mt-0.5 text-xs">{siteConfig.legalEntity}, a 501(c)(3)</dd>
       </div>
       <div
         class="border-t-flyers-gold bg-flyers-slate-dark/85 rounded-xl border border-t-3 border-white/15 p-4 backdrop-blur-xs"
       >
         <dt class="text-flyers-silver text-xs font-extrabold tracking-wider uppercase">
-          NICA Team Partners
+          Fits Your School Team
         </dt>
         <dd class="font-display mt-1 text-2xl font-black tracking-wide text-white uppercase">
-          5 Local High Schools
+          Winter to Summer
         </dd>
-        <p class="text-flyers-silver mt-0.5 text-xs">
-          Westlake · Lehi · Cedar Valley · Skyridge · Lone Peak
-        </p>
+        <dd class="text-flyers-silver mt-0.5 text-xs">Scheduled around the fall NICA season</dd>
       </div>
     </dl>
   </div>

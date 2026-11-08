@@ -7,22 +7,22 @@ import { withBase } from '../../lib/urls';
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
       <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-        Why Flyers Cycling Club Exists
+        Why families choose Flyers
       </p>
       <h2
         id="differentiators-heading"
         class="font-display text-flyers-slate-dark mt-2 text-4xl leading-tight font-black tracking-wide uppercase sm:text-5xl"
       >
-        Competitive Progression Without the Multi-Thousand-Dollar Price Tag
+        Great coaching. Low cost. Every kid welcome.
       </h2>
       <p class="text-flyers-iron mt-4 text-lg leading-relaxed">
-        Utah has incredible youth racing programs, yet steep club dues and single-discipline silos
-        price out too many local families. Flyers was built differently from day one.
+        Flyers is a non-profit club run by volunteers. Our goal is simple: help kids build skills,
+        make friends, and love riding for life, whether this is their first trail ride or their
+        hundredth race.
       </p>
     </div>
 
     <div class="mt-12 grid gap-6 lg:grid-cols-3">
-      <!-- Differentiator 1 -->
       <article
         class="border-t-flyers-red bg-flyers-snow flex flex-col justify-between rounded-2xl border border-t-4 border-neutral-200 p-7 shadow-xs"
       >
@@ -33,20 +33,18 @@ import { withBase } from '../../lib/urls';
             01
           </span>
           <h3 class="font-display text-flyers-slate-dark mt-5 text-2xl font-black uppercase">
-            501(c)(3) Non-Profit &amp; 100% Volunteer-Led
+            Run by volunteers
           </h3>
           <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
-            Operated by <strong>{siteConfig.legalEntity}</strong>, every coach, ride leader, and
-            board member volunteers their time. We steward local trails and work hand-in-hand with
-            local NICA teams—<strong>Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak</strong>.
+            {siteConfig.legalEntity} is a 501(c)(3) non-profit. Our coaches, ride leaders, and board members
+            all give their time, and families pitch in at races and on trail workdays.
           </p>
         </div>
         <p class="text-flyers-slate mt-6 border-t border-neutral-200 pt-4 text-xs font-extrabold">
-          Community stewardship + year-round NICA synergy
+          We give back to the trails we ride
         </p>
       </article>
 
-      <!-- Differentiator 2 -->
       <article
         class="border-t-flyers-slate bg-flyers-snow flex flex-col justify-between rounded-2xl border border-t-4 border-neutral-200 p-7 shadow-xs"
       >
@@ -57,21 +55,19 @@ import { withBase } from '../../lib/urls';
             02
           </span>
           <h3 class="font-display text-flyers-slate-dark mt-5 text-2xl font-black uppercase">
-            Gravity + Endurance + Youth in One Club
+            One club for the whole family
           </h3>
           <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
-            Most clubs focus solely on XC/road or solely on bike parks. Flyers bridges <strong
-              >Jr. Flyers (K–6)</strong
-            >, <strong>Flyers XC (endurance)</strong>, and <strong>Flyers Enduro (gravity)</strong> so
-            siblings and well-rounded dirt riders thrive together.
+            Jr. Flyers, Flyers XC, and Flyers Enduro share one club. Siblings can ride with the same
+            community as they grow, from first singletrack turns to cross-country and gravity
+            racing.
           </p>
         </div>
         <p class="text-flyers-slate mt-6 border-t border-neutral-200 pt-4 text-xs font-extrabold">
-          From first K–6 singletrack turns to regional ICUP &amp; Enduro stages
+          Racing is optional. Riding is the point.
         </p>
       </article>
 
-      <!-- Differentiator 3 -->
       <article
         class="border-t-flyers-berry bg-flyers-snow flex flex-col justify-between rounded-2xl border border-t-4 border-neutral-200 p-7 shadow-xs"
       >
@@ -82,20 +78,26 @@ import { withBase } from '../../lib/urls';
             03
           </span>
           <h3 class="font-display text-flyers-slate-dark mt-5 text-2xl font-black uppercase">
-            Sponsor-Powered, Not Fee-Powered
+            Low cost, with help if you need it
           </h3>
           <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
-            Rider registration is just <strong>$50 or $150</strong> depending on the program—strictly
-            covering a club t-shirt and rider insurance. Generous local sponsors underwrite coaching certifications,
-            pit gear, and trail support.
+            Registration is {siteConfig.feePhilosophy.rangeLabel}, depending on the program, and
+            covers a club t-shirt and rider insurance. Local sponsors and donors help pay for coach
+            training, race-day gear, and support for families who need it.
           </p>
         </div>
-        <div class="mt-6 border-t border-neutral-200 pt-4">
+        <div class="mt-6 flex flex-col gap-2 border-t border-neutral-200 pt-4">
+          <a
+            href={`mailto:${siteConfig.contact.email}?subject=Help%20with%20costs`}
+            class="text-flyers-red-deep hover:text-flyers-slate-dark inline-flex items-center gap-1.5 text-xs font-extrabold underline"
+          >
+            Ask about help with costs (confidential) &rarr;
+          </a>
           <a
             href={withBase('/sponsors')}
             class="text-flyers-red-deep hover:text-flyers-slate-dark inline-flex items-center gap-1.5 text-xs font-extrabold underline"
           >
-            See how 501(c)(3) sponsorships work &rarr;
+            How sponsorship works &rarr;
           </a>
         </div>
       </article>

@@ -4,7 +4,7 @@ title: Flyers Enduro
 shortTitle: Enduro
 discipline: Gravity & Stage Racing
 tagline: Progressive technical descending, jump/drop fundamentals, and enduro stage racing for ages 10–19.
-summary: Flyers Youth Enduro gives gravity-minded riders a structured, safety-first team environment to master steep terrain, cornering speed, line choice, and regional enduro competition across Utah.
+summary: Flyers Enduro is for riders who love going downhill. Coaches teach braking, cornering, line choice, and safe progression on steeper terrain, with optional enduro races around Utah.
 order: 2
 agesLabel: Ages 10–19
 gradesLabel: Grades 5–12

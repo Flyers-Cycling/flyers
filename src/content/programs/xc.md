@@ -4,7 +4,7 @@ title: Flyers XC
 shortTitle: XC
 discipline: Cross-Country & Endurance
 tagline: Year-round endurance, singletrack skills, and race confidence for 7th–12th grade riders.
-summary: Founded in 2020, Flyers XC helps youth riders build aerobic fitness, technical singletrack efficiency, and race-day confidence from winter base season through spring ICUP races and summer mountain adventures.
+summary: Flyers XC (started in 2020) helps riders in grades 7–12 build fitness, trail skills, and confidence, from winter base rides through spring ICUP races and summer mountain rides. Racing is optional.
 order: 1
 agesLabel: Ages 13–19
 gradesLabel: Grades 7–12

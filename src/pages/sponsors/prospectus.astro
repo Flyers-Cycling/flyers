@@ -26,7 +26,7 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
         />
         <div>
           <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-            501(c)(3) Youth Cycling Partnership Prospectus
+            2027 Sponsorship Opportunities
           </p>
           <h1
             class="font-display text-flyers-slate-dark mt-0.5 text-3xl font-black tracking-wide uppercase sm:text-4xl"
@@ -34,14 +34,14 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
             {siteConfig.name}
           </h1>
           <p class="text-flyers-iron mt-0.5 text-sm font-semibold">
-            Operated by {siteConfig.legalEntity} · 100% Volunteer-Led · Utah 501(c)(3)
+            Run by {siteConfig.legalEntity}, a volunteer-run 501(c)(3) non-profit
           </p>
         </div>
       </div>
       <div class="text-flyers-iron text-left text-xs sm:text-right">
         <p class="text-flyers-slate-dark font-bold">{siteConfig.contact.location}</p>
         <p>{siteConfig.contact.sponsorshipEmail}</p>
-        <p>Tax-Deductible 501(c)(3) Non-Profit</p>
+        <p>{siteConfig.nonProfitStatus}</p>
       </div>
     </div>
 
@@ -55,34 +55,31 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
           id="prospectus-mission"
           class="font-display text-flyers-slate-dark text-xl font-black tracking-wide uppercase"
         >
-          Why Sponsor Flyers Cycling Club?
+          Why sponsor Flyers?
         </h2>
         <p class="text-flyers-iron mt-2 text-sm leading-relaxed">
-          Flyers Cycling Club unites three youth mountain bike programs—<strong>Flyers XC</strong>, <strong
-            >Flyers Enduro (Gravity)</strong
-          >, and <strong>Jr. Flyers (Grades K–6)</strong>—serving local youth riders and families
-          while supporting athletes from <strong
-            >Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak</strong
-          > NICA high school teams.
+          Flyers Cycling Club runs three youth mountain bike programs in Utah: Flyers XC, Flyers
+          Enduro, and Jr. Flyers. Kids from kindergarten through 12th grade learn to ride well, make
+          friends, and race if they want to. Many of our riders also race for their school NICA
+          teams in the fall.
         </p>
         <p class="text-flyers-iron mt-2 text-sm leading-relaxed">
-          Unlike multi-thousand-dollar private clubs, Flyers is <strong>100% volunteer-led</strong>.
-          Rider registration is just <strong>$50 or $150</strong> (strictly covering t-shirt and insurance).
-          Community sponsors fund safety training, race-day pit equipment, trail stewardship, and rider
-          scholarships.
+          Our coaches and board are volunteers. Registration ({siteConfig.feePhilosophy.rangeLabel})
+          only covers a rider's t-shirt and insurance. Sponsors pay for coach safety training,
+          race-day equipment, trail days, and help for families who need it.
         </p>
       </div>
 
       <div class="bg-flyers-snow rounded-xl border border-neutral-200 p-4 text-xs">
         <h3 class="font-display text-flyers-slate-dark text-lg font-black tracking-wide uppercase">
-          3 Programs Served
+          Our programs
         </h3>
         <ul class="text-flyers-charcoal mt-2 space-y-2">
           {
             programs.map((p) => (
               <li>
                 <strong class="text-flyers-slate-dark">{p.data.title}:</strong> {p.data.gradesLabel}{' '}
-                ({p.data.feeAmount} reg.)
+                ({p.data.feeAmount} registration)
               </li>
             ))
           }
@@ -96,7 +93,7 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
         id="prospectus-tiers"
         class="font-display text-flyers-slate-dark text-xl font-black tracking-wide uppercase"
       >
-        Annual Sponsorship Tiers &amp; Recognition Matrix
+        Sponsorship levels
       </h2>
       <div class="mt-3 overflow-x-auto rounded-xl border border-neutral-300">
         <table class="min-w-full divide-y divide-neutral-300 text-left text-xs">
@@ -139,20 +136,18 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
         id="prospectus-next-steps"
         class="font-display text-flyers-slate-dark text-lg font-black tracking-wide uppercase"
       >
-        How to Partner With Us (Club-Wide or Program-Designated)
+        How to sponsor
       </h2>
       <div class="text-flyers-iron mt-2 grid gap-4 text-xs sm:grid-cols-2">
         <div>
-          <p class="text-flyers-slate-dark font-bold">1. Online Zero-Fee Giving (Zeffy)</p>
+          <p class="text-flyers-slate-dark font-bold">1. Give online through Zeffy</p>
           <p class="mt-0.5">
-            Contribute online with 0% platform fees and receive an automatic 501(c)(3) tax receipt
-            via our Zeffy portal on <strong>/sponsors</strong>.
+            Choose a level on our Sponsors page and pay through Zeffy. You'll get a receipt by email
+            right away.
           </p>
         </div>
         <div>
-          <p class="text-flyers-slate-dark font-bold">
-            2. Corporate Check, ACH &amp; Jersey Artwork
-          </p>
+          <p class="text-flyers-slate-dark font-bold">2. Pay by check or ACH, and send your logo</p>
           <p class="mt-0.5">
             Make checks payable to <strong>{siteConfig.legalEntity}</strong> and email vector logos (`.svg`
             / `.eps` / `.ai`) to <strong>{siteConfig.contact.sponsorshipEmail}</strong>. Specify

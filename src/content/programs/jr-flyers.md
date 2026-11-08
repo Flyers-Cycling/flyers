@@ -4,7 +4,7 @@ title: Jr. Flyers
 shortTitle: Jr. Flyers
 discipline: Youth Fundamentals (K–6)
 tagline: Big smiles, trail safety, and foundational mountain bike skills for Kindergarten through 6th grade.
-summary: Jr. Flyers introduces elementary-aged riders to singletrack riding through skill games, small-group coaching, and encouraging trail adventures.
+summary: Jr. Flyers is a summer program for kids in grades K–6. Small groups play skill games, learn to brake and shift, and ride beginner singletrack with volunteer coaches.
 order: 3
 agesLabel: Ages 5–12
 gradesLabel: Grades K–6

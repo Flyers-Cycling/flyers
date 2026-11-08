@@ -12,8 +12,8 @@ const sponsors = await getCollection('sponsors');
 ---
 
 <BaseLayout
-  title="Become a 501(c)(3) Club Sponsor"
-  description="Support affordable youth mountain biking in Utah. 100% volunteer-led 501(c)(3) sponsorships for Flyers XC, Flyers Enduro, and Jr. Flyers."
+  title="Sponsor or Donate"
+  description="Sponsor or donate to Flyers Cycling Club, a volunteer-run 501(c)(3) youth mountain bike club in Utah. See sponsorship levels and how your support is used."
 >
   <!-- Hero -->
   <section class="dark-surface flyers-banner-bg py-16 text-white sm:py-22">
@@ -22,19 +22,18 @@ const sponsors = await getCollection('sponsors');
         <span
           class="border-flyers-gold/40 bg-flyers-gold/15 text-flyers-gold inline-block rounded-full border px-3.5 py-1 text-xs font-extrabold tracking-wide uppercase"
         >
-          100% Tax-Deductible · {siteConfig.legalEntity}
+          {siteConfig.legalEntity} · {siteConfig.nonProfitStatus}
         </span>
         <h1
           class="font-display mt-4 text-4xl leading-[0.98] font-black tracking-wide text-white uppercase sm:text-6xl"
         >
-          Sponsors Keep Local Kids Riding Without High Club Fees
+          Help local kids ride
         </h1>
         <p class="mt-4 text-lg leading-relaxed text-white/90">
-          Every coach in Flyers Cycling Club is an unpaid volunteer, and rider registration (<strong
-            class="text-flyers-gold">$50 or $150</strong
-          >) strictly covers a t-shirt and insurance. Your business or family sponsorship funds the
-          equipment, safety training, race-day pits, and trail stewardship that make youth mountain
-          biking accessible across our community.
+          Flyers coaches are volunteers, and registration ({siteConfig.feePhilosophy.rangeLabel})
+          only covers a rider's t-shirt and insurance. Sponsors and donors pay for the rest: coach
+          safety training, first-aid and repair gear, race-day tents, trail days, and help for
+          families who need it.
         </p>
 
         <div class="mt-8 flex flex-wrap items-center gap-3.5">
@@ -44,19 +43,19 @@ const sponsors = await getCollection('sponsors');
             rel="noopener noreferrer"
             class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-3 text-lg font-extrabold tracking-wider text-white uppercase shadow-md transition"
           >
-            Give Instantly on Zeffy (0% Fees) &rarr;
+            Donate on Zeffy &rarr;
           </a>
           <a
             href="#sponsor-inquiry"
             class="text-flyers-slate-dark hover:bg-flyers-snow inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-extrabold shadow-sm transition"
           >
-            Corporate Check / In-Kind Inquiry
+            Pay by check or give gear
           </a>
           <a
             href={withBase('/sponsors/prospectus')}
             class="border-flyers-gold/65 bg-flyers-slate-dark/80 text-flyers-gold hover:bg-flyers-gold hover:text-flyers-slate-dark inline-flex min-h-12 items-center justify-center rounded-xl border px-5 py-3 text-sm font-bold transition"
           >
-            Printable 1-Page PDF Prospectus
+            Printable sponsor sheet
           </a>
         </div>
       </div>
@@ -77,12 +76,11 @@ const sponsors = await getCollection('sponsors');
             id="impact-heading"
             class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase"
           >
-            100% Volunteer Leverage
+            Where your money goes
           </h2>
           <p class="text-flyers-iron mt-2 text-sm leading-relaxed">
-            Zero dollars go to administrative or coaching salaries. Every dollar you contribute goes
-            directly to youth safety, coach wilderness/first-aid training, race pit equipment, and
-            rider hardship waivers.
+            No one at Flyers is paid. Your gift goes to rider safety, coach first-aid training,
+            race-day equipment, and fee and gear help for families who need it.
           </p>
         </div>
         <div
@@ -91,12 +89,11 @@ const sponsors = await getCollection('sponsors');
           <h2
             class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase"
           >
-            Statewide Utah Trail &amp; Race Visibility
+            Seen on trails and at races
           </h2>
           <p class="text-flyers-iron mt-2 text-sm leading-relaxed">
-            Flyers jerseys and pit canopies travel from local Utah singletrack to statewide ICUP
-            cross-country venues, Utah Enduro stops, and NICA communities spanning Westlake, Lehi,
-            Cedar Valley, Skyridge, and Lone Peak.
+            Flyers jerseys and team tents show up on local trails, at ICUP cross-country races, and
+            at Utah Enduro events, in front of riders and families from across the state.
           </p>
         </div>
         <div
@@ -105,13 +102,11 @@ const sponsors = await getCollection('sponsors');
           <h2
             class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase"
           >
-            Club-Wide or Program-Specific
+            Support the whole club or one program
           </h2>
           <p class="text-flyers-iron mt-2 text-sm leading-relaxed">
-            Support the unified 501(c)(3) club as a whole, or designate your sponsorship to
-            spotlight <strong>Flyers XC</strong>, <strong>Flyers Enduro (Gravity)</strong>, or <strong
-              >Jr. Flyers (K–6)</strong
-            >.
+            Give to the whole club, or ask for your sponsorship to go to Flyers XC, Flyers Enduro,
+            or Jr. Flyers.
           </p>
         </div>
       </div>
@@ -124,20 +119,20 @@ const sponsors = await getCollection('sponsors');
       <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div class="max-w-2xl">
           <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-            2027 Partnership Levels
+            2027 sponsorship levels
           </p>
           <h2
             id="tiers-heading"
             class="font-display text-flyers-slate-dark mt-2 text-4xl leading-tight font-black tracking-wide uppercase sm:text-5xl"
           >
-            Sponsorship Tiers &amp; Partner Benefits
+            Choose a level
           </h2>
         </div>
         <a
           href={withBase('/sponsors/prospectus')}
           class="text-flyers-red-deep hover:text-flyers-slate-dark text-sm font-extrabold underline transition"
         >
-          Open Print / PDF Prospectus View &rarr;
+          Printable sponsor sheet &rarr;
         </a>
       </div>
 
@@ -152,12 +147,11 @@ const sponsors = await getCollection('sponsors');
             <h3
               class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase"
             >
-              Individual Donations &amp; Employer Matching via Zeffy (0% Platform Fees)
+              Prefer to donate any amount?
             </h3>
             <p class="text-flyers-charcoal mt-1 text-sm leading-relaxed">
-              We use <strong>Zeffy</strong> for online non-profit donations so 100% of your contribution
-              reaches Lake Mountain Bicycle Club without credit-card processing deductions—and you receive
-              an instant 501(c)(3) tax receipt.
+              We take online gifts through Zeffy, which doesn't charge the club fees, so your full
+              gift reaches {siteConfig.legalEntity}. You'll get a receipt by email right away.
             </p>
           </div>
           <a
@@ -166,7 +160,7 @@ const sponsors = await getCollection('sponsors');
             rel="noopener noreferrer"
             class="bg-flyers-slate hover:bg-flyers-slate-dark font-display inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl px-5 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
           >
-            Make a Custom Donation on Zeffy &rarr;
+            Donate on Zeffy &rarr;
           </a>
         </div>
       </div>
@@ -190,10 +184,23 @@ const sponsors = await getCollection('sponsors');
         id="current-sponsors-heading"
         class="font-display text-flyers-slate-dark text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
       >
-        Current Partners &amp; Available 2027 Feature Slots
+        Our current sponsors
       </h2>
       <div class="mt-8">
         <SponsorGrid sponsors={sponsors} showCta={false} />
+      </div>
+
+      <h2
+        id="open-spots-heading"
+        class="font-display text-flyers-slate-dark mt-16 text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
+      >
+        Open sponsorship spots
+      </h2>
+      <p class="text-flyers-iron mt-2 max-w-2xl text-base leading-relaxed">
+        These spots are available for 2027. Ask us about any of them.
+      </p>
+      <div class="mt-8">
+        <SponsorGrid sponsors={sponsors} showCta={false} openSlots="only" />
       </div>
     </div>
   </section>
