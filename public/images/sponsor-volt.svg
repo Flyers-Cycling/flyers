@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Volt Cyclewear">
-  <rect width="240" height="80" rx="12" fill="#0f172a"/>
-  <path d="M46 18L28 44h14l-4 18 20-26H44l2-18z" fill="#f97316"/>
-  <text x="78" y="40" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="800" letter-spacing="1">VOLT</text>
-  <text x="78" y="56" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">CYCLEWEAR</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Volt Cyclewear Custom Team Apparel">
+  <rect width="240" height="80" rx="10" fill="#212121"/>
+  <path d="M28 22 H48 L39 39 H51 L31 60 L36 43 H24 Z" fill="#D12323"/>
+  <text x="64" y="39" fill="#FFFFFF" font-family="'Barlow Condensed', system-ui, sans-serif" font-size="18" font-weight="800" letter-spacing="1.2">VOLT CYCLEWEAR</text>
+  <text x="64" y="55" fill="#CECECE" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.8">OFFICIAL TEAM KIT PARTNER</text>
 </svg>

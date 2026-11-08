@@ -101,4 +101,17 @@ describe('Built Static Site HTML & Asset Integrity (dist/)', () => {
       expect(aboutHtml).toContain(school);
     }
   });
+
+  it('embeds official Canva Brand Kit logos and prioritized hero photography', () => {
+    const homeHtml = fs.readFileSync(path.join(DIST_DIR, 'index.html'), 'utf8');
+    const prospectusHtml = fs.readFileSync(
+      path.join(DIST_DIR, 'sponsors/prospectus/index.html'),
+      'utf8',
+    );
+
+    expect(homeHtml).toContain('/images/brand/flyers-logo-dark-bg.svg');
+    expect(homeHtml).toContain('/images/hero-flyers.jpg');
+    expect(homeHtml).toContain('fetchpriority="low"');
+    expect(prospectusHtml).toContain('/images/brand/flyers-logo-red.svg');
+  });
 });

@@ -13,29 +13,29 @@ export function getRegistrationStatusMeta(status: RegistrationStatus): StatusBad
     case 'open':
       return {
         label: 'Registration Open',
-        badgeClass: 'bg-emerald-50 text-emerald-900 border-emerald-300',
+        badgeClass: 'bg-emerald-50 text-emerald-950 border-emerald-300',
         dotClass: 'bg-emerald-600',
         ctaLabel: 'Register Now',
       };
     case 'upcoming':
       return {
         label: 'Opening Soon',
-        badgeClass: 'bg-amber-50 text-amber-950 border-amber-300',
-        dotClass: 'bg-amber-600',
+        badgeClass: 'bg-[#FFF9E6] text-[#5C4500] border-[#E6C245]',
+        dotClass: 'bg-[#C99A00]',
         ctaLabel: 'Join Interest List',
       };
     case 'waitlist':
       return {
         label: 'Waitlist Open',
-        badgeClass: 'bg-sky-50 text-sky-950 border-sky-300',
-        dotClass: 'bg-sky-600',
+        badgeClass: 'bg-[#EEF3F6] text-[#14242E] border-[#B8CAD6]',
+        dotClass: 'bg-[#203746]',
         ctaLabel: 'Join Waitlist',
       };
     case 'closed':
       return {
         label: 'In Season / Closed',
-        badgeClass: 'bg-slate-100 text-slate-800 border-slate-300',
-        dotClass: 'bg-slate-500',
+        badgeClass: 'bg-neutral-100 text-neutral-800 border-neutral-300',
+        dotClass: 'bg-neutral-500',
         ctaLabel: 'Contact Program Leads',
       };
   }
@@ -46,30 +46,34 @@ export interface AccentThemeMeta {
   borderClass: string;
   topBarClass: string;
   darkPillClass: string;
+  buttonClass: string;
 }
 
 export function getProgramAccentMeta(accent: ProgramAccent): AccentThemeMeta {
   switch (accent) {
     case 'xc':
       return {
-        badgeClass: 'bg-sky-50 text-sky-900 border-sky-200',
-        borderClass: 'hover:border-sky-500',
-        topBarClass: 'bg-sky-500',
-        darkPillClass: 'bg-sky-400/15 text-sky-200 border-sky-400/30',
+        badgeClass: 'bg-[#FDF2F2] text-[#8F1616] border-[#F2C4C4]',
+        borderClass: 'hover:border-[#B81E1E]',
+        topBarClass: 'bg-[#B81E1E]',
+        darkPillClass: 'bg-[#B81E1E]/30 text-white border-[#D12323]/60',
+        buttonClass: 'bg-[#B81E1E] text-white hover:bg-[#8F1616]',
       };
     case 'enduro':
       return {
-        badgeClass: 'bg-orange-50 text-orange-900 border-orange-200',
-        borderClass: 'hover:border-orange-500',
-        topBarClass: 'bg-orange-500',
-        darkPillClass: 'bg-orange-400/15 text-orange-200 border-orange-400/30',
+        badgeClass: 'bg-[#EEF3F6] text-[#14242E] border-[#C2D2DC]',
+        borderClass: 'hover:border-[#203746]',
+        topBarClass: 'bg-[#203746]',
+        darkPillClass: 'bg-[#F4CE50]/20 text-[#F4CE50] border-[#F4CE50]/45',
+        buttonClass: 'bg-[#203746] text-white hover:bg-[#14242E]',
       };
     case 'jr':
       return {
-        badgeClass: 'bg-emerald-50 text-emerald-900 border-emerald-200',
-        borderClass: 'hover:border-emerald-500',
-        topBarClass: 'bg-emerald-500',
-        darkPillClass: 'bg-emerald-400/15 text-emerald-200 border-emerald-400/30',
+        badgeClass: 'bg-[#FCF1F4] text-[#840E23] border-[#EFC2CC]',
+        borderClass: 'hover:border-[#9D112A]',
+        topBarClass: 'bg-[#9D112A]',
+        darkPillClass: 'bg-white/15 text-white border-white/35',
+        buttonClass: 'bg-[#9D112A] text-white hover:bg-[#7A0C20]',
       };
   }
 }

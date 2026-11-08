@@ -15,8 +15,8 @@ registrationUrl: https://www.zeffy.com/
 feeAmount: '$50'
 feeIncludes: Covers your Jr. Flyers rider t-shirt and insurance. Coached 100% by background-checked parent & community volunteers.
 accentKey: jr
-heroImage: /images/program-jr.svg
-heroImageAlt: Rolling foothill trails and sunshine artwork representing the Jr. Flyers K through 6 youth mountain bike program
+heroImage: /images/program-jr.jpg
+heroImageAlt: Elementary-aged Jr. Flyers riders smiling on Eagle Mountain foothill trails alongside a volunteer coach
 practiceSchedule:
   - 'Summer Mornings / Evenings (Jun–Aug): Weekly skill-park & beginner singletrack sessions in Eagle Mountain'
   - 'Grouped by age and trail readiness so K–2nd riders and 4th–6th riders each get tailored challenges'

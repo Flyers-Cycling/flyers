@@ -19,13 +19,13 @@ const records = sponsors.map((entry) => ({
 const filtered = filterSponsorsByScope(records, scope);
 
 const tierBadgeLabels: Record<string, { label: string; style: string }> = {
-  title: { label: 'Title Partner', style: 'bg-amber-100 text-amber-950 border-amber-300' },
-  gold: { label: 'Gold Partner', style: 'bg-sky-50 text-sky-900 border-sky-200' },
-  silver: { label: 'Silver Partner', style: 'bg-slate-100 text-slate-800 border-slate-300' },
-  bronze: { label: 'Bronze Partner', style: 'bg-orange-50 text-orange-950 border-orange-200' },
+  title: { label: 'Title Partner', style: 'bg-[#FFF9E6] text-[#5C4500] border-[#E6C245]' },
+  gold: { label: 'Gold Partner', style: 'bg-[#FDF2F2] text-[#8F1616] border-[#F2C4C4]' },
+  silver: { label: 'Silver Partner', style: 'bg-[#EEF3F6] text-[#14242E] border-[#C2D2DC]' },
+  bronze: { label: 'Bronze Partner', style: 'bg-neutral-100 text-neutral-800 border-neutral-300' },
   community: {
     label: 'Community Supporter',
-    style: 'bg-emerald-50 text-emerald-950 border-emerald-200',
+    style: 'bg-[#FCF1F4] text-[#840E23] border-[#EFC2CC]',
   },
 };
 
@@ -43,7 +43,7 @@ const scopeLabels: Record<SponsorScope, string> = {
       filtered.map((sponsor) => {
         const badge = tierBadgeLabels[sponsor.tier];
         return (
-          <article class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-xs transition hover:border-slate-300">
+          <article class="hover:border-flyers-slate/40 flex flex-col justify-between rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs transition">
             <div>
               <div class="flex items-center justify-between gap-2">
                 <span
@@ -52,11 +52,11 @@ const scopeLabels: Record<SponsorScope, string> = {
                   {badge.label}
                 </span>
                 {sponsor.location && (
-                  <span class="text-xs font-semibold text-slate-600">{sponsor.location}</span>
+                  <span class="text-flyers-iron text-xs font-semibold">{sponsor.location}</span>
                 )}
               </div>
 
-              <div class="mt-4 flex h-20 items-center justify-center rounded-xl bg-slate-50 p-2">
+              <div class="bg-flyers-snow mt-4 flex h-20 items-center justify-center rounded-xl border border-neutral-200/70 p-2">
                 <img
                   src={withBase(sponsor.logo)}
                   alt={`${sponsor.name} logo`}
@@ -67,23 +67,23 @@ const scopeLabels: Record<SponsorScope, string> = {
                 />
               </div>
 
-              <h3 class="mt-4 text-lg font-extrabold text-slate-900">
+              <h3 class="font-display text-flyers-slate-dark mt-4 text-2xl font-black tracking-wide uppercase">
                 <a
                   href={sponsor.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="hover:underline"
+                  class="hover:text-flyers-red transition hover:underline"
                 >
                   {sponsor.name}
                 </a>
               </h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-700">{sponsor.summary}</p>
+              <p class="text-flyers-iron mt-2 text-sm leading-relaxed">{sponsor.summary}</p>
             </div>
 
-            <div class="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3.5">
+            <div class="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-neutral-100 pt-3.5">
               <div class="flex flex-wrap gap-1.5" aria-label="Supported programs">
                 {sponsor.scopes.map((s) => (
-                  <span class="rounded bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-700">
+                  <span class="bg-flyers-snow text-flyers-slate-dark rounded border border-neutral-200 px-2 py-0.5 text-[11px] font-bold">
                     {scopeLabels[s]}
                   </span>
                 ))}
@@ -92,7 +92,7 @@ const scopeLabels: Record<SponsorScope, string> = {
                 href={sponsor.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-xs font-extrabold text-sky-800 underline hover:text-sky-950"
+                class="text-flyers-red-deep hover:text-flyers-slate-dark text-xs font-extrabold underline transition"
               >
                 Visit Partner &rarr;
               </a>
@@ -105,12 +105,12 @@ const scopeLabels: Record<SponsorScope, string> = {
 
   {
     showCta && (
-      <div class="flex flex-col items-start justify-between gap-4 rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white sm:flex-row sm:items-center sm:p-8">
+      <div class="dark-surface flyers-banner-bg border-flyers-slate-mid flex flex-col items-start justify-between gap-4 rounded-2xl border p-6 text-white shadow-md sm:flex-row sm:items-center sm:p-8">
         <div>
-          <h3 class="text-xl font-black text-white">
+          <h3 class="font-display text-2xl font-black tracking-wide text-white uppercase sm:text-3xl">
             Put Your Brand Behind Local Youth Mountain Bikers
           </h3>
-          <p class="mt-1 text-sm text-slate-200">
+          <p class="mt-1 text-sm text-white/90">
             100% 501(c)(3) tax-deductible sponsorships keep rider fees at $50 or $150 (t-shirt &amp;
             insurance only) across Eagle Mountain &amp; Lehi.
           </p>
@@ -118,13 +118,13 @@ const scopeLabels: Record<SponsorScope, string> = {
         <div class="flex shrink-0 flex-wrap gap-3">
           <a
             href={withBase('/sponsors')}
-            class="inline-flex min-h-11 items-center justify-center rounded-lg bg-amber-400 px-5 py-2.5 text-sm font-extrabold text-slate-950 transition hover:bg-amber-300"
+            class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-12 items-center justify-center rounded-lg px-5 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
           >
             View Sponsorship Tiers
           </a>
           <a
             href={withBase('/sponsors/prospectus')}
-            class="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800"
+            class="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/25 bg-white/10 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-white/20"
           >
             Printable Prospectus
           </a>

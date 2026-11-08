@@ -19,15 +19,17 @@ const renderedUpdates = await Promise.all(
   title="Team Kits, Merch Shop & Club Updates"
   description="Seasonal Volt Cyclewear custom jersey windows, Zeffy Flyers merch shop, and official announcements for Flyers Cycling Club."
 >
-  <section class="bg-slate-950 py-14 text-white sm:py-20">
+  <section class="dark-surface flyers-banner-bg py-14 text-white sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-extrabold tracking-widest text-amber-300 uppercase">
+      <p class="text-flyers-gold text-xs font-extrabold tracking-widest uppercase">
         Apparel, Gear &amp; Club Dispatches
       </p>
-      <h1 class="mt-3 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl">
+      <h1
+        class="font-display mt-3 max-w-3xl text-4xl leading-[0.98] font-black tracking-wide text-white uppercase sm:text-6xl"
+      >
         Team Kits, Merch Store &amp; Seasonal News
       </h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
         Designed to keep riders looking sharp on Utah trails and start lines without requiring
         expensive head-to-toe custom kits.
       </p>
@@ -39,7 +41,7 @@ const renderedUpdates = await Promise.all(
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2
         id="gear-stores-heading"
-        class="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+        class="font-display text-flyers-slate-dark text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
       >
         Club Apparel &amp; Supporter Gear
       </h2>
@@ -47,43 +49,45 @@ const renderedUpdates = await Promise.all(
       <div class="mt-8 grid gap-8 lg:grid-cols-2">
         <!-- Volt Cyclewear Custom Kit Store -->
         <article
-          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-7 shadow-xs"
+          class="border-t-flyers-slate flex flex-col justify-between rounded-2xl border border-t-4 border-neutral-200 bg-white p-7 shadow-xs"
         >
           <div>
             <div class="flex flex-wrap items-center justify-between gap-2">
               <span
-                class="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-extrabold text-sky-900"
+                class="rounded-full border border-[#C2D2DC] bg-[#EEF3F6] px-3 py-1 text-xs font-extrabold text-[#14242E]"
               >
                 {siteConfig.integrations.voltKitStore.vendor}
               </span>
               <span
-                class="rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-bold text-amber-950"
+                class="rounded-full border border-[#E6C245] bg-[#FFF9E6] px-3 py-1 text-xs font-bold text-[#5C4500]"
               >
                 {siteConfig.integrations.voltKitStore.windowLabel}
               </span>
             </div>
-            <h3 class="mt-4 text-2xl font-black text-slate-900">
+            <h3
+              class="font-display text-flyers-slate-dark mt-4 text-3xl font-black tracking-wide uppercase"
+            >
               Custom Flyers XC &amp; Enduro Team Kits
             </h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">
+            <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
               {siteConfig.integrations.voltKitStore.notes}
             </p>
-            <ul class="mt-4 space-y-2 text-xs text-slate-700">
+            <ul class="text-flyers-iron mt-4 space-y-2 text-xs">
               <li class="flex items-start gap-2">
-                <span class="font-black text-emerald-700" aria-hidden="true">&#10003;</span>
+                <span class="text-flyers-red font-black" aria-hidden="true">&#10003;</span>
                 <span
                   >Breathable 4-way stretch XC &amp; trail jerseys + Alpine Thermal cold-weather
                   layers</span
                 >
               </li>
               <li class="flex items-start gap-2">
-                <span class="font-black text-emerald-700" aria-hidden="true">&#10003;</span>
+                <span class="text-flyers-red font-black" aria-hidden="true">&#10003;</span>
                 <span
                   >Pairs cleanly with plain black bibs or mountain bike shorts you already own</span
                 >
               </li>
               <li class="flex items-start gap-2">
-                <span class="font-black text-emerald-700" aria-hidden="true">&#10003;</span>
+                <span class="text-flyers-red font-black" aria-hidden="true">&#10003;</span>
                 <span>Proudly showcases our 501(c)(3) community sponsors across Utah trails</span>
               </li>
             </ul>
@@ -93,7 +97,7 @@ const renderedUpdates = await Promise.all(
               href={siteConfig.integrations.voltKitStore.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-extrabold text-white transition hover:bg-slate-800"
+              class="bg-flyers-slate hover:bg-flyers-slate-dark font-display inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
             >
               Check Kit Window Details &rarr;
             </a>
@@ -102,12 +106,12 @@ const renderedUpdates = await Promise.all(
 
         <!-- Zeffy Enduro & Supporter Shop -->
         <article
-          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-7 shadow-xs"
+          class="border-t-flyers-red flex flex-col justify-between rounded-2xl border border-t-4 border-neutral-200 bg-white p-7 shadow-xs"
         >
           <div>
             <div class="flex flex-wrap items-center justify-between gap-2">
               <span
-                class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-extrabold text-orange-900"
+                class="rounded-full border border-[#F2C4C4] bg-[#FDF2F2] px-3 py-1 text-xs font-extrabold text-[#8F1616]"
               >
                 Zeffy Non-Profit Portal
               </span>
@@ -117,10 +121,12 @@ const renderedUpdates = await Promise.all(
                 100% Proceeds to Club
               </span>
             </div>
-            <h3 class="mt-4 text-2xl font-black text-slate-900">
+            <h3
+              class="font-display text-flyers-slate-dark mt-4 text-3xl font-black tracking-wide uppercase"
+            >
               Flyers Enduro &amp; Community Merch Shop
             </h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-700">
+            <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
               Remember that every registered rider already receives a club t-shirt included with
               their $50 or $150 registration! Extra parent/family tees, hats, stickers, and Enduro
               apparel are available through our zero-fee Zeffy shop.
@@ -131,7 +137,7 @@ const renderedUpdates = await Promise.all(
               href={siteConfig.integrations.zeffyShopUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex min-h-11 items-center justify-center rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-extrabold text-slate-950 transition hover:bg-amber-300"
+              class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
             >
               Visit Flyers Zeffy Shop &rarr;
             </a>
@@ -144,12 +150,12 @@ const renderedUpdates = await Promise.all(
   <!-- Club Announcements & Updates -->
   <section
     aria-labelledby="updates-heading"
-    class="border-t border-slate-200 bg-white py-14 sm:py-16"
+    class="border-t border-neutral-200 bg-white py-14 sm:py-16"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2
         id="updates-heading"
-        class="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+        class="font-display text-flyers-slate-dark text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
       >
         Club Updates &amp; Seasonal Announcements
       </h2>
@@ -159,13 +165,15 @@ const renderedUpdates = await Promise.all(
           renderedUpdates.map(({ entry, rendered }) => {
             const { Content } = rendered;
             return (
-              <article class="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-                <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-600">
+              <article class="bg-flyers-snow rounded-2xl border border-neutral-200 p-6 sm:p-8">
+                <div class="text-flyers-iron flex flex-wrap items-center gap-2 text-xs font-bold">
                   <time datetime={entry.data.publishedDate}>{entry.data.publishedDate}</time>
                   <span aria-hidden="true">·</span>
-                  <span class="uppercase">{entry.data.category}</span>
+                  <span class="text-flyers-red-deep uppercase">{entry.data.category}</span>
                 </div>
-                <h3 class="mt-2 text-xl font-black text-slate-900">{entry.data.title}</h3>
+                <h3 class="font-display text-flyers-slate-dark mt-2 text-2xl font-black tracking-wide uppercase sm:text-3xl">
+                  {entry.data.title}
+                </h3>
                 <div class="club-prose mt-3 text-sm">
                   <Content />
                 </div>

@@ -8,19 +8,19 @@ const events = (await getCollection('events')).sort((a, b) =>
 );
 
 const programMeta: Record<string, { label: string; badgeClass: string }> = {
-  all: { label: 'All Club', badgeClass: 'bg-slate-900 text-white' },
-  xc: { label: 'Flyers XC', badgeClass: 'bg-sky-50 text-sky-900 border border-sky-200' },
+  all: { label: 'All Club', badgeClass: 'bg-flyers-slate-dark text-white' },
+  xc: { label: 'Flyers XC', badgeClass: 'bg-[#FDF2F2] text-[#8F1616] border border-[#F2C4C4]' },
   enduro: {
     label: 'Flyers Enduro',
-    badgeClass: 'bg-orange-50 text-orange-900 border border-orange-200',
+    badgeClass: 'bg-[#EEF3F6] text-[#14242E] border border-[#C2D2DC]',
   },
   'jr-flyers': {
     label: 'Jr. Flyers (K–6)',
-    badgeClass: 'bg-emerald-50 text-emerald-900 border border-emerald-200',
+    badgeClass: 'bg-[#FCF1F4] text-[#840E23] border border-[#EFC2CC]',
   },
   community: {
     label: 'Trail & Community',
-    badgeClass: 'bg-amber-50 text-amber-950 border border-amber-300',
+    badgeClass: 'bg-[#FFF9E6] text-[#5C4500] border border-[#E6C245]',
   },
 };
 
@@ -37,15 +37,17 @@ const categoryLabels: Record<string, string> = {
   title="Unified Schedule & Seasonal Events"
   description="Filterable practice windows, skills clinics, ICUP & Enduro race dates, and trail stewardship days across Flyers XC, Flyers Enduro, and Jr. Flyers."
 >
-  <section class="bg-slate-950 py-14 text-white sm:py-20">
+  <section class="dark-surface flyers-banner-bg py-14 text-white sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-extrabold tracking-widest text-amber-300 uppercase">
+      <p class="text-flyers-gold text-xs font-extrabold tracking-widest uppercase">
         Club Calendar &amp; Key Dates
       </p>
-      <h1 class="mt-3 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl">
+      <h1
+        class="font-display mt-3 max-w-3xl text-4xl leading-[0.98] font-black tracking-wide text-white uppercase sm:text-6xl"
+      >
         Unified Schedule Across All 3 Programs
       </h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
         Filter key registration windows, seasonal kickoffs, skills clinics, race support days, and
         Lake Mountain trail work across Flyers XC, Flyers Enduro, and Jr. Flyers.
       </p>
@@ -55,66 +57,66 @@ const categoryLabels: Record<string, string> = {
   <section class="py-12 sm:py-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Semantic <search> landmark with visible radio filter pills (<6 choices) -->
-      <search class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+      <search class="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
         <form id="schedule-filter-form">
           <fieldset>
-            <legend class="text-xs font-extrabold tracking-wider text-slate-700 uppercase">
+            <legend class="text-flyers-slate-dark text-xs font-extrabold tracking-wider uppercase">
               Filter Events by Program
             </legend>
             <div class="mt-3 flex flex-wrap gap-2.5">
               <label
-                class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-slate-50 px-4 py-2 text-xs font-extrabold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+                class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-neutral-300 px-4 py-2 text-xs font-extrabold transition has-[:checked]:text-white"
               >
                 <input
                   type="radio"
                   name="programFilter"
                   value="everything"
                   checked
-                  class="h-3.5 w-3.5 accent-amber-400"
+                  class="accent-flyers-gold h-3.5 w-3.5"
                 />
                 <span>All Events</span>
               </label>
               <label
-                class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-slate-50 px-4 py-2 text-xs font-extrabold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+                class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-neutral-300 px-4 py-2 text-xs font-extrabold transition has-[:checked]:text-white"
               >
                 <input
                   type="radio"
                   name="programFilter"
                   value="xc"
-                  class="h-3.5 w-3.5 accent-amber-400"
+                  class="accent-flyers-gold h-3.5 w-3.5"
                 />
                 <span>Flyers XC</span>
               </label>
               <label
-                class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-slate-50 px-4 py-2 text-xs font-extrabold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+                class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-neutral-300 px-4 py-2 text-xs font-extrabold transition has-[:checked]:text-white"
               >
                 <input
                   type="radio"
                   name="programFilter"
                   value="enduro"
-                  class="h-3.5 w-3.5 accent-amber-400"
+                  class="accent-flyers-gold h-3.5 w-3.5"
                 />
                 <span>Flyers Enduro</span>
               </label>
               <label
-                class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-slate-50 px-4 py-2 text-xs font-extrabold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+                class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-neutral-300 px-4 py-2 text-xs font-extrabold transition has-[:checked]:text-white"
               >
                 <input
                   type="radio"
                   name="programFilter"
                   value="jr-flyers"
-                  class="h-3.5 w-3.5 accent-amber-400"
+                  class="accent-flyers-gold h-3.5 w-3.5"
                 />
                 <span>Jr. Flyers (K–6)</span>
               </label>
               <label
-                class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-slate-50 px-4 py-2 text-xs font-extrabold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+                class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-neutral-300 px-4 py-2 text-xs font-extrabold transition has-[:checked]:text-white"
               >
                 <input
                   type="radio"
                   name="programFilter"
                   value="community"
-                  class="h-3.5 w-3.5 accent-amber-400"
+                  class="accent-flyers-gold h-3.5 w-3.5"
                 />
                 <span>Trail &amp; Community</span>
               </label>
@@ -124,7 +126,7 @@ const categoryLabels: Record<string, string> = {
         <p
           id="schedule-filter-count"
           aria-live="polite"
-          class="mt-3 text-xs font-semibold text-slate-600"
+          class="text-flyers-iron mt-3 text-xs font-semibold"
         >
           Showing all {events.length} scheduled highlights
         </p>
@@ -137,27 +139,29 @@ const categoryLabels: Record<string, string> = {
             return (
               <article
                 data-event-program={event.data.program}
-                class="schedule-event-card flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:flex-row sm:items-center"
+                class="schedule-event-card flex flex-col justify-between gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs sm:flex-row sm:items-center"
               >
                 <div class="space-y-2">
                   <div class="flex flex-wrap items-center gap-2 text-xs">
                     <span class={`rounded-full px-2.5 py-0.5 font-extrabold ${pMeta.badgeClass}`}>
                       {pMeta.label}
                     </span>
-                    <span class="rounded-full bg-slate-100 px-2.5 py-0.5 font-bold text-slate-700">
+                    <span class="bg-flyers-snow text-flyers-iron rounded-full border border-neutral-200 px-2.5 py-0.5 font-bold">
                       {categoryLabels[event.data.category]}
                     </span>
-                    <time datetime={event.data.startDate} class="font-bold text-slate-800">
+                    <time datetime={event.data.startDate} class="text-flyers-slate-dark font-bold">
                       {event.data.startDate}
                       {event.data.endDate ? ` – ${event.data.endDate}` : ''}
                     </time>
                   </div>
 
-                  <h2 class="text-xl font-black text-slate-900">{event.data.title}</h2>
-                  <p class="text-xs font-semibold text-slate-600">
+                  <h2 class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase sm:text-3xl">
+                    {event.data.title}
+                  </h2>
+                  <p class="text-flyers-iron text-xs font-semibold">
                     {event.data.timeLabel} · {event.data.location}
                   </p>
-                  <p class="max-w-3xl text-sm leading-relaxed text-slate-700">
+                  <p class="text-flyers-iron max-w-3xl text-sm leading-relaxed">
                     {event.data.summary}
                   </p>
                 </div>
@@ -168,7 +172,7 @@ const categoryLabels: Record<string, string> = {
                       href={event.data.actionUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-extrabold text-white transition hover:bg-slate-800"
+                      class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-2.5 text-sm font-extrabold tracking-wider text-white uppercase transition"
                     >
                       {event.data.actionLabel} &rarr;
                     </a>
@@ -182,8 +186,10 @@ const categoryLabels: Record<string, string> = {
 
       {
         siteConfig.integrations.googleCalendarEmbedUrl ? (
-          <div class="mt-12 overflow-hidden rounded-2xl border border-slate-200 bg-white p-4">
-            <h2 class="mb-4 text-lg font-black text-slate-900">Live Club Google Calendar</h2>
+          <div class="mt-12 overflow-hidden rounded-2xl border border-neutral-200 bg-white p-4">
+            <h2 class="font-display text-flyers-slate-dark mb-4 text-2xl font-black tracking-wide uppercase">
+              Live Club Google Calendar
+            </h2>
             <iframe
               src={siteConfig.integrations.googleCalendarEmbedUrl}
               title="Flyers Cycling Club Live Practice Calendar"
@@ -192,8 +198,8 @@ const categoryLabels: Record<string, string> = {
             />
           </div>
         ) : (
-          <div class="mt-12 rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-700">
-            <h2 class="text-base font-black text-slate-900">
+          <div class="text-flyers-iron mt-12 rounded-2xl border border-neutral-200 bg-white p-6 text-sm">
+            <h2 class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase">
               Weekly Trailhead &amp; Weather Updates
             </h2>
             <p class="mt-1 leading-relaxed">

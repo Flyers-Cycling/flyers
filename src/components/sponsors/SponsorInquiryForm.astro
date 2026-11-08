@@ -13,19 +13,19 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
 <section
   id="sponsor-inquiry"
   aria-labelledby="sponsor-inquiry-heading"
-  class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10"
+  class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm sm:p-10"
 >
   <div class="max-w-3xl">
-    <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+    <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
       Corporate, Check &amp; In-Kind Partnerships
     </p>
     <h2
       id="sponsor-inquiry-heading"
-      class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl"
+      class="font-display text-flyers-slate-dark mt-2 text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
     >
       Start a 2027 Sponsorship Conversation
     </h2>
-    <p class="mt-2 text-base text-slate-700">
+    <p class="text-flyers-iron mt-2 text-base">
       Want to pay by corporate check/ACH, coordinate vector jersey artwork, or donate bike shop gear
       and trail support? Complete the form below and our volunteer board will follow up with W-9 /
       501(c)(3) documentation.
@@ -50,10 +50,10 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
 
     <div class="grid gap-6 sm:grid-cols-2">
       <div class="form-field">
-        <label for="organizationName" class="block text-sm font-extrabold text-slate-900">
-          Business or Family Name <span class="text-red-700">*</span>
+        <label for="organizationName" class="text-flyers-slate-dark block text-sm font-extrabold">
+          Business or Family Name <span class="text-flyers-red-deep">*</span>
         </label>
-        <span id="org-hint" class="mt-0.5 block text-xs text-slate-600">
+        <span id="org-hint" class="text-flyers-iron mt-0.5 block text-xs">
           Name as it should appear on jerseys, banners, or our partner directory
         </span>
         <input
@@ -66,21 +66,21 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
           autocomplete="organization"
           aria-describedby="org-hint"
           aria-errormessage="org-error"
-          class="mt-1.5 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-2xs"
+          class="text-flyers-charcoal mt-1.5 block min-h-12 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-base shadow-2xs"
         />
         <p
           id="org-error"
-          class="field-error mt-1.5 items-center gap-1.5 text-xs font-bold text-red-700"
+          class="field-error text-flyers-red-deep mt-1.5 items-center gap-1.5 text-xs font-bold"
         >
           <span aria-hidden="true">!</span> Please enter your business or family name (at least 2 characters).
         </p>
       </div>
 
       <div class="form-field">
-        <label for="contactName" class="block text-sm font-extrabold text-slate-900">
-          Full Name <span class="text-red-700">*</span>
+        <label for="contactName" class="text-flyers-slate-dark block text-sm font-extrabold">
+          Full Name <span class="text-flyers-red-deep">*</span>
         </label>
-        <span id="name-hint" class="mt-0.5 block text-xs text-slate-600">
+        <span id="name-hint" class="text-flyers-iron mt-0.5 block text-xs">
           Primary contact person for logo artwork &amp; tax receipt
         </span>
         <input
@@ -93,11 +93,11 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
           autocomplete="name"
           aria-describedby="name-hint"
           aria-errormessage="name-error"
-          class="mt-1.5 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-2xs"
+          class="text-flyers-charcoal mt-1.5 block min-h-12 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-base shadow-2xs"
         />
         <p
           id="name-error"
-          class="field-error mt-1.5 items-center gap-1.5 text-xs font-bold text-red-700"
+          class="field-error text-flyers-red-deep mt-1.5 items-center gap-1.5 text-xs font-bold"
         >
           <span aria-hidden="true">!</span> Please enter a contact name.
         </p>
@@ -105,10 +105,10 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
     </div>
 
     <div class="form-field max-w-xl">
-      <label for="sponsorEmail" class="block text-sm font-extrabold text-slate-900">
-        Work or Personal Email <span class="text-red-700">*</span>
+      <label for="sponsorEmail" class="text-flyers-slate-dark block text-sm font-extrabold">
+        Work or Personal Email <span class="text-flyers-red-deep">*</span>
       </label>
-      <span id="email-hint" class="mt-0.5 block text-xs text-slate-600">
+      <span id="email-hint" class="text-flyers-iron mt-0.5 block text-xs">
         Format: partner@company.com — we never share sponsor contact emails
       </span>
       <input
@@ -123,11 +123,11 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
         spellcheck="false"
         aria-describedby="email-hint"
         aria-errormessage="email-error"
-        class="mt-1.5 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-2xs"
+        class="text-flyers-charcoal mt-1.5 block min-h-12 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-base shadow-2xs"
       />
       <p
         id="email-error"
-        class="field-error mt-1.5 items-center gap-1.5 text-xs font-bold text-red-700"
+        class="field-error text-flyers-red-deep mt-1.5 items-center gap-1.5 text-xs font-bold"
       >
         <span aria-hidden="true">!</span> Please enter a valid email address (for example, name@company.com).
       </p>
@@ -135,17 +135,19 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
 
     <!-- Tier Radio Group (5 choices => visible radio buttons) -->
     <fieldset>
-      <legend class="text-sm font-extrabold text-slate-900">Preferred Sponsorship Tier</legend>
+      <legend class="text-flyers-slate-dark text-sm font-extrabold">
+        Preferred Sponsorship Tier
+      </legend>
       <div class="mt-2.5 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-5">
         {
           sortedTiers.map((tier) => (
-            <label class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white">
+            <label class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs font-bold transition has-[:checked]:text-white">
               <input
                 type="radio"
                 name="tier"
                 value={tier.data.name}
                 checked={tier.data.featured}
-                class="h-4 w-4 accent-amber-400"
+                class="accent-flyers-gold h-4 w-4"
               />
               <span>
                 {tier.data.name} ({tier.data.amountLabel})
@@ -159,50 +161,50 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
     <div class="grid gap-6 lg:grid-cols-2">
       <!-- Program Designation Radio Group (4 choices => visible radio buttons) -->
       <fieldset>
-        <legend class="text-sm font-extrabold text-slate-900">Program Designation</legend>
+        <legend class="text-flyers-slate-dark text-sm font-extrabold">Program Designation</legend>
         <div class="mt-2.5 grid gap-2 sm:grid-cols-2">
           <label
-            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+            class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs font-bold transition has-[:checked]:text-white"
           >
             <input
               type="radio"
               name="programScope"
               value="Club-Wide (All 3 Programs)"
               checked
-              class="h-4 w-4 accent-amber-400"
+              class="accent-flyers-gold h-4 w-4"
             />
             <span>Club-Wide (All 3 Programs)</span>
           </label>
           <label
-            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+            class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs font-bold transition has-[:checked]:text-white"
           >
             <input
               type="radio"
               name="programScope"
               value="Flyers XC Spotlight"
-              class="h-4 w-4 accent-amber-400"
+              class="accent-flyers-gold h-4 w-4"
             />
             <span>Flyers XC Spotlight</span>
           </label>
           <label
-            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+            class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs font-bold transition has-[:checked]:text-white"
           >
             <input
               type="radio"
               name="programScope"
               value="Flyers Enduro Spotlight"
-              class="h-4 w-4 accent-amber-400"
+              class="accent-flyers-gold h-4 w-4"
             />
             <span>Flyers Enduro Spotlight</span>
           </label>
           <label
-            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+            class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs font-bold transition has-[:checked]:text-white"
           >
             <input
               type="radio"
               name="programScope"
               value="Jr. Flyers (K–6) Spotlight"
-              class="h-4 w-4 accent-amber-400"
+              class="accent-flyers-gold h-4 w-4"
             />
             <span>Jr. Flyers (K–6) Spotlight</span>
           </label>
@@ -211,39 +213,41 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
 
       <!-- Support Format Radio Group (3 choices => visible radio buttons) -->
       <fieldset>
-        <legend class="text-sm font-extrabold text-slate-900">Preferred Contribution Format</legend>
+        <legend class="text-flyers-slate-dark text-sm font-extrabold">
+          Preferred Contribution Format
+        </legend>
         <div class="mt-2.5 grid gap-2 sm:grid-cols-3">
           <label
-            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+            class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs font-bold transition has-[:checked]:text-white"
           >
             <input
               type="radio"
               name="supportType"
               value="Check or ACH"
               checked
-              class="h-4 w-4 accent-amber-400"
+              class="accent-flyers-gold h-4 w-4"
             />
             <span>Check / ACH</span>
           </label>
           <label
-            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+            class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs font-bold transition has-[:checked]:text-white"
           >
             <input
               type="radio"
               name="supportType"
               value="In-Kind Gear or Services"
-              class="h-4 w-4 accent-amber-400"
+              class="accent-flyers-gold h-4 w-4"
             />
             <span>In-Kind Gear</span>
           </label>
           <label
-            class="flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-xs font-bold text-slate-800 transition has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white"
+            class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-2.5 rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs font-bold transition has-[:checked]:text-white"
           >
             <input
               type="radio"
               name="supportType"
               value="Online via Zeffy"
-              class="h-4 w-4 accent-amber-400"
+              class="accent-flyers-gold h-4 w-4"
             />
             <span>Zeffy Online</span>
           </label>
@@ -252,7 +256,7 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
     </div>
 
     <div class="form-field">
-      <label for="sponsorNotes" class="block text-sm font-extrabold text-slate-900">
+      <label for="sponsorNotes" class="text-flyers-slate-dark block text-sm font-extrabold">
         Goals, Timeline, or In-Kind Details (Optional)
       </label>
       <textarea
@@ -260,7 +264,7 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
         name="notes"
         rows="3"
         maxlength="1000"
-        class="mt-1.5 block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-2xs"
+        class="text-flyers-charcoal mt-1.5 block w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-base shadow-2xs"
       ></textarea>
     </div>
 
@@ -268,11 +272,11 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
       <button
         type="submit"
         id="sponsor-submit-btn"
-        class="inline-flex min-h-12 items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-base font-extrabold text-white transition hover:bg-slate-800"
+        class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-12 items-center justify-center rounded-xl px-7 py-3 text-lg font-extrabold tracking-wider text-white uppercase shadow-sm transition"
       >
         Prepare &amp; Send Sponsorship Inquiry
       </button>
-      <p class="text-xs text-slate-600">
+      <p class="text-flyers-iron text-xs">
         100% volunteer board · Tax-deductible via {siteConfig.legalEntity}
       </p>
     </div>
@@ -426,7 +430,7 @@ const sortedTiers = [...tiers].sort((a, b) => a.data.order - b.data.order);
         const link = document.createElement('a');
         link.href = mailtoHref;
         link.className =
-          'mt-3 inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-800 px-4 py-2 text-xs font-extrabold text-white hover:bg-emerald-900';
+          'mt-3 inline-flex min-h-12 items-center justify-center rounded-lg bg-emerald-800 px-4 py-2 text-xs font-extrabold text-white hover:bg-emerald-900';
         link.textContent = `Open Email Draft to ${recipient} →`;
 
         statusBox.append(heading, detail, link);

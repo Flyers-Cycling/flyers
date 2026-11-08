@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Jr. Flyers youth summer singletrack illustration">
-  <rect width="800" height="500" fill="#0c1f17"/>
-  <circle cx="650" cy="110" r="65" fill="#22c55e" opacity="0.2"/>
-  <path d="M0 330 Q 200 230 400 300 T 800 260 L800 500 L0 500 Z" fill="#133326"/>
-  <path d="M0 395 Q 260 325 510 385 T 800 355 L800 500 L0 500 Z" fill="#091912"/>
-  <path d="M140 480 C 260 410, 340 440, 470 375 C 580 320, 650 350, 740 285" fill="none" stroke="#4ade80" stroke-width="8" stroke-linecap="round"/>
-  <text x="40" y="64" fill="#86efac" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="3">JR. FLYERS · GRADES K–6</text>
-</svg>

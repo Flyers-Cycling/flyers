@@ -21,17 +21,17 @@ const sorted = [...programs].sort((a, b) => a.data.order - b.data.order);
 
       return (
         <article
-          class={`group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition ${accentMeta.borderClass}`}
+          class={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition ${accentMeta.borderClass}`}
         >
           <div class={`h-2 w-full ${accentMeta.topBarClass}`} aria-hidden="true" />
-          <div class="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+          <div class="bg-flyers-slate-dark relative aspect-[16/9] w-full overflow-hidden">
             <img
               src={withBase(data.heroImage)}
               alt={data.heroImageAlt}
-              width="800"
-              height="500"
+              width="1200"
+              height="669"
               loading="lazy"
-              class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+              class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
             />
           </div>
 
@@ -51,37 +51,38 @@ const sorted = [...programs].sort((a, b) => a.data.order - b.data.order);
                 </span>
               </div>
 
-              <h3 class="mt-4 text-2xl font-black tracking-tight text-slate-900">
-                <a href={programHref} class="hover:underline">
+              <h3 class="font-display text-flyers-slate-dark mt-4 text-3xl font-black tracking-wide uppercase">
+                <a href={programHref} class="hover:text-flyers-red transition hover:underline">
                   {data.title}
                 </a>
               </h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-700">{data.summary}</p>
+              <p class="text-flyers-iron mt-2 text-sm leading-relaxed">{data.summary}</p>
 
-              <dl class="mt-5 grid grid-cols-2 gap-3 rounded-xl bg-slate-50 p-3.5 text-xs">
+              <dl class="bg-flyers-snow mt-5 grid grid-cols-2 gap-3 rounded-xl border border-neutral-200/80 p-3.5 text-xs">
                 <div>
-                  <dt class="font-bold text-slate-600">Rider Ages</dt>
-                  <dd class="mt-0.5 font-extrabold text-slate-900">
+                  <dt class="text-flyers-iron font-bold">Rider Ages</dt>
+                  <dd class="text-flyers-slate-dark mt-0.5 font-extrabold">
                     {data.gradesLabel} ({data.agesLabel})
                   </dd>
                 </div>
                 <div>
-                  <dt class="font-bold text-slate-600">Program Fee</dt>
-                  <dd class="mt-0.5 font-extrabold text-slate-900">
-                    {data.feeAmount} <span class="font-medium text-slate-600">(shirt + ins.)</span>
+                  <dt class="text-flyers-iron font-bold">Program Fee</dt>
+                  <dd class="text-flyers-slate-dark mt-0.5 font-extrabold">
+                    {data.feeAmount}{' '}
+                    <span class="text-flyers-iron font-medium">(shirt + ins.)</span>
                   </dd>
                 </div>
-                <div class="col-span-2 border-t border-slate-200 pt-2">
-                  <dt class="font-bold text-slate-600">Season</dt>
-                  <dd class="mt-0.5 font-semibold text-slate-800">{data.seasonLabel}</dd>
+                <div class="col-span-2 border-t border-neutral-200 pt-2">
+                  <dt class="text-flyers-iron font-bold">Season</dt>
+                  <dd class="text-flyers-charcoal mt-0.5 font-semibold">{data.seasonLabel}</dd>
                 </div>
               </dl>
             </div>
 
-            <div class="mt-6 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
+            <div class="mt-6 flex items-center justify-between gap-3 border-t border-neutral-100 pt-4">
               <a
                 href={programHref}
-                class="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-800"
+                class={`font-display inline-flex min-h-12 items-center justify-center rounded-lg px-4 py-2 text-base font-extrabold tracking-wider uppercase transition ${accentMeta.buttonClass}`}
               >
                 Explore {data.shortTitle} &rarr;
               </a>
@@ -89,7 +90,7 @@ const sorted = [...programs].sort((a, b) => a.data.order - b.data.order);
                 href={data.registrationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-xs font-extrabold text-slate-700 underline hover:text-slate-950"
+                class="text-flyers-slate hover:text-flyers-red-deep text-xs font-extrabold underline transition"
               >
                 {statusMeta.ctaLabel}
               </a>

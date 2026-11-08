@@ -34,16 +34,23 @@ const canonicalUrl = new URL(
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:image" content={withBase('/images/hero-flyers.jpg')} />
   </head>
-  <body class="flex min-h-dvh flex-col bg-slate-50 text-slate-900 antialiased">
+  <body class="bg-flyers-snow text-flyers-charcoal flex min-h-dvh flex-col antialiased">
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-amber-400 focus:px-4 focus:py-2.5 focus:text-sm focus:font-extrabold focus:text-slate-950 focus:shadow-lg"
+      class="focus:bg-flyers-gold focus:text-flyers-slate-dark sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2.5 focus:text-sm focus:font-extrabold focus:shadow-lg"
     >
       Skip to main content
     </a>

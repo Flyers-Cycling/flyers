@@ -22,19 +22,19 @@ const programQuickLinks = [
     label: 'Flyers XC',
     sub: 'Grades 7–12 · Endurance',
     href: withBase('/programs/xc'),
-    dot: 'bg-sky-400',
+    dot: 'bg-flyers-red-bright',
   },
   {
     label: 'Flyers Enduro',
     sub: 'Ages 10–19 · Gravity',
     href: withBase('/programs/enduro'),
-    dot: 'bg-orange-400',
+    dot: 'bg-flyers-gold',
   },
   {
     label: 'Jr. Flyers',
     sub: 'Grades K–6 · Youth Skills',
     href: withBase('/programs/jr-flyers'),
-    dot: 'bg-emerald-400',
+    dot: 'bg-white',
   },
 ];
 
@@ -46,23 +46,23 @@ function isActive(matchPrefix: string): boolean {
 ---
 
 <header
-  class="no-print sticky top-0 z-40 border-b border-slate-800 bg-slate-950/95 text-white backdrop-blur"
+  class="no-print dark-surface border-flyers-slate-mid bg-flyers-slate/95 sticky top-0 z-40 border-b text-white shadow-md backdrop-blur"
 >
-  <!-- Subtle program quick-jump strip -->
-  <div class="border-b border-slate-800/80 bg-slate-900/90">
+  <!-- Top Brand Accent Rule + Quick Program Bar -->
+  <div class="border-flyers-red bg-flyers-slate-dark border-t-3 border-b border-b-white/10">
     <div
       class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-1.5 text-xs sm:px-6 lg:px-8"
     >
-      <p class="font-medium text-slate-300">
-        <span class="font-semibold text-white">501(c)(3) Youth Cycling</span> · 100% Volunteer-Led · Northwest
-        Utah County
+      <p class="text-flyers-silver font-medium">
+        <span class="font-bold text-white">501(c)(3) Youth Cycling Club</span> · 100% Volunteer-Led ·
+        Northwest Utah County
       </p>
-      <div class="hidden items-center gap-4 md:flex" aria-label="Quick program links">
+      <div class="hidden items-center gap-5 md:flex" aria-label="Quick program links">
         {
           programQuickLinks.map((prog) => (
             <a
               href={prog.href}
-              class="inline-flex items-center gap-1.5 font-medium text-slate-200 transition hover:text-amber-300"
+              class="hover:text-flyers-gold inline-flex items-center gap-1.5 font-semibold text-white/90 transition"
             >
               <span class={`h-2 w-2 rounded-full ${prog.dot}`} aria-hidden="true" />
               <span>{prog.label}</span>
@@ -73,28 +73,28 @@ function isActive(matchPrefix: string): boolean {
     </div>
   </div>
 
-  <!-- Main navigation bar -->
-  <div
-    class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8"
-  >
-    <a href={withBase('/')} class="group flex items-center gap-3">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 64 64"
-        width="42"
-        height="42"
-        aria-hidden="true"
-        class="shrink-0 rounded-xl ring-1 ring-slate-700 transition group-hover:ring-sky-400"
-      >
-        <rect width="64" height="64" rx="14" fill="#0f172a"></rect>
-        <path d="M14 44L26 20h10l-7 14h11l-5 10H14z" fill="#38bdf8"></path>
-        <path d="M32 44l8-16h10l-8 16H32z" fill="#f97316"></path>
-      </svg>
-      <div>
-        <span class="block text-lg font-black tracking-tight text-white uppercase sm:text-xl">
-          {siteConfig.name}
+  <!-- Main Navigation Bar -->
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <a href={withBase('/')} class="group flex items-center gap-3.5">
+      <img
+        src={withBase('/images/brand/flyers-logo-dark-bg.svg')}
+        alt=""
+        width="72"
+        height="51"
+        class="h-11 w-auto shrink-0 transition duration-200 group-hover:scale-[1.03]"
+      />
+      <div class="border-l border-white/20 pl-3.5">
+        <span class="sr-only">{siteConfig.name} — </span>
+        <span
+          class="font-display block text-xl leading-none font-black tracking-wider text-white uppercase sm:text-2xl"
+        >
+          Cycling Club
         </span>
-        <span class="block text-xs font-medium text-slate-300"> XC · Enduro · Jr. Flyers </span>
+        <span
+          class="text-flyers-silver mt-0.5 block text-[11px] font-bold tracking-wider uppercase"
+        >
+          XC · Enduro · Jr. Flyers
+        </span>
       </div>
     </a>
 
@@ -108,10 +108,10 @@ function isActive(matchPrefix: string): boolean {
                 <a
                   href={item.href}
                   aria-current={active ? 'page' : undefined}
-                  class={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
+                  class={`rounded-lg px-3 py-2 text-sm font-bold tracking-wide transition ${
                     active
-                      ? 'bg-slate-800 text-white'
-                      : 'text-slate-200 hover:bg-slate-900 hover:text-white'
+                      ? 'bg-flyers-slate-dark text-flyers-gold ring-1 ring-white/15'
+                      : 'text-white/90 hover:bg-white/10 hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -126,13 +126,13 @@ function isActive(matchPrefix: string): boolean {
     <div class="hidden items-center gap-2.5 sm:flex">
       <a
         href={withBase('/programs#pathway-finder')}
-        class="rounded-lg border border-slate-700 bg-slate-900 px-3.5 py-2 text-sm font-semibold text-white transition hover:border-slate-500 hover:bg-slate-800"
+        class="rounded-lg border border-white/25 bg-white/5 px-3.5 py-2 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/15"
       >
         Find a Program
       </a>
       <a
         href={withBase('/sponsors')}
-        class="rounded-lg bg-amber-400 px-4 py-2 text-sm font-extrabold text-slate-950 shadow-sm transition hover:bg-amber-300"
+        class="bg-flyers-red hover:bg-flyers-red-bright font-display rounded-lg px-4 py-2 text-base font-extrabold tracking-wider text-white uppercase shadow-sm transition"
       >
         Sponsor / Donate
       </a>
@@ -143,7 +143,7 @@ function isActive(matchPrefix: string): boolean {
       id="mobile-menu-open"
       aria-haspopup="dialog"
       aria-controls="mobile-nav-dialog"
-      class="inline-flex min-h-12 min-w-12 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 p-2.5 text-slate-100 transition hover:bg-slate-800 lg:hidden"
+      class="bg-flyers-slate-dark inline-flex min-h-12 min-w-12 items-center justify-center rounded-lg border border-white/25 p-2.5 text-white transition hover:bg-white/10 lg:hidden"
       aria-label="Open navigation menu"
     >
       <svg
@@ -170,21 +170,31 @@ function isActive(matchPrefix: string): boolean {
     id="mobile-nav-dialog"
     closedby="any"
     aria-labelledby="mobile-nav-title"
-    class="m-0 ml-auto h-dvh max-h-none w-full max-w-sm border-l border-slate-800 bg-slate-950 p-0 text-white shadow-2xl"
+    class="dark-surface border-flyers-slate-mid bg-flyers-slate-dark m-0 ml-auto h-dvh max-h-none w-full max-w-sm border-l p-0 text-white shadow-2xl"
   >
     <div class="flex h-full flex-col justify-between p-6">
       <div>
-        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-          <h2
-            id="mobile-nav-title"
-            class="text-base font-extrabold tracking-wide text-white uppercase"
-          >
-            Flyers Navigation
-          </h2>
+        <div class="flex items-center justify-between border-b border-white/15 pb-4">
+          <div class="flex items-center gap-3">
+            <img
+              src={withBase('/images/brand/flyers-symbol-crest.svg')}
+              alt=""
+              width="40"
+              height="22"
+              fetchpriority="low"
+              class="h-5 w-auto"
+            />
+            <h2
+              id="mobile-nav-title"
+              class="font-display text-xl font-black tracking-wider text-white uppercase"
+            >
+              Flyers Navigation
+            </h2>
+          </div>
           <form method="dialog">
             <button
               type="submit"
-              class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800"
+              class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-white/25 bg-white/5 px-3 py-2 text-sm font-bold text-white hover:bg-white/15"
             >
               Close
             </button>
@@ -192,7 +202,7 @@ function isActive(matchPrefix: string): boolean {
         </div>
 
         <nav aria-label="Mobile navigation" class="mt-5">
-          <p class="px-2 text-xs font-bold tracking-wider text-slate-400 uppercase">
+          <p class="text-flyers-gold px-2 text-xs font-extrabold tracking-widest uppercase">
             3 Club Programs
           </p>
           <ul class="mt-2 space-y-1.5">
@@ -201,20 +211,20 @@ function isActive(matchPrefix: string): boolean {
                 <li>
                   <a
                     href={prog.href}
-                    class="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-900/80 px-3.5 py-3 transition hover:border-slate-600"
+                    class="bg-flyers-slate/80 flex items-center justify-between rounded-lg border border-white/15 px-3.5 py-3 transition hover:border-white/40"
                   >
                     <span class="flex items-center gap-2.5 font-bold text-white">
                       <span class={`h-2.5 w-2.5 rounded-full ${prog.dot}`} aria-hidden="true" />
                       {prog.label}
                     </span>
-                    <span class="text-xs text-slate-300">{prog.sub}</span>
+                    <span class="text-flyers-silver text-xs">{prog.sub}</span>
                   </a>
                 </li>
               ))
             }
           </ul>
 
-          <p class="mt-6 px-2 text-xs font-bold tracking-wider text-slate-400 uppercase">
+          <p class="text-flyers-gold mt-6 px-2 text-xs font-extrabold tracking-widest uppercase">
             Explore Club
           </p>
           <ul class="mt-2 space-y-1">
@@ -223,7 +233,7 @@ function isActive(matchPrefix: string): boolean {
                 <li>
                   <a
                     href={item.href}
-                    class="block rounded-lg px-3 py-2.5 text-base font-semibold text-slate-200 transition hover:bg-slate-900 hover:text-white"
+                    class="block rounded-lg px-3 py-2.5 text-base font-bold text-white/90 transition hover:bg-white/10 hover:text-white"
                   >
                     {item.label}
                   </a>
@@ -234,16 +244,16 @@ function isActive(matchPrefix: string): boolean {
         </nav>
       </div>
 
-      <div class="space-y-2.5 border-t border-slate-800 pt-4">
+      <div class="space-y-2.5 border-t border-white/15 pt-4">
         <a
           href={withBase('/programs#pathway-finder')}
-          class="block w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-center text-sm font-bold text-white hover:bg-slate-800"
+          class="block w-full rounded-lg border border-white/25 bg-white/5 px-4 py-3 text-center text-sm font-bold text-white hover:bg-white/15"
         >
           Find Your Rider's Program
         </a>
         <a
           href={withBase('/sponsors')}
-          class="block w-full rounded-lg bg-amber-400 px-4 py-3 text-center text-sm font-extrabold text-slate-950 hover:bg-amber-300"
+          class="bg-flyers-red hover:bg-flyers-red-bright font-display block w-full rounded-lg px-4 py-3 text-center text-base font-extrabold tracking-wider text-white uppercase"
         >
           Sponsor or Donate (501c3)
         </a>

@@ -22,26 +22,34 @@ const {
     <title>{title} | {siteConfig.name}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="min-h-dvh bg-slate-100 text-slate-900 antialiased">
-    <header class="no-print sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <body class="bg-flyers-snow text-flyers-charcoal min-h-dvh antialiased">
+    <header
+      class="no-print border-flyers-red bg-flyers-slate-dark sticky top-0 z-30 border-b-2 text-white shadow-md"
+    >
       <div
         class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6"
       >
         <a
           href={withBase('/sponsors')}
-          class="inline-flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-sky-700"
+          class="hover:text-flyers-gold inline-flex items-center gap-2 text-sm font-bold text-white transition"
         >
           &larr; Back to Sponsorships &amp; Giving
         </a>
-        <div class="flex items-center gap-2.5">
-          <span class="hidden text-xs font-medium text-slate-600 sm:inline">
+        <div class="flex items-center gap-3">
+          <span class="text-flyers-silver hidden text-xs font-medium sm:inline">
             Formatted for Letter PDF / Print
           </span>
           <button
             type="button"
             id="print-prospectus-btn"
-            class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-800"
+            class="bg-flyers-red hover:bg-flyers-red-bright inline-flex min-h-11 items-center gap-2 rounded-lg px-4 py-2 text-sm font-extrabold tracking-wide text-white uppercase transition"
           >
             Print / Save as PDF
           </button>

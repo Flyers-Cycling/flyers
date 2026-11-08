@@ -15,8 +15,8 @@ registrationUrl: https://www.zeffy.com/
 feeAmount: '$50'
 feeIncludes: Covers your Flyers club t-shirt and rider insurance. Coaching and rides are 100% volunteer-led.
 accentKey: xc
-heroImage: /images/program-xc.svg
-heroImageAlt: Topographic mountain trail artwork representing Flyers XC endurance riding on Lake Mountain singletrack
+heroImage: /images/program-xc.jpg
+heroImageAlt: Flyers XC youth mountain bike racers climbing scenic Utah singletrack with Wasatch peaks behind them
 practiceSchedule:
   - 'Winter (Jan–Feb): 1 structured ride per week (weather-smart base miles & skill drills)'
   - 'Spring (Mar–May): 1–2 practices per week preparing for ICUP & spring XC events'

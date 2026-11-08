@@ -15,12 +15,12 @@ const events = (await getCollection('events'))
   .sort((a, b) => a.data.startDate.localeCompare(b.data.startDate))
   .slice(0, 3);
 
-const programLabels: Record<string, string> = {
-  all: 'All Club',
-  xc: 'Flyers XC',
-  enduro: 'Flyers Enduro',
-  'jr-flyers': 'Jr. Flyers',
-  community: 'Trail & Community',
+const programBadgeMeta: Record<string, { label: string; style: string }> = {
+  all: { label: 'All Club', style: 'bg-flyers-slate-dark text-white' },
+  xc: { label: 'Flyers XC', style: 'bg-flyers-red text-white' },
+  enduro: { label: 'Flyers Enduro', style: 'bg-flyers-slate text-white' },
+  'jr-flyers': { label: 'Jr. Flyers', style: 'bg-flyers-berry text-white' },
+  community: { label: 'Trail & Community', style: 'bg-flyers-gold text-flyers-slate-dark' },
 };
 ---
 
@@ -32,24 +32,24 @@ const programLabels: Record<string, string> = {
   <!-- 3 Unified Programs -->
   <section
     aria-labelledby="home-programs-heading"
-    class="border-t border-slate-200 bg-slate-50 py-16 sm:py-20"
+    class="bg-flyers-snow border-t border-neutral-200 py-16 sm:py-20"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div class="max-w-2xl">
-          <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+          <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
             Our 3 Club Programs
           </p>
           <h2
             id="home-programs-heading"
-            class="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+            class="font-display text-flyers-slate-dark mt-2 text-4xl leading-tight font-black tracking-wide uppercase sm:text-5xl"
           >
             From First K–6 Trail Rides to Utah XC &amp; Enduro Podiums
           </h2>
         </div>
         <a
           href={withBase('/programs')}
-          class="text-sm font-extrabold text-sky-800 underline hover:text-sky-950"
+          class="text-flyers-red-deep hover:text-flyers-slate-dark text-sm font-extrabold underline transition"
         >
           Compare all 3 programs &amp; NICA calendar &rarr;
         </a>
@@ -62,7 +62,7 @@ const programLabels: Record<string, string> = {
   </section>
 
   <!-- Interactive Pathway Finder -->
-  <section class="bg-slate-50 pb-16 sm:pb-20">
+  <section class="bg-flyers-snow pb-16 sm:pb-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <ProgramPathwayFinder />
     </div>
@@ -71,24 +71,24 @@ const programLabels: Record<string, string> = {
   <!-- Upcoming Key Dates & Schedule Preview -->
   <section
     aria-labelledby="home-schedule-heading"
-    class="border-t border-slate-200 bg-white py-16 sm:py-20"
+    class="border-t border-neutral-200 bg-white py-16 sm:py-20"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+          <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
             Seasonal Rhythm
           </p>
           <h2
             id="home-schedule-heading"
-            class="mt-2 text-3xl font-black tracking-tight text-slate-900"
+            class="font-display text-flyers-slate-dark mt-2 text-4xl leading-tight font-black tracking-wide uppercase sm:text-5xl"
           >
             Upcoming Windows, Clinics &amp; Trail Days
           </h2>
         </div>
         <a
           href={withBase('/schedule')}
-          class="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-900 transition hover:bg-slate-50"
+          class="bg-flyers-slate hover:bg-flyers-slate-dark font-display inline-flex min-h-12 items-center justify-center rounded-lg px-5 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
         >
           View Full Club Schedule &rarr;
         </a>
@@ -96,37 +96,42 @@ const programLabels: Record<string, string> = {
 
       <div class="mt-8 grid gap-6 md:grid-cols-3">
         {
-          events.map((event) => (
-            <article class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <div>
-                <div class="flex items-center justify-between gap-2 text-xs font-bold">
-                  <span class="rounded-full bg-slate-900 px-2.5 py-0.5 text-white">
-                    {programLabels[event.data.program]}
-                  </span>
-                  <time datetime={event.data.startDate} class="text-slate-700">
-                    {event.data.startDate}
-                  </time>
+          events.map((event) => {
+            const badge = programBadgeMeta[event.data.program];
+            return (
+              <article class="bg-flyers-snow flex flex-col justify-between rounded-2xl border border-neutral-200 p-6">
+                <div>
+                  <div class="flex items-center justify-between gap-2 text-xs font-bold">
+                    <span class={`rounded-full px-2.5 py-0.5 font-extrabold ${badge.style}`}>
+                      {badge.label}
+                    </span>
+                    <time datetime={event.data.startDate} class="text-flyers-iron font-extrabold">
+                      {event.data.startDate}
+                    </time>
+                  </div>
+                  <h3 class="font-display text-flyers-slate-dark mt-4 text-2xl font-black tracking-wide uppercase">
+                    {event.data.title}
+                  </h3>
+                  <p class="text-flyers-iron mt-1 text-xs font-semibold">
+                    {event.data.timeLabel} · {event.data.location}
+                  </p>
+                  <p class="text-flyers-iron mt-3 text-sm leading-relaxed">{event.data.summary}</p>
                 </div>
-                <h3 class="mt-4 text-lg font-extrabold text-slate-900">{event.data.title}</h3>
-                <p class="mt-1 text-xs font-semibold text-slate-600">
-                  {event.data.timeLabel} · {event.data.location}
-                </p>
-                <p class="mt-3 text-sm leading-relaxed text-slate-700">{event.data.summary}</p>
-              </div>
-              {event.data.actionUrl && event.data.actionLabel && (
-                <div class="mt-5 pt-3">
-                  <a
-                    href={event.data.actionUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-xs font-extrabold text-sky-800 underline hover:text-sky-950"
-                  >
-                    {event.data.actionLabel} &rarr;
-                  </a>
-                </div>
-              )}
-            </article>
-          ))
+                {event.data.actionUrl && event.data.actionLabel && (
+                  <div class="mt-5 border-t border-neutral-200 pt-3">
+                    <a
+                      href={event.data.actionUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-flyers-red-deep hover:text-flyers-slate-dark text-xs font-extrabold underline transition"
+                    >
+                      {event.data.actionLabel} &rarr;
+                    </a>
+                  </div>
+                )}
+              </article>
+            );
+          })
         }
       </div>
     </div>
@@ -135,20 +140,20 @@ const programLabels: Record<string, string> = {
   <!-- Club Sponsors & 501(c)(3) Support -->
   <section
     aria-labelledby="home-sponsors-heading"
-    class="border-t border-slate-200 bg-slate-50 py-16 sm:py-20"
+    class="bg-flyers-snow border-t border-neutral-200 py-16 sm:py-20"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="text-xs font-extrabold tracking-widest text-sky-800 uppercase">
+        <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
           Community-Funded Youth Cycling
         </p>
         <h2
           id="home-sponsors-heading"
-          class="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+          class="font-display text-flyers-slate-dark mt-2 text-4xl leading-tight font-black tracking-wide uppercase sm:text-5xl"
         >
           Sponsors Keep Our Riders Rolling
         </h2>
-        <p class="mt-3 text-base leading-relaxed text-slate-700">
+        <p class="text-flyers-iron mt-3 text-base leading-relaxed">
           Because all Flyers coaches volunteer their time and registration ({
             siteConfig.feePhilosophy.rangeLabel
           }) covers t-shirt and insurance only, our sponsors directly make affordable youth mountain

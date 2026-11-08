@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="124 22 352 194" width="352" height="194" role="img" aria-label="Flyers twin mountain peak emblem">
+  <defs>
+    <linearGradient id="wf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#D0D0D0"/>
+    </linearGradient>
+    <linearGradient id="rf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D42424"/>
+      <stop offset="100%" stop-color="#AF2222"/>
+    </linearGradient>
+    <linearGradient id="rc" gradientUnits="userSpaceOnUse" x1="227.4" y1="173.4" x2="213.0" y2="187.8">
+      <stop offset="0%" stop-color="#3E0505" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#3E0505" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(-17, -41) scale(1.06, 1.06)">
+    <path d="M 155.5 208.5 L 209.0 155.0 L 245.75 191.75 L 229.0 208.5 Z" fill="#D6D6D6"/>
+    <path d="M 245.0 119.0 L 334.5 208.5 L 262.5 208.5 L 209.0 155.0 Z" fill="url(#wf)"/>
+    <path d="M 301.5 62.5 L 447.5 208.5 L 375.5 208.5 L 265.5 98.5 Z" fill="url(#wf)"/>
+  </g>
+  <path d="M 155.5 208.5 L 209.0 155.0 L 245.75 191.75 L 229.0 208.5 Z" fill="#9E1B1B"/>
+  <path d="M 209.0 155.0 L 245.75 191.75 L 231.5 206.0 L 194.75 169.25 Z" fill="url(#rc)"/>
+  <path d="M 245.0 119.0 L 334.5 208.5 L 262.5 208.5 L 209.0 155.0 Z" fill="url(#rf)"/>
+  <path d="M 301.5 62.5 L 447.5 208.5 L 375.5 208.5 L 265.5 98.5 Z" fill="url(#rf)"/>
+</svg>

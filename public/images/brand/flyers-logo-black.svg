@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="145 56 310 214" width="620" height="428" role="img" aria-label="Flyers Cycling Club carbon black logo">
+  <defs>
+    <linearGradient id="peakFront" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#303030"/>
+      <stop offset="55%" stop-color="#242424"/>
+      <stop offset="100%" stop-color="#212121"/>
+    </linearGradient>
+    <linearGradient id="peakBack" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1B1B1B"/>
+      <stop offset="100%" stop-color="#242424"/>
+    </linearGradient>
+    <linearGradient id="crease" gradientUnits="userSpaceOnUse" x1="227.4" y1="173.4" x2="213.0" y2="187.8">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.52"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M 155.5 208.5 L 209.0 155.0 L 245.75 191.75 L 229.0 208.5 Z" fill="url(#peakBack)"/>
+  <path d="M 209.0 155.0 L 245.75 191.75 L 231.5 206.0 L 194.75 169.25 Z" fill="url(#crease)"/>
+  <path d="M 245.0 119.0 L 334.5 208.5 L 262.5 208.5 L 209.0 155.0 Z" fill="url(#peakFront)"/>
+  <path d="M 301.5 62.5 L 447.5 208.5 L 375.5 208.5 L 265.5 98.5 Z" fill="url(#peakFront)"/>
+  <path d="M 156.5 216.0 L 198.5 216.0 L 196.8 225.8 L 173.2 225.8 L 171.6 235.0 L 191.2 235.0 L 189.5 244.8 L 169.9 244.8 L 166.5 264.5 L 151.0 264.5 L 157.7 223.5 L 156.5 216.0 Z M 204.0 216.0 L 221.2 216.0 L 214.6 254.2 L 240.2 254.2 L 237.2 264.5 L 199.2 264.5 L 205.2 223.5 L 204.0 216.0 Z M 240.8 216.0 L 259.5 216.0 L 268.6 235.8 L 283.2 216.0 L 296.5 216.0 L 274.2 248.5 L 271.4 264.5 L 255.2 264.5 L 258.0 248.5 L 240.8 216.0 Z M 300.8 216.0 L 342.5 216.0 L 340.8 225.8 L 317.2 225.8 L 315.6 235.0 L 335.5 235.0 L 333.8 244.8 L 313.9 244.8 L 312.3 254.2 L 337.2 254.2 L 334.2 264.5 L 296.0 264.5 L 302.0 223.5 L 300.8 216.0 Z M 348.2 216.0 L 390.5 216.0 L 394.5 220.2 L 391.5 244.5 L 385.5 250.2 L 389.5 264.5 L 373.5 264.5 L 370.2 251.2 L 361.6 251.2 L 359.3 264.5 L 343.6 264.5 L 349.4 223.5 L 348.2 216.0 Z M 364.6 225.8 L 362.8 240.8 L 376.5 240.8 L 378.4 225.8 Z M 407.5 216.0 L 446.5 216.0 L 444.5 225.8 L 418.2 225.8 L 416.6 235.0 L 439.8 235.0 L 443.8 239.2 L 440.8 259.2 L 435.5 264.5 L 399.0 264.5 L 401.0 254.2 L 426.8 254.2 L 428.4 244.8 L 404.8 244.8 L 400.8 240.5 L 403.2 220.8 Z" fill="#212121" fill-rule="evenodd"/>
+</svg>

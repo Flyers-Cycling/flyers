@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Eagle Mountain Youth Supporters">
-  <rect width="240" height="80" rx="12" fill="#0f172a"/>
-  <circle cx="44" cy="40" r="16" fill="#22c55e" opacity="0.25"/>
-  <path d="M36 42l6 6 12-14" fill="none" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="74" y="38" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">COMMUNITY</text>
-  <text x="74" y="55" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">FAMILY SUPPORTERS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Eagle Mountain and Lehi Community Families">
+  <rect width="240" height="80" rx="10" fill="#203746"/>
+  <circle cx="38" cy="40" r="15" fill="#9D112A"/>
+  <path d="M31 44 L38 33 L45 44 Z" fill="#FFFFFF"/>
+  <text x="64" y="38" fill="#FFFFFF" font-family="'Barlow Condensed', system-ui, sans-serif" font-size="15.5" font-weight="800" letter-spacing="0.8">NW UTAH COUNTY</text>
+  <text x="64" y="55" fill="#CECECE" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.6">JR. FLYERS FAMILY DONORS</text>
 </svg>

@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Lake Mountain Trails Coalition">
-  <rect width="240" height="80" rx="12" fill="#0f172a"/>
-  <path d="M24 56L42 26l14 20 10-14 16 24H24z" fill="#38bdf8"/>
-  <text x="94" y="38" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">LAKE MOUNTAIN</text>
-  <text x="94" y="55" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">TRAILS COALITION</text>
+  <rect width="240" height="80" rx="10" fill="#14242E"/>
+  <path d="M20 56 L38 38 L50 50 L43 56 Z" fill="#CECECE"/>
+  <path d="M30 56 L52 34 L74 56 H60 L52 48 L44 56 Z" fill="#D12323"/>
+  <text x="86" y="38" fill="#FFFFFF" font-family="'Barlow Condensed', system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="0.8">LAKE MOUNTAIN</text>
+  <text x="86" y="55" fill="#F4CE50" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.2">TRAILS COALITION</text>
 </svg>
