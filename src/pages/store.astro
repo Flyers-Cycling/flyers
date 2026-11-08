@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/site';
+import { formatPostDate } from '../lib/dates';
 
 const updates = (await getCollection('updates')).sort((a, b) =>
   b.data.publishedDate.localeCompare(a.data.publishedDate),
@@ -16,22 +17,22 @@ const renderedUpdates = await Promise.all(
 ---
 
 <BaseLayout
-  title="Team Kits, Merch Shop & Club Updates"
-  description="Seasonal Volt Cyclewear custom jersey windows, Zeffy Flyers merch shop, and official announcements for Flyers Cycling Club."
+  title="Team Kits, Shop & News"
+  description="Order optional Flyers team kits from Volt Cyclewear, buy family gear from the club shop, and read the latest Flyers Cycling Club news."
 >
   <section class="dark-surface flyers-banner-bg py-14 text-white sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-flyers-gold text-xs font-extrabold tracking-widest uppercase">
-        Apparel, Gear &amp; Club Dispatches
+        Gear &amp; news
       </p>
       <h1
         class="font-display mt-3 max-w-3xl text-4xl leading-[0.98] font-black tracking-wide text-white uppercase sm:text-6xl"
       >
-        Team Kits, Merch Store &amp; Seasonal News
+        Team kits, club gear, and news
       </h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
-        Designed to keep riders looking sharp on Utah trails and start lines without requiring
-        expensive head-to-toe custom kits.
+        Team kits are optional. Every registered rider already gets a club t-shirt, and our jerseys
+        are made to go with plain black shorts you may already own.
       </p>
     </div>
   </section>
@@ -43,7 +44,7 @@ const renderedUpdates = await Promise.all(
         id="gear-stores-heading"
         class="font-display text-flyers-slate-dark text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
       >
-        Club Apparel &amp; Supporter Gear
+        Kits and club gear
       </h2>
 
       <div class="mt-8 grid gap-8 lg:grid-cols-2">
@@ -67,7 +68,7 @@ const renderedUpdates = await Promise.all(
             <h3
               class="font-display text-flyers-slate-dark mt-4 text-3xl font-black tracking-wide uppercase"
             >
-              Custom Flyers XC &amp; Enduro Team Kits
+              Flyers team kits
             </h3>
             <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
               {siteConfig.integrations.voltKitStore.notes}
@@ -75,20 +76,16 @@ const renderedUpdates = await Promise.all(
             <ul class="text-flyers-iron mt-4 space-y-2 text-xs">
               <li class="flex items-start gap-2">
                 <span class="text-flyers-red font-black" aria-hidden="true">&#10003;</span>
-                <span
-                  >Breathable 4-way stretch XC &amp; trail jerseys + Alpine Thermal cold-weather
-                  layers</span
+                <span>Stretchy XC and trail jerseys, plus Alpine Thermal layers for cold rides</span
                 >
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-flyers-red font-black" aria-hidden="true">&#10003;</span>
-                <span
-                  >Pairs cleanly with plain black bibs or mountain bike shorts you already own</span
-                >
+                <span>Made to match plain black bibs or mountain bike shorts</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-flyers-red font-black" aria-hidden="true">&#10003;</span>
-                <span>Proudly showcases our 501(c)(3) community sponsors across Utah trails</span>
+                <span>Carries the logos of the sponsors who support the club</span>
               </li>
             </ul>
           </div>
@@ -99,7 +96,7 @@ const renderedUpdates = await Promise.all(
               rel="noopener noreferrer"
               class="bg-flyers-slate hover:bg-flyers-slate-dark font-display inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
             >
-              Check Kit Window Details &rarr;
+              See kit order details &rarr;
             </a>
           </div>
         </article>
@@ -113,23 +110,18 @@ const renderedUpdates = await Promise.all(
               <span
                 class="rounded-full border border-[#F2C4C4] bg-[#FDF2F2] px-3 py-1 text-xs font-extrabold text-[#8F1616]"
               >
-                Zeffy Non-Profit Portal
-              </span>
-              <span
-                class="rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-950"
-              >
-                100% Proceeds to Club
+                Zeffy
               </span>
             </div>
             <h3
               class="font-display text-flyers-slate-dark mt-4 text-3xl font-black tracking-wide uppercase"
             >
-              Flyers Enduro &amp; Community Merch Shop
+              Club shop
             </h3>
             <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
-              Remember that every registered rider already receives a club t-shirt included with
-              their $50 or $150 registration! Extra parent/family tees, hats, stickers, and Enduro
-              apparel are available through our zero-fee Zeffy shop.
+              Every registered rider already gets a club t-shirt with registration. Extra tees for
+              parents and siblings, hats, stickers, and Flyers Enduro apparel are in our Zeffy shop.
+              Zeffy doesn't charge the club fees, so more of each purchase goes to the club.
             </p>
           </div>
           <div class="mt-6 pt-4">
@@ -139,7 +131,7 @@ const renderedUpdates = await Promise.all(
               rel="noopener noreferrer"
               class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
             >
-              Visit Flyers Zeffy Shop &rarr;
+              Visit the club shop &rarr;
             </a>
           </div>
         </article>
@@ -157,7 +149,7 @@ const renderedUpdates = await Promise.all(
         id="updates-heading"
         class="font-display text-flyers-slate-dark text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
       >
-        Club Updates &amp; Seasonal Announcements
+        Club news
       </h2>
 
       <div class="mt-8 space-y-6">
@@ -167,7 +159,9 @@ const renderedUpdates = await Promise.all(
             return (
               <article class="bg-flyers-snow rounded-2xl border border-neutral-200 p-6 sm:p-8">
                 <div class="text-flyers-iron flex flex-wrap items-center gap-2 text-xs font-bold">
-                  <time datetime={entry.data.publishedDate}>{entry.data.publishedDate}</time>
+                  <time datetime={entry.data.publishedDate}>
+                    {formatPostDate(entry.data.publishedDate)}
+                  </time>
                   <span aria-hidden="true">·</span>
                   <span class="text-flyers-red-deep uppercase">{entry.data.category}</span>
                 </div>

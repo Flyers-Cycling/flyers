@@ -4,9 +4,9 @@ Official static website for **Flyers Cycling Club** — unifying **Flyers XC**, 
 
 ## Club Differentiators Highlighted on the Site
 
-1. **501(c)(3) Community Non-Profit (100% Volunteer-Led)**: Every coach, ride leader, and board member donates their time. We steward local Utah trails and partner with local NICA high school squads (**Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak**).
+1. **Volunteer-run 501(c)(3) non-profit**: Coaches, ride leaders, and board members are volunteers. Riders help care for local Utah trails, and the seasons fit around fall NICA school teams.
 2. **Gravity + Endurance + Youth Under One Roof**: Serving **Jr. Flyers (K–6)**, **Flyers XC (Grades 7–12)**, and **Flyers Enduro (Ages 10–19)** in one easy-to-navigate platform.
-3. **Sponsor-Powered Affordability**: Rider registration is just **$50 or $150** depending on the program (strictly covering rider t-shirt and insurance). Community & corporate sponsors fund coaching certifications, pit support, and financial-hardship access.
+3. **Low cost, with help available**: Registration is $50 or $150 depending on the program and covers a t-shirt and rider insurance. Sponsors and donors pay for the rest, including help for families who need it.
 
 ---
 

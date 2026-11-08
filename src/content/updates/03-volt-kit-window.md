@@ -1,9 +1,9 @@
 ---
-title: Custom Volt Cyclewear Team Kit Order Window Information
-publishedDate: '2026-12-05'
+title: Team kit orders open this winter
+publishedDate: '2026-11-08'
 category: kit-store
 program: all
-summary: Seasonal custom jersey and Alpine Thermal layer ordering opens ahead of spring racing—designed to pair with standard black shorts/bibs.
+summary: Optional Flyers jerseys and Alpine Thermal layers from Volt Cyclewear can be ordered this winter so they arrive before spring.
 ---
 
-Our seasonal **Volt Cyclewear** custom kit store opens during the winter window so gear arrives ahead of spring trail sessions and races. True to our mission of keeping cycling affordable, Flyers tops—including 4-way stretch trail jerseys and Alpine Thermal layers—are designed to match plain black bibs or mountain bike shorts you already own.
+Our **Volt Cyclewear** kit store opens this winter, so orders arrive before spring rides and races. Team kits are optional. The jerseys and Alpine Thermal layers are made to go with plain black bibs or mountain bike shorts you may already own, which keeps the cost down.

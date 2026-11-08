@@ -2,44 +2,42 @@
 programId: jr-flyers
 title: Jr. Flyers
 shortTitle: Jr. Flyers
-discipline: Youth Fundamentals (K–6)
-tagline: Big smiles, trail safety, and foundational mountain bike skills for Kindergarten through 6th grade.
+discipline: First Trail Skills (K–6)
+tagline: A summer of skill games, trail riding, and new friends for kids in kindergarten through 6th grade.
 summary: Jr. Flyers is a summer program for kids in grades K–6. Small groups play skill games, learn to brake and shift, and ride beginner singletrack with volunteer coaches.
 order: 3
 agesLabel: Ages 5–12
 gradesLabel: Grades K–6
-seasonLabel: Summer Season (June – August)
+seasonLabel: Summer (June – August)
 registrationWindowLabel: April – May
 registrationStatus: upcoming
 registrationUrl: https://www.zeffy.com/
 feeAmount: '$50'
-feeIncludes: Covers your Jr. Flyers rider t-shirt and insurance. Coached 100% by background-checked parent & community volunteers.
+feeIncludes: Covers a Jr. Flyers t-shirt and rider insurance.
 accentKey: jr
 heroImage: /images/program-jr.jpg
-heroImageAlt: Elementary-aged Jr. Flyers riders smiling on sunny foothill trails alongside a volunteer coach
+heroImageAlt: A group of young kids in helmets riding a dirt trail with an adult coach giving a thumbs-up
 practiceSchedule:
-  - 'Summer Mornings / Evenings (Jun–Aug): Weekly skill-park & beginner singletrack sessions'
-  - 'Grouped by age and trail readiness so K–2nd riders and 4th–6th riders each get tailored challenges'
-  - 'End-of-summer family celebration ride & skills rodeo'
+  - 'Summer (Jun–Aug): Weekly sessions at a skills park and on beginner singletrack'
+  - 'Kids are grouped by age and comfort on the trail, so younger and older riders each get the right challenge'
+  - 'End-of-summer family ride and skills rodeo'
 whoItsFor:
-  - Kids in Kindergarten through 6th grade who can already pedal a two-wheel bike independently (no training wheels)
-  - Young riders ready to learn hand brakes, gears, standing neutral position, and riding dirt trails safely
-  - Families looking for a positive, low-pressure entry point into cycling before middle-school NICA or Flyers XC/Enduro
+  - Kids in kindergarten through 6th grade who can ride a two-wheel bike on their own (no training wheels)
+  - Kids ready to learn hand brakes, gears, a ready position, and how to ride dirt trails safely
+  - Families looking for a relaxed first step into mountain biking
 gearChecklist:
   - Properly sized kids' bike with hand brakes and knobby tires (gears strongly recommended for grades 2–6)
   - Properly fitted cycling helmet (mandatory at all times when straddling a bike)
   - Closed-toe athletic shoes, cycling gloves (highly recommended for little hands), and a water bottle or small hydration pack
-nicaSynergy: Jr. Flyers is a welcoming launching pad for young Utah riders. Graduates step confidently into Flyers XC, Flyers Enduro, and junior devo squads feeding Westlake, Lehi, Cedar Valley, Skyridge, and Lone Peak.
+schoolTeamNote: Jr. Flyers is a fun first step. Riders can move on to Flyers Enduro in 5th grade, and to Flyers XC or a NICA team in 7th grade.
 ---
 
-## Where Lifelong Riders Get Their Start
+## Where lifelong riders get their start
 
-Before kids ever line up in a start chute, they need to fall in love with riding bikes in the dirt with friends. **Jr. Flyers** keeps youth cycling pure, playful, and affordable—our **$50** registration simply covers each child's Jr. Flyers t-shirt and insurance, led entirely by passionate volunteer coaches and parents.
+Before anyone thinks about racing, kids need to fall in love with riding bikes in the dirt with friends. Jr. Flyers keeps it playful. Volunteer coaches and parents lead small groups through games, short drills, and real trail time.
 
-### What Kids Learn Each Summer
+### What kids learn each summer
 
-Every session blends bite-sized bike handling drills with real trail time:
-
-- **Ready Position & Balance**: Standing level on the pedals over bumps, looking ahead through turns, and controlled two-finger braking.
-- **Shifting & Climbing**: Anticipating hills before getting stuck in a heavy gear.
-- **Trail Kindness**: Yielding to hikers and uphill riders, staying on the trail, and encouraging every teammate to the top.
+- **Ready position and balance:** standing level on the pedals over bumps, looking ahead through turns, and braking with control.
+- **Shifting and climbing:** shifting before a hill so they don't get stuck in a hard gear.
+- **Trail kindness:** yielding to hikers and uphill riders, staying on the trail, and cheering each other to the top.

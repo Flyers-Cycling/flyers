@@ -11,7 +11,7 @@ export const siteConfig = {
   legalEntity: 'Lake Mountain Bicycle Club, Inc.',
   nonProfitStatus: '501(c)(3) Non-Profit Organization',
   einPlaceholder: 'Available upon request for corporate & foundation matching',
-  region: 'Utah County & Surrounding Communities',
+  region: 'Utah',
   feePhilosophy: {
     rangeLabel: '$50 or $150',
     shortSummary: '$50–$150 registration covers a t-shirt and insurance',
@@ -30,10 +30,10 @@ export const siteConfig = {
     voltKitStore: {
       vendor: 'Volt Cyclewear',
       status: 'seasonal' as 'open' | 'seasonal' | 'closed',
-      windowLabel: 'Winter / Early Spring Order Window',
+      windowLabel: 'Orders open winter to early spring',
       url: 'https://www.lakemountainflyers.com/',
       notes:
-        'Custom 4-way stretch jerseys and Alpine Thermal layers designed to pair with standard black bibs or MTB shorts to keep kit costs low.',
+        'Optional Flyers jerseys and Alpine Thermal layers, made by Volt Cyclewear. Order in winter so kits arrive before spring.',
     },
     googleCalendarEmbedUrl: '',
     sponsorFormEndpoint: import.meta.env.PUBLIC_SPONSOR_FORM_ENDPOINT || '',

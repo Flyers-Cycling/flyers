@@ -4,6 +4,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SponsorGrid from '../../components/sponsors/SponsorGrid.astro';
 import { getProgramAccentMeta, getRegistrationStatusMeta } from '../../lib/programs';
 import { withBase } from '../../lib/urls';
+import { formatEventDate } from '../../lib/dates';
+import { siteConfig } from '../../data/site';
 
 export async function getStaticPaths() {
   const programs = await getCollection('programs');
@@ -77,7 +79,7 @@ const programEvents = (await getCollection('events'))
             href={withBase('/schedule')}
             class="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/20"
           >
-            View Practice &amp; Race Dates
+            See practice and race dates
           </a>
         </div>
       </div>
@@ -112,7 +114,7 @@ const programEvents = (await getCollection('events'))
           <h2
             class="font-display text-flyers-slate-dark text-3xl font-black tracking-wide uppercase"
           >
-            Seasonal Practice &amp; Ride Cadence
+            When we ride
           </h2>
           <ul class="mt-4 space-y-3">
             {
@@ -133,7 +135,7 @@ const programEvents = (await getCollection('events'))
           <h2
             class="font-display text-flyers-slate-dark text-3xl font-black tracking-wide uppercase"
           >
-            Who {data.title} Is Built For
+            Who it's for
           </h2>
           <ul class="mt-4 space-y-3">
             {
@@ -151,8 +153,8 @@ const programEvents = (await getCollection('events'))
           <div
             class="border-flyers-slate/25 text-flyers-slate-dark mt-6 rounded-xl border bg-[#EEF3F6] p-4 text-sm"
           >
-            <p class="font-extrabold">Local NICA High School Synergy</p>
-            <p class="text-flyers-charcoal mt-1 leading-relaxed">{data.nicaSynergy}</p>
+            <p class="font-extrabold">Riding with a school team</p>
+            <p class="text-flyers-charcoal mt-1 leading-relaxed">{data.schoolTeamNote}</p>
           </div>
         </div>
       </div>
@@ -163,26 +165,22 @@ const programEvents = (await getCollection('events'))
           <h2
             class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase"
           >
-            {data.title} At a Glance
+            At a glance
           </h2>
           <dl class="mt-4 divide-y divide-neutral-100 text-sm">
             <div class="py-3">
-              <dt class="text-flyers-iron text-xs font-bold tracking-wider uppercase">
-                Ages &amp; Grades
-              </dt>
+              <dt class="text-flyers-iron text-xs font-bold tracking-wider uppercase">Who</dt>
               <dd class="text-flyers-slate-dark mt-1 font-extrabold">
                 {data.gradesLabel} · {data.agesLabel}
               </dd>
             </div>
             <div class="py-3">
-              <dt class="text-flyers-iron text-xs font-bold tracking-wider uppercase">
-                Active Season
-              </dt>
+              <dt class="text-flyers-iron text-xs font-bold tracking-wider uppercase">Season</dt>
               <dd class="text-flyers-charcoal mt-1 font-semibold">{data.seasonLabel}</dd>
             </div>
             <div class="py-3">
               <dt class="text-flyers-iron text-xs font-bold tracking-wider uppercase">
-                Registration Window
+                Registration opens
               </dt>
               <dd class="text-flyers-charcoal mt-1 font-semibold">
                 {data.registrationWindowLabel}
@@ -190,12 +188,20 @@ const programEvents = (await getCollection('events'))
             </div>
             <div class="py-3">
               <dt class="text-flyers-iron text-xs font-bold tracking-wider uppercase">
-                Registration Fee (100% Volunteer-Led)
+                Registration
               </dt>
               <dd class="font-display text-flyers-red-deep mt-1 text-2xl font-black">
                 {data.feeAmount}
               </dd>
-              <dd class="text-flyers-iron mt-1 text-xs leading-relaxed">{data.feeIncludes}</dd>
+              <dd class="text-flyers-iron mt-1 text-xs leading-relaxed">
+                {data.feeIncludes} Bikes, gear, race entries, and optional team kits are extra. <a
+                  href={withBase('/faq')}
+                  class="text-flyers-red-deep font-bold underline">See full costs</a
+                >. If cost is a barrier, <a
+                  href={`mailto:${siteConfig.contact.email}?subject=Help%20with%20costs`}
+                  class="text-flyers-red-deep font-bold underline">ask us about help</a
+                > (confidential).
+              </dd>
             </div>
           </dl>
         </div>
@@ -204,7 +210,7 @@ const programEvents = (await getCollection('events'))
           <h2
             class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase"
           >
-            Required Bike &amp; Safety Gear
+            Bike and gear
           </h2>
           <ul class="text-flyers-iron mt-4 space-y-2.5 text-sm">
             {
@@ -224,12 +230,14 @@ const programEvents = (await getCollection('events'))
           programEvents.length > 0 && (
             <div class="dark-surface flyers-banner-bg border-flyers-slate-mid rounded-2xl border p-6 text-white shadow-md">
               <h2 class="font-display text-2xl font-black tracking-wide text-white uppercase">
-                Upcoming {data.shortTitle} Dates
+                Coming up
               </h2>
               <ul class="mt-4 space-y-3 text-sm">
                 {programEvents.map((ev) => (
                   <li class="bg-flyers-slate-dark/80 rounded-xl border border-white/15 p-3.5">
-                    <p class="text-flyers-gold text-xs font-bold">{ev.data.startDate}</p>
+                    <p class="text-flyers-gold text-xs font-bold">
+                      <time datetime={ev.data.startDate}>{formatEventDate(ev.data.startDate)}</time>
+                    </p>
                     <p class="mt-0.5 font-extrabold text-white">{ev.data.title}</p>
                     <p class="text-flyers-silver mt-0.5 text-xs">{ev.data.location}</p>
                   </li>
@@ -250,18 +258,19 @@ const programEvents = (await getCollection('events'))
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
         <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-          Powered by Local Partners
+          Thank you
         </p>
         <h2
           id="program-sponsors-heading"
           class="font-display text-flyers-slate-dark mt-2 text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
         >
-          Sponsors Supporting {data.title}
+          Sponsors who support {data.title}
         </h2>
         <p class="text-flyers-iron mt-2 text-sm">
-          Businesses and families can sponsor Flyers club-wide or designate support directly to {
-            data.title
-          }.
+          Businesses and families can support the whole club or give directly to {data.title}. <a
+            href={withBase('/sponsors')}
+            class="text-flyers-red-deep font-bold underline">Learn about sponsoring</a
+          >.
         </p>
       </div>
       <div class="mt-8">

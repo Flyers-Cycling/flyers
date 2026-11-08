@@ -27,7 +27,8 @@ const programs = defineCollection({
     practiceSchedule: z.array(z.string()).min(1),
     whoItsFor: z.array(z.string()).min(1),
     gearChecklist: z.array(z.string()).min(1),
-    nicaSynergy: z.string(),
+    // How this program fits with fall NICA school teams. One or two sentences.
+    schoolTeamNote: z.string(),
   }),
 });
 

@@ -2,8 +2,8 @@
 programId: enduro
 title: Flyers Enduro
 shortTitle: Enduro
-discipline: Gravity & Stage Racing
-tagline: Progressive technical descending, jump/drop fundamentals, and enduro stage racing for ages 10–19.
+discipline: Enduro & Descending
+tagline: Descending skills for grades 5–12. Learn to brake, corner, and ride steeper trails with control, with optional enduro races.
 summary: Flyers Enduro is for riders who love going downhill. Coaches teach braking, cornering, line choice, and safe progression on steeper terrain, with optional enduro races around Utah.
 order: 2
 agesLabel: Ages 10–19
@@ -13,35 +13,35 @@ registrationWindowLabel: December – January
 registrationStatus: open
 registrationUrl: https://www.zeffy.com/
 feeAmount: '$150'
-feeIncludes: Covers your Flyers Enduro t-shirt and gravity rider insurance. All coaching is 100% volunteer-led.
+feeIncludes: Covers a Flyers Enduro t-shirt and gravity rider insurance.
 accentKey: enduro
 heroImage: /images/program-enduro.jpg
-heroImageAlt: Flyers Youth Enduro rider in full-face helmet and crimson-slate jersey carving a rocky Utah berm with golden dirt spray
+heroImageAlt: A rider in a full-face helmet and knee pads kicking up dust through a dirt corner
 practiceSchedule:
-  - 'Early Season (Jan–Mar): Bike setup clinics, suspension tuning, braking control & southern/low-elevation skill sessions'
-  - 'Core Season (Apr–Jun): Weekly afternoon technical trail practices + pre-rides for regional Utah enduro venues'
-  - 'Summer Peak (Jun–Aug): High-elevation bike park & backcountry enduro progression sessions'
+  - 'Early season (Jan–Mar): Bike setup and suspension clinics, braking practice, and skill sessions at lower, drier trails'
+  - 'Core season (Apr–Jun): Weekly afternoon practices on technical trails, plus pre-rides of Utah enduro race venues'
+  - 'Summer (Jun–Aug): Bike park and high-elevation trail sessions'
 whoItsFor:
-  - Youth riders ages 10–19 who love technical descents, bike parks, flow trails, and rock rolls
-  - NICA cross-country racers who want stronger descending skills and bike-body separation for technical courses
-  - Aspiring gravity racers looking for teammates, pit support, and structured track-walk mentorship at enduro events
+  - Riders in grades 5–12 who love descents, bike parks, flow trails, and rock rolls
+  - Cross-country and NICA riders who want to descend with more control on technical courses
+  - Riders curious about enduro racing who want teammates, pit support, and help walking a course
 gearChecklist:
   - Trail or enduro full-suspension mountain bike (130mm–170mm travel recommended) with disc brakes and dropper post
   - Full-face helmet (convertible or DH-certified required for gravity stages and bike park days) + trail half-shell for light pedal clinics
   - Knee pads (mandatory), cycling gloves, and shatter-resistant goggles or eyewear
   - Chest/back protection and elbow pads strongly recommended for race venues
   - Multi-tool, tubeless plug kit, spare derailleur hanger/master link, and hydration pack
-nicaSynergy: Gravity skills make safer, faster all-around riders. Many Flyers Enduro athletes also race fall XC with Westlake, Lehi, Cedar Valley, Skyridge, or Lone Peak—bringing next-level descending confidence back to their NICA teams.
+schoolTeamNote: Learning to descend well makes riders safer on every trail, including their NICA courses. Many Flyers Enduro riders also race cross-country for their school team in the fall.
 ---
 
-## Real Gravity Progression in a Supportive Team Culture
+## Learn to ride downhill with control
 
-Utah has world-class gravity terrain, yet affordable youth enduro coaching is rare. **Flyers Enduro** bridges that gap as a **100% volunteer-led** non-profit program where the **$150** registration covers rider insurance and a team t-shirt while sponsors help keep racing and pit support accessible.
+Utah has great descending trails, and Flyers Enduro helps young riders learn to ride them safely. Volunteer coaches teach one step at a time, so riders build skills before they take on harder terrain.
 
-### Safety-First Skill Building
+### What riders work on
 
-Enduro combines untimed transfer climbs with timed technical downhill stages. Riders must be self-sufficient on the trail, so our volunteer coaches emphasize calculated progression over "just sending it":
+In enduro racing, riders pedal up untimed climbs and race timed downhill stages. Riders need to handle their bikes and look after themselves on the trail, so coaches focus on steady progress over "just sending it":
 
-- **Foundational Mechanics**: Braking zones, body-bike separation, high/low line choice, and controlled drops/jumps.
-- **Stage Race Craft**: Track walks, memorizing blind sections, managing multi-stage energy, and trailside mechanical self-rescue.
-- **Team Pit Atmosphere**: Shared shade tents, mechanical check-ins, and cheering teammates on at regional enduro stops.
+- **The basics:** braking zones, letting the bike move under you, choosing a line, and controlled drops and jumps.
+- **Race skills (optional):** walking a course, remembering blind sections, pacing over several stages, and fixing common mechanicals on the trail.
+- **Team days at races:** a shared shade tent, bike checks, and teammates cheering each other on at Utah enduro races.
