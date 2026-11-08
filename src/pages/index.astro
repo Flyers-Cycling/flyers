@@ -8,6 +8,7 @@ import ProgramPathwayFinder from '../components/programs/ProgramPathwayFinder.as
 import SponsorGrid from '../components/sponsors/SponsorGrid.astro';
 import { siteConfig } from '../data/site';
 import { withBase } from '../lib/urls';
+import { formatEventDate } from '../lib/dates';
 
 const programs = await getCollection('programs');
 const sponsors = await getCollection('sponsors');
@@ -29,7 +30,7 @@ const programBadgeMeta: Record<string, { label: string; style: string }> = {
 
   <Differentiators />
 
-  <!-- 3 Unified Programs -->
+  <!-- Programs -->
   <section
     aria-labelledby="home-programs-heading"
     class="bg-flyers-snow border-t border-neutral-200 py-16 sm:py-20"
@@ -106,7 +107,7 @@ const programBadgeMeta: Record<string, { label: string; style: string }> = {
                       {badge.label}
                     </span>
                     <time datetime={event.data.startDate} class="text-flyers-iron font-extrabold">
-                      {event.data.startDate}
+                      {formatEventDate(event.data.startDate)}
                     </time>
                   </div>
                   <h3 class="font-display text-flyers-slate-dark mt-4 text-2xl font-black tracking-wide uppercase">
