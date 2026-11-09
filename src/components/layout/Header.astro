@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import { siteConfig } from '../../data/site';
 import { withBase } from '../../lib/urls';
 
@@ -17,26 +18,20 @@ const navItems = [
   { label: 'FAQ', href: withBase('/faq'), matchPrefix: '/faq' },
 ];
 
-const programQuickLinks = [
-  {
-    label: 'Flyers XC',
-    sub: 'Grades 7–12 · Endurance',
-    href: withBase('/programs/xc'),
-    dot: 'bg-flyers-red-bright',
-  },
-  {
-    label: 'Flyers Enduro',
-    sub: 'Ages 10–19 · Gravity',
-    href: withBase('/programs/enduro'),
-    dot: 'bg-flyers-gold',
-  },
-  {
-    label: 'Jr. Flyers',
-    sub: 'Grades K–6 · Youth Skills',
-    href: withBase('/programs/jr-flyers'),
-    dot: 'bg-white',
-  },
-];
+const programDots: Record<string, string> = {
+  xc: 'bg-flyers-red-bright',
+  enduro: 'bg-flyers-gold',
+  jr: 'bg-white',
+};
+
+const programQuickLinks = (await getCollection('programs'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(({ data }) => ({
+    label: data.title,
+    sub: data.gradesLabel,
+    href: withBase(`/programs/${data.programId}`),
+    dot: programDots[data.accentKey] ?? 'bg-white',
+  }));
 
 function isActive(matchPrefix: string): boolean {
   const cleanPath = currentPath.replace(import.meta.env.BASE_URL || '/', '/');
@@ -54,8 +49,8 @@ function isActive(matchPrefix: string): boolean {
       class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-1.5 text-xs sm:px-6 lg:px-8"
     >
       <p class="text-flyers-silver font-medium">
-        <span class="font-bold text-white">501(c)(3) Youth Cycling Club</span> · 100% Volunteer-Led ·
-        Utah
+        <span class="font-bold text-white">Youth mountain biking in Utah</span> · Non-profit · Run by
+        volunteers
       </p>
       <div class="hidden items-center gap-5 md:flex" aria-label="Quick program links">
         {
@@ -128,13 +123,13 @@ function isActive(matchPrefix: string): boolean {
         href={withBase('/programs#pathway-finder')}
         class="rounded-lg border border-white/25 bg-white/5 px-3.5 py-2 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/15"
       >
-        Find a Program
+        Find a program
       </a>
       <a
         href={withBase('/sponsors')}
         class="bg-flyers-red hover:bg-flyers-red-bright font-display rounded-lg px-4 py-2 text-base font-extrabold tracking-wider text-white uppercase shadow-sm transition"
       >
-        Sponsor / Donate
+        Sponsor or donate
       </a>
     </div>
 
@@ -188,7 +183,7 @@ function isActive(matchPrefix: string): boolean {
               id="mobile-nav-title"
               class="font-display text-xl font-black tracking-wider text-white uppercase"
             >
-              Flyers Navigation
+              Menu
             </h2>
           </div>
           <form method="dialog">
@@ -203,7 +198,7 @@ function isActive(matchPrefix: string): boolean {
 
         <nav aria-label="Mobile navigation" class="mt-5">
           <p class="text-flyers-gold px-2 text-xs font-extrabold tracking-widest uppercase">
-            3 Club Programs
+            Programs
           </p>
           <ul class="mt-2 space-y-1.5">
             {
@@ -225,7 +220,7 @@ function isActive(matchPrefix: string): boolean {
           </ul>
 
           <p class="text-flyers-gold mt-6 px-2 text-xs font-extrabold tracking-widest uppercase">
-            Explore Club
+            More
           </p>
           <ul class="mt-2 space-y-1">
             {
@@ -249,13 +244,13 @@ function isActive(matchPrefix: string): boolean {
           href={withBase('/programs#pathway-finder')}
           class="block w-full rounded-lg border border-white/25 bg-white/5 px-4 py-3 text-center text-sm font-bold text-white hover:bg-white/15"
         >
-          Find Your Rider's Program
+          Which program fits my rider?
         </a>
         <a
           href={withBase('/sponsors')}
           class="bg-flyers-red hover:bg-flyers-red-bright font-display block w-full rounded-lg px-4 py-3 text-center text-base font-extrabold tracking-wider text-white uppercase"
         >
-          Sponsor or Donate (501c3)
+          Sponsor or donate
         </a>
       </div>
     </div>

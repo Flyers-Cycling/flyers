@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = `${siteConfig.name} — 100% volunteer-led 501(c)(3) youth mountain bike club offering Flyers XC, Flyers Enduro, and Jr. Flyers in Utah.`,
+  description = `${siteConfig.name} is a volunteer-run, non-profit youth mountain bike club in Utah with three programs: Jr. Flyers, Flyers XC, and Flyers Enduro. Beginners welcome.`,
 } = Astro.props;
 
 const fullTitle =
@@ -45,7 +45,7 @@ const canonicalUrl = new URL(
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content={siteConfig.name} />
-    <meta property="og:image" content={withBase('/images/hero-flyers.jpg')} />
+    <!-- TODO(board): add og:image once the club has a real, media-released photo. -->
   </head>
   <body class="bg-flyers-snow text-flyers-charcoal flex min-h-dvh flex-col antialiased">
     <a

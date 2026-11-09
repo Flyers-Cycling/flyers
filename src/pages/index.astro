@@ -8,6 +8,7 @@ import ProgramPathwayFinder from '../components/programs/ProgramPathwayFinder.as
 import SponsorGrid from '../components/sponsors/SponsorGrid.astro';
 import { siteConfig } from '../data/site';
 import { withBase } from '../lib/urls';
+import { formatEventDate } from '../lib/dates';
 
 const programs = await getCollection('programs');
 const sponsors = await getCollection('sponsors');
@@ -16,7 +17,7 @@ const events = (await getCollection('events'))
   .slice(0, 3);
 
 const programBadgeMeta: Record<string, { label: string; style: string }> = {
-  all: { label: 'All Club', style: 'bg-flyers-slate-dark text-white' },
+  all: { label: 'Whole Club', style: 'bg-flyers-slate-dark text-white' },
   xc: { label: 'Flyers XC', style: 'bg-flyers-red text-white' },
   enduro: { label: 'Flyers Enduro', style: 'bg-flyers-slate text-white' },
   'jr-flyers': { label: 'Jr. Flyers', style: 'bg-flyers-berry text-white' },
@@ -29,7 +30,7 @@ const programBadgeMeta: Record<string, { label: string; style: string }> = {
 
   <Differentiators />
 
-  <!-- 3 Unified Programs -->
+  <!-- Programs -->
   <section
     aria-labelledby="home-programs-heading"
     class="bg-flyers-snow border-t border-neutral-200 py-16 sm:py-20"
@@ -38,20 +39,20 @@ const programBadgeMeta: Record<string, { label: string; style: string }> = {
       <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div class="max-w-2xl">
           <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-            Our 3 Club Programs
+            Programs
           </p>
           <h2
             id="home-programs-heading"
             class="font-display text-flyers-slate-dark mt-2 text-4xl leading-tight font-black tracking-wide uppercase sm:text-5xl"
           >
-            From First K–6 Trail Rides to Utah XC &amp; Enduro Podiums
+            Three programs, kindergarten through 12th grade
           </h2>
         </div>
         <a
           href={withBase('/programs')}
           class="text-flyers-red-deep hover:text-flyers-slate-dark text-sm font-extrabold underline transition"
         >
-          Compare all 3 programs &amp; NICA calendar &rarr;
+          Compare programs and seasons &rarr;
         </a>
       </div>
 
@@ -77,20 +78,20 @@ const programBadgeMeta: Record<string, { label: string; style: string }> = {
       <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div>
           <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-            Seasonal Rhythm
+            Coming up
           </p>
           <h2
             id="home-schedule-heading"
             class="font-display text-flyers-slate-dark mt-2 text-4xl leading-tight font-black tracking-wide uppercase sm:text-5xl"
           >
-            Upcoming Windows, Clinics &amp; Trail Days
+            Upcoming rides, clinics, and trail days
           </h2>
         </div>
         <a
           href={withBase('/schedule')}
           class="bg-flyers-slate hover:bg-flyers-slate-dark font-display inline-flex min-h-12 items-center justify-center rounded-lg px-5 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
         >
-          View Full Club Schedule &rarr;
+          See the full schedule &rarr;
         </a>
       </div>
 
@@ -106,7 +107,7 @@ const programBadgeMeta: Record<string, { label: string; style: string }> = {
                       {badge.label}
                     </span>
                     <time datetime={event.data.startDate} class="text-flyers-iron font-extrabold">
-                      {event.data.startDate}
+                      {formatEventDate(event.data.startDate)}
                     </time>
                   </div>
                   <h3 class="font-display text-flyers-slate-dark mt-4 text-2xl font-black tracking-wide uppercase">
@@ -145,19 +146,17 @@ const programBadgeMeta: Record<string, { label: string; style: string }> = {
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
         <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-          Community-Funded Youth Cycling
+          Our sponsors
         </p>
         <h2
           id="home-sponsors-heading"
           class="font-display text-flyers-slate-dark mt-2 text-4xl leading-tight font-black tracking-wide uppercase sm:text-5xl"
         >
-          Sponsors Keep Our Riders Rolling
+          Thank you to the people who keep us riding
         </h2>
         <p class="text-flyers-iron mt-3 text-base leading-relaxed">
-          Because all Flyers coaches volunteer their time and registration ({
-            siteConfig.feePhilosophy.rangeLabel
-          }) covers t-shirt and insurance only, our sponsors directly make affordable youth mountain
-          biking possible.
+          These local businesses and families help pay for coach training, first-aid supplies,
+          race-day gear, and help for families who need it.
         </p>
       </div>
 

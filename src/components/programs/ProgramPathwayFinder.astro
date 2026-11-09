@@ -1,8 +1,13 @@
 ---
-import { matchProgramPathway } from '../../lib/pathway';
+import { getCollection } from 'astro:content';
+import { matchProgramPathway, type ProgramFees } from '../../lib/pathway';
 import { withBase } from '../../lib/urls';
 
-const initialMatch = matchProgramPathway('7-8', 'endurance');
+const programs = await getCollection('programs');
+const fees = Object.fromEntries(
+  programs.map((p) => [p.data.programId, p.data.feeAmount]),
+) as ProgramFees;
+const initialMatch = matchProgramPathway('7-8', 'endurance', fees);
 
 const programRoutes = {
   xc: { label: 'Explore Flyers XC', href: withBase('/programs/xc') },
@@ -18,17 +23,16 @@ const programRoutes = {
 >
   <div class="max-w-3xl">
     <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-      Interactive Program Matcher
+      Program finder
     </p>
     <h2
       id="pathway-finder-heading"
       class="font-display text-flyers-slate-dark mt-2 text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
     >
-      Not Sure Where Your Rider Fits? Match in 10 Seconds
+      Which program fits your rider?
     </h2>
     <p class="text-flyers-iron mt-2 text-base">
-      Select your rider's grade/age range and riding interest to see how Flyers XC, Flyers Enduro,
-      Jr. Flyers, and local NICA high school teams fit together.
+      Pick your rider's grade and what they enjoy most. We'll suggest a good place to start.
     </p>
   </div>
 
@@ -38,25 +42,26 @@ const programRoutes = {
     data-xc-href={programRoutes.xc.href}
     data-enduro-href={programRoutes.enduro.href}
     data-jr-href={programRoutes['jr-flyers'].href}
+    data-fees={JSON.stringify(fees)}
   >
     <div class="space-y-6 lg:col-span-7">
       <!-- Radio Group 1: Age / Grade (< 6 options => visible radios per modern-web-guidance forms) -->
       <fieldset>
         <legend class="text-flyers-slate-dark text-sm font-extrabold">
-          1. Rider Grade or Age Band
+          1. Your rider's grade this school year
         </legend>
         <div class="mt-3 grid gap-2.5 sm:grid-cols-2">
           <label
             class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-neutral-300 px-4 py-3 text-sm font-semibold transition has-[:checked]:text-white"
           >
             <input type="radio" name="ageBand" value="k-6" class="accent-flyers-gold h-4 w-4" />
-            <span>Grades K–6 (Ages 5–11)</span>
+            <span>Grades K–4</span>
           </label>
           <label
             class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-neutral-300 px-4 py-3 text-sm font-semibold transition has-[:checked]:text-white"
           >
             <input type="radio" name="ageBand" value="10-12" class="accent-flyers-gold h-4 w-4" />
-            <span>Ages 10–12 (Grades 5–6 Trail Ready)</span>
+            <span>Grades 5–6</span>
           </label>
           <label
             class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-neutral-300 px-4 py-3 text-sm font-semibold transition has-[:checked]:text-white"
@@ -68,13 +73,13 @@ const programRoutes = {
               checked
               class="accent-flyers-gold h-4 w-4"
             />
-            <span>Grades 7–8 (Ages 12–14)</span>
+            <span>Grades 7–8</span>
           </label>
           <label
             class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-neutral-300 px-4 py-3 text-sm font-semibold transition has-[:checked]:text-white"
           >
             <input type="radio" name="ageBand" value="9-12" class="accent-flyers-gold h-4 w-4" />
-            <span>Grades 9–12 (Ages 14–19)</span>
+            <span>Grades 9–12</span>
           </label>
         </div>
       </fieldset>
@@ -82,7 +87,7 @@ const programRoutes = {
       <!-- Radio Group 2: Riding Focus -->
       <fieldset>
         <legend class="text-flyers-slate-dark text-sm font-extrabold">
-          2. Primary Riding Goal
+          2. What they enjoy most
         </legend>
         <div class="mt-3 grid gap-2.5 sm:grid-cols-2">
           <label
@@ -94,7 +99,7 @@ const programRoutes = {
               value="fundamentals"
               class="accent-flyers-gold h-4 w-4"
             />
-            <span>Trail Confidence &amp; Fun Fundamentals</span>
+            <span>Learning the basics and having fun</span>
           </label>
           <label
             class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-neutral-300 px-4 py-3 text-sm font-semibold transition has-[:checked]:text-white"
@@ -106,13 +111,13 @@ const programRoutes = {
               checked
               class="accent-flyers-gold h-4 w-4"
             />
-            <span>Singletrack Fitness &amp; XC Racing</span>
+            <span>Longer rides, fitness, and XC racing</span>
           </label>
           <label
             class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-neutral-300 px-4 py-3 text-sm font-semibold transition has-[:checked]:text-white"
           >
             <input type="radio" name="focus" value="gravity" class="accent-flyers-gold h-4 w-4" />
-            <span>Technical Descents, Jumps &amp; Enduro</span>
+            <span>Descending, jumps, and enduro</span>
           </label>
           <label
             class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-neutral-300 px-4 py-3 text-sm font-semibold transition has-[:checked]:text-white"
@@ -123,7 +128,7 @@ const programRoutes = {
               value="nica-offseason"
               class="accent-flyers-gold h-4 w-4"
             />
-            <span>Pair With My Fall NICA School Team</span>
+            <span>Staying sharp between NICA seasons</span>
           </label>
         </div>
       </fieldset>
@@ -139,7 +144,7 @@ const programRoutes = {
         <span
           class="border-flyers-gold/40 bg-flyers-gold/20 text-flyers-gold inline-block rounded-full border px-3 py-1 text-xs font-extrabold tracking-wide uppercase"
         >
-          Best-Fit Pathway
+          A good place to start
         </span>
         <h3
           id="pathway-headline"
@@ -155,11 +160,11 @@ const programRoutes = {
           class="bg-flyers-slate-dark/80 mt-4 space-y-2 rounded-xl border border-white/15 p-3.5 text-xs text-white/90"
         >
           <p>
-            <strong class="text-flyers-gold">Cost Transparency:</strong>{' '}
+            <strong class="text-flyers-gold">Cost:</strong>{' '}
             <span id="pathway-fee">{initialMatch.feeNote}</span>
           </p>
           <p>
-            <strong class="font-extrabold text-white">NICA Alignment:</strong>{' '}
+            <strong class="font-extrabold text-white">School team:</strong>{' '}
             <span id="pathway-nica">{initialMatch.nicaNote}</span>
           </p>
         </div>
@@ -184,7 +189,7 @@ const programRoutes = {
         >
           {
             initialMatch.secondaryProgram
-              ? `Also Check ${programRoutes[initialMatch.secondaryProgram].label.replace('Explore ', '')}`
+              ? `Also see ${programRoutes[initialMatch.secondaryProgram].label.replace('Explore ', '')}`
               : ''
           }
         </a>
@@ -199,10 +204,12 @@ const programRoutes = {
     type AgeBand,
     type RidingFocus,
     type ProgramSlug,
+    type ProgramFees,
   } from '../../lib/pathway';
 
   const form = document.getElementById('pathway-matcher-form') as HTMLFormElement | null;
   if (form) {
+    const fees = JSON.parse(form.dataset.fees || '{}') as ProgramFees;
     const routes: Record<ProgramSlug, { label: string; href: string }> = {
       xc: { label: 'Explore Flyers XC', href: form.dataset.xcHref || '/programs/xc' },
       enduro: {
@@ -228,7 +235,7 @@ const programRoutes = {
       const data = new FormData(form);
       const ageBand = (data.get('ageBand') as AgeBand) || '7-8';
       const focus = (data.get('focus') as RidingFocus) || 'endurance';
-      const match = matchProgramPathway(ageBand, focus);
+      const match = matchProgramPathway(ageBand, focus, fees);
 
       if (headlineEl) headlineEl.textContent = match.headline;
       if (explanationEl) explanationEl.textContent = match.explanation;
@@ -243,7 +250,7 @@ const programRoutes = {
       if (secondaryCta) {
         if (match.secondaryProgram) {
           secondaryCta.href = routes[match.secondaryProgram].href;
-          secondaryCta.textContent = `Also Check ${routes[match.secondaryProgram].label.replace('Explore ', '')}`;
+          secondaryCta.textContent = `Also see ${routes[match.secondaryProgram].label.replace('Explore ', '')}`;
           secondaryCta.classList.remove('hidden');
         } else {
           secondaryCta.classList.add('hidden');

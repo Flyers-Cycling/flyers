@@ -42,6 +42,15 @@ const mockSponsors: SponsorRecord[] = [
 ];
 
 describe('filterSponsorsByScope', () => {
+  it('keeps open sponsorship spots out of the sponsor list unless asked for', () => {
+    const withSlot: SponsorRecord[] = [
+      ...mockSponsors,
+      { ...mockSponsors[0]!, id: 'open-1', name: 'Open Spot', openSlot: true },
+    ];
+    expect(filterSponsorsByScope(withSlot).map((s) => s.id)).not.toContain('open-1');
+    expect(filterSponsorsByScope(withSlot, undefined, 'only').map((s) => s.id)).toEqual(['open-1']);
+  });
+
   it('excludes inactive sponsors and sorts by tier rank', () => {
     const result = filterSponsorsByScope(mockSponsors);
     expect(result.map((s) => s.id)).toEqual(['title-1', 'silver-1']);

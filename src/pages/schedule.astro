@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/site';
+import { formatEventDateRange } from '../lib/dates';
 
 const events = (await getCollection('events')).sort((a, b) =>
   a.data.startDate.localeCompare(b.data.startDate),
@@ -19,37 +20,35 @@ const programMeta: Record<string, { label: string; badgeClass: string }> = {
     badgeClass: 'bg-[#FCF1F4] text-[#840E23] border border-[#EFC2CC]',
   },
   community: {
-    label: 'Trail & Community',
+    label: 'Trail Day',
     badgeClass: 'bg-[#FFF9E6] text-[#5C4500] border border-[#E6C245]',
   },
 };
 
 const categoryLabels: Record<string, string> = {
   practice: 'Practice / Ride',
-  race: 'Race Support',
+  race: 'Race Day',
   clinic: 'Skills Clinic',
-  'trail-work': 'Trail Stewardship',
+  'trail-work': 'Trail Work',
   registration: 'Registration Window',
 };
 ---
 
 <BaseLayout
-  title="Unified Schedule & Seasonal Events"
-  description="Filterable practice windows, skills clinics, ICUP & Enduro race dates, and trail stewardship days across Flyers XC, Flyers Enduro, and Jr. Flyers."
+  title="Schedule"
+  description="Registration dates, season kickoffs, skills clinics, race days, and trail days for Flyers XC, Flyers Enduro, and Jr. Flyers."
 >
   <section class="dark-surface flyers-banner-bg py-14 text-white sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-flyers-gold text-xs font-extrabold tracking-widest uppercase">
-        Club Calendar &amp; Key Dates
-      </p>
+      <p class="text-flyers-gold text-xs font-extrabold tracking-widest uppercase">Schedule</p>
       <h1
         class="font-display mt-3 max-w-3xl text-4xl leading-[0.98] font-black tracking-wide text-white uppercase sm:text-6xl"
       >
-        Unified Schedule Across All 3 Programs
+        What's coming up
       </h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
-        Filter key registration windows, seasonal kickoffs, skills clinics, race support days, and
-        community trail work across Flyers XC, Flyers Enduro, and Jr. Flyers.
+        Registration dates, season kickoffs, clinics, race days, and trail days for every program.
+        Pick a program to see just its dates.
       </p>
     </div>
   </section>
@@ -61,7 +60,7 @@ const categoryLabels: Record<string, string> = {
         <form id="schedule-filter-form">
           <fieldset>
             <legend class="text-flyers-slate-dark text-xs font-extrabold tracking-wider uppercase">
-              Filter Events by Program
+              Show dates for
             </legend>
             <div class="mt-3 flex flex-wrap gap-2.5">
               <label
@@ -74,7 +73,7 @@ const categoryLabels: Record<string, string> = {
                   checked
                   class="accent-flyers-gold h-3.5 w-3.5"
                 />
-                <span>All Events</span>
+                <span>All programs</span>
               </label>
               <label
                 class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-neutral-300 px-4 py-2 text-xs font-extrabold transition has-[:checked]:text-white"
@@ -118,7 +117,7 @@ const categoryLabels: Record<string, string> = {
                   value="community"
                   class="accent-flyers-gold h-3.5 w-3.5"
                 />
-                <span>Trail &amp; Community</span>
+                <span>Trail days</span>
               </label>
             </div>
           </fieldset>
@@ -128,7 +127,7 @@ const categoryLabels: Record<string, string> = {
           aria-live="polite"
           class="text-flyers-iron mt-3 text-xs font-semibold"
         >
-          Showing all {events.length} scheduled highlights
+          Showing all {events.length} events
         </p>
       </search>
 
@@ -150,8 +149,7 @@ const categoryLabels: Record<string, string> = {
                       {categoryLabels[event.data.category]}
                     </span>
                     <time datetime={event.data.startDate} class="text-flyers-slate-dark font-bold">
-                      {event.data.startDate}
-                      {event.data.endDate ? ` – ${event.data.endDate}` : ''}
+                      {formatEventDateRange(event.data.startDate, event.data.endDate)}
                     </time>
                   </div>
 
@@ -188,11 +186,11 @@ const categoryLabels: Record<string, string> = {
         siteConfig.integrations.googleCalendarEmbedUrl ? (
           <div class="mt-12 overflow-hidden rounded-2xl border border-neutral-200 bg-white p-4">
             <h2 class="font-display text-flyers-slate-dark mb-4 text-2xl font-black tracking-wide uppercase">
-              Live Club Google Calendar
+              Club calendar
             </h2>
             <iframe
               src={siteConfig.integrations.googleCalendarEmbedUrl}
-              title="Flyers Cycling Club Live Practice Calendar"
+              title="Flyers Cycling Club calendar"
               loading="lazy"
               class="h-[540px] w-full rounded-xl border-0"
             />
@@ -200,12 +198,11 @@ const categoryLabels: Record<string, string> = {
         ) : (
           <div class="text-flyers-iron mt-12 rounded-2xl border border-neutral-200 bg-white p-6 text-sm">
             <h2 class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase">
-              Weekly Trailhead &amp; Weather Updates
+              Weekly ride details
             </h2>
             <p class="mt-1 leading-relaxed">
-              Registered families receive live weekly trailhead pins and Utah weather adjustments
-              directly from their volunteer program directors via our team calendar and rider
-              communication channels.
+              Registered families get trailhead locations and weather changes each week from their
+              program's volunteer leaders.
             </p>
           </div>
         )

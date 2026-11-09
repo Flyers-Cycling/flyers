@@ -9,6 +9,7 @@ interface Props {
 
 const { programs } = Astro.props;
 const sorted = [...programs].sort((a, b) => a.data.order - b.data.order);
+import PhotoPlaceholder from '../layout/PhotoPlaceholder.astro';
 ---
 
 <div class="grid gap-8 lg:grid-cols-3">
@@ -25,14 +26,18 @@ const sorted = [...programs].sort((a, b) => a.data.order - b.data.order);
         >
           <div class={`h-2 w-full ${accentMeta.topBarClass}`} aria-hidden="true" />
           <div class="bg-flyers-slate-dark relative aspect-[16/9] w-full overflow-hidden">
-            <img
-              src={withBase(data.heroImage)}
-              alt={data.heroImageAlt}
-              width="1200"
-              height="669"
-              loading="lazy"
-              class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-            />
+            {data.heroImage ? (
+              <img
+                src={withBase(data.heroImage)}
+                alt={data.heroImageAlt}
+                width="1200"
+                height="669"
+                loading="lazy"
+                class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+              />
+            ) : (
+              <PhotoPlaceholder tone={accentMeta.topBarClass} />
+            )}
           </div>
 
           <div class="flex flex-1 flex-col justify-between p-6">
@@ -60,16 +65,16 @@ const sorted = [...programs].sort((a, b) => a.data.order - b.data.order);
 
               <dl class="bg-flyers-snow mt-5 grid grid-cols-2 gap-3 rounded-xl border border-neutral-200/80 p-3.5 text-xs">
                 <div>
-                  <dt class="text-flyers-iron font-bold">Rider Ages</dt>
+                  <dt class="text-flyers-iron font-bold">Who</dt>
                   <dd class="text-flyers-slate-dark mt-0.5 font-extrabold">
                     {data.gradesLabel} ({data.agesLabel})
                   </dd>
                 </div>
                 <div>
-                  <dt class="text-flyers-iron font-bold">Program Fee</dt>
+                  <dt class="text-flyers-iron font-bold">Registration</dt>
                   <dd class="text-flyers-slate-dark mt-0.5 font-extrabold">
                     {data.feeAmount}{' '}
-                    <span class="text-flyers-iron font-medium">(shirt + ins.)</span>
+                    <span class="text-flyers-iron font-medium">(t-shirt + insurance)</span>
                   </dd>
                 </div>
                 <div class="col-span-2 border-t border-neutral-200 pt-2">

@@ -1,6 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import { siteConfig } from '../../data/site';
 import { withBase } from '../../lib/urls';
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <footer
@@ -25,60 +27,47 @@ import { withBase } from '../../lib/urls';
           </span>
         </a>
         <p class="text-sm leading-relaxed text-white/80">
-          Serving youth riders and families across Utah. Built to make mountain biking fun,
-          competitive, and genuinely affordable.
+          Youth mountain biking for Utah kids, kindergarten through 12th grade. Beginners welcome,
+          racing optional.
         </p>
         <div
           class="bg-flyers-slate/70 rounded-xl border border-white/15 p-3.5 text-xs leading-relaxed text-white/85"
         >
           <p class="font-bold text-white">{siteConfig.legalEntity}</p>
-          <p class="mt-1">
-            Registered {siteConfig.nonProfitStatus} · 100% Volunteer-Led. Rider fees (<strong
-              class="text-flyers-gold">{siteConfig.feePhilosophy.rangeLabel}</strong
-            >) cover t-shirt &amp; insurance only.
-          </p>
+          <p class="mt-1">A 501(c)(3) non-profit. Our coaches and board are volunteers.</p>
         </div>
       </div>
 
       <!-- 3 Programs -->
       <div>
         <h2 class="text-flyers-gold font-display text-lg font-extrabold tracking-wider uppercase">
-          Our 3 Programs
+          Programs
         </h2>
         <ul class="mt-4 space-y-2.5 text-sm">
-          <li>
-            <a href={withBase('/programs/xc')} class="text-white/85 transition hover:text-white">
-              Flyers XC (Grades 7–12 · Endurance)
-            </a>
-          </li>
-          <li>
-            <a
-              href={withBase('/programs/enduro')}
-              class="text-white/85 transition hover:text-white"
-            >
-              Flyers Enduro (Ages 10–19 · Gravity)
-            </a>
-          </li>
-          <li>
-            <a
-              href={withBase('/programs/jr-flyers')}
-              class="text-white/85 transition hover:text-white"
-            >
-              Jr. Flyers (Grades K–6 · Youth Skills)
-            </a>
-          </li>
+          {
+            programs.map(({ data }) => (
+              <li>
+                <a
+                  href={withBase(`/programs/${data.programId}`)}
+                  class="text-white/85 transition hover:text-white"
+                >
+                  {data.title} ({data.gradesLabel})
+                </a>
+              </li>
+            ))
+          }
           <li>
             <a
               href={withBase('/programs#pathway-finder')}
               class="text-flyers-gold hover:text-flyers-gold-bright font-bold transition"
             >
-              Interactive Program Pathway Finder &rarr;
+              Which program fits my rider? &rarr;
             </a>
           </li>
         </ul>
       </div>
 
-      <!-- Club Navigation & NICA Partners -->
+      <!-- Club navigation -->
       <div>
         <h2 class="text-flyers-gold font-display text-lg font-extrabold tracking-wider uppercase">
           Club &amp; Community
@@ -86,51 +75,47 @@ import { withBase } from '../../lib/urls';
         <ul class="mt-4 space-y-2.5 text-sm">
           <li>
             <a href={withBase('/schedule')} class="text-white/85 transition hover:text-white">
-              Unified Schedule &amp; Events
+              Schedule
             </a>
           </li>
           <li>
             <a href={withBase('/store')} class="text-white/85 transition hover:text-white">
-              Volt Team Kits, Shop &amp; Updates
+              Team kits, shop &amp; news
             </a>
           </li>
           <li>
             <a href={withBase('/about')} class="text-white/85 transition hover:text-white">
-              About, Coaches &amp; NICA Partners
+              About the club
             </a>
           </li>
           <li>
             <a href={withBase('/faq')} class="text-white/85 transition hover:text-white">
-              Parent &amp; Rider FAQ
+              Questions from families
             </a>
           </li>
         </ul>
-        <p class="text-flyers-silver mt-4 text-xs leading-relaxed">
-          Proudly supporting athletes from Westlake, Lehi, Cedar Valley, Skyridge &amp; Lone Peak
-          NICA teams.
-        </p>
       </div>
 
       <!-- Sponsorships & Contact -->
       <div>
         <h2 class="text-flyers-gold font-display text-lg font-extrabold tracking-wider uppercase">
-          Sponsorships &amp; Giving
+          Support the club
         </h2>
         <p class="mt-4 text-sm leading-relaxed text-white/80">
-          Community sponsors keep youth mountain biking accessible for local riders and families.
+          Local sponsors and donors help keep costs low and get more kids on bikes.
         </p>
         <div class="mt-4 flex flex-col gap-2.5">
           <a
             href={withBase('/sponsors')}
             class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-11 items-center justify-center rounded-lg px-4 py-2.5 text-base font-extrabold tracking-wider text-white uppercase transition"
           >
-            Become a Club Sponsor
+            Sponsor or donate
           </a>
           <a
             href={withBase('/sponsors/prospectus')}
             class="inline-flex min-h-11 items-center justify-center rounded-lg border border-white/25 bg-white/5 px-4 py-2 text-sm font-bold text-white transition hover:bg-white/15"
           >
-            Printable PDF Prospectus
+            Printable sponsor sheet
           </a>
         </div>
         <ul class="mt-4 space-y-1.5 text-xs text-white/80">
@@ -165,7 +150,7 @@ import { withBase } from '../../lib/urls';
         &copy; {new Date().getFullYear()}
         {siteConfig.name} ({siteConfig.legalEntity}). All rights reserved.
       </p>
-      <p>Unifying Lake Mountain Flyers, Flyers XC, Flyers Enduro &amp; Jr. Flyers.</p>
+      <p>Lake Mountain Flyers and Flyers XC, now one club.</p>
     </div>
   </div>
 </footer>

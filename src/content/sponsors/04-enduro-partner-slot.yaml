@@ -1,10 +1,11 @@
-name: Gravity & Suspension Partner (Open Enduro Slot)
+name: Flyers Enduro Sponsor (Open)
 tier: gold
 order: 4
 logo: /images/sponsor-open-enduro.svg
 websiteUrl: https://www.zeffy.com/
 scopes:
   - enduro
-summary: Dedicated Flyers Enduro program partner slot supporting youth gravity safety clinics, pit tools, and stage-race support.
-location: Utah Enduro Circuit
+summary: An open spot for a business that wants to back Flyers Enduro, including gravity safety clinics, pit tools, and race days.
+location: Utah
 active: true
+openSlot: true

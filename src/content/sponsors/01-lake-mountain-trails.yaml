@@ -1,3 +1,4 @@
+# TODO(board): confirm this is a current sponsor and that the website URL is correct.
 name: Lake Mountain Trails Coalition
 tier: gold
 order: 1
@@ -8,6 +9,6 @@ scopes:
   - xc
   - enduro
   - jr-flyers
-summary: Local trail stewardship partner building and maintaining sustainable Utah singletrack for riders, runners, and hikers.
+summary: A local trail group that builds and maintains Utah singletrack for riders, runners, and hikers.
 location: Utah
 active: true

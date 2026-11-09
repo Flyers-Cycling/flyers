@@ -12,6 +12,7 @@ export interface SponsorRecord {
   summary: string;
   location?: string;
   active: boolean;
+  openSlot?: boolean;
 }
 
 const TIER_RANK: Record<SponsorTierKey, number> = {
@@ -22,12 +23,18 @@ const TIER_RANK: Record<SponsorTierKey, number> = {
   community: 5,
 };
 
+/**
+ * Active sponsors for a scope, best tier first. Open sponsorship spots are excluded unless
+ * `openSlots` is 'only' (just the open spots) — they must never appear as real sponsors.
+ */
 export function filterSponsorsByScope(
   sponsors: SponsorRecord[],
   scope?: SponsorScope,
+  openSlots: 'exclude' | 'only' = 'exclude',
 ): SponsorRecord[] {
   return sponsors
     .filter((sponsor) => sponsor.active && (!scope || sponsor.scopes.includes(scope)))
+    .filter((sponsor) => (openSlots === 'only' ? sponsor.openSlot : !sponsor.openSlot))
     .sort((a, b) => {
       const rankDiff = TIER_RANK[a.tier] - TIER_RANK[b.tier];
       return rankDiff !== 0 ? rankDiff : a.order - b.order;

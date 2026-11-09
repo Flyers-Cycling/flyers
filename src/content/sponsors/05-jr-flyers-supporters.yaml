@@ -1,4 +1,4 @@
-name: Flyers Youth & Family Supporters
+name: Jr. Flyers Family & Small Business Supporters
 tier: bronze
 order: 5
 logo: /images/sponsor-community.svg
@@ -6,6 +6,7 @@ websiteUrl: https://www.zeffy.com/
 scopes:
   - club
   - jr-flyers
-summary: Local families and small businesses underwriting Jr. Flyers K–6 summer skills equipment and rider fee scholarships.
+summary: Families and small businesses can give at any level to help pay for Jr. Flyers skills equipment and registration help for families who need it.
 location: Utah
 active: true
+openSlot: true

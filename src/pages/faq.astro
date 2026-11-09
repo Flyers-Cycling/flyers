@@ -7,8 +7,8 @@ import { withBase } from '../lib/urls';
 const faqs = (await getCollection('faqs')).sort((a, b) => a.data.order - b.data.order);
 
 const categoryLabels: Record<string, string> = {
-  'costs-nonprofit': 'Fees & 501(c)(3) Model',
-  'programs-nica': 'Programs & NICA Synergy',
+  'costs-nonprofit': 'Costs & Help',
+  'programs-nica': 'Programs & NICA',
   'gear-safety': 'Bikes & Safety Gear',
   'sponsorship-volunteer': 'Sponsorships & Volunteering',
 };
@@ -16,7 +16,7 @@ const categoryLabels: Record<string, string> = {
 
 <BaseLayout
   title="Parent & Rider FAQ"
-  description="Answers to common questions about Flyers Cycling Club registration ($50/$150 t-shirt & insurance), NICA high school partnerships, bikes/gear, and 501(c)(3) sponsorships."
+  description="Answers to the questions parents and riders ask most about Flyers Cycling Club: cost, which program fits, NICA, bikes and gear, and how to help."
 >
   <section class="dark-surface flyers-banner-bg py-14 text-white sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -29,8 +29,8 @@ const categoryLabels: Record<string, string> = {
         Frequently Asked Questions
       </h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
-        Everything families and prospective sponsors ask about our $50 / $150 volunteer-led fee
-        structure, NICA team alignment, bikes, and safety gear.
+        Answers to the questions parents and riders ask most: what it costs, which program fits, how
+        Flyers works with school NICA teams, bikes and gear, and how to help.
       </p>
     </div>
   </section>
@@ -83,7 +83,7 @@ const categoryLabels: Record<string, string> = {
                   value="costs-nonprofit"
                   class="accent-flyers-gold h-3.5 w-3.5"
                 />
-                <span>Fees &amp; 501(c)(3)</span>
+                <span>Costs &amp; Help</span>
               </label>
               <label
                 class="bg-flyers-snow text-flyers-charcoal has-[:checked]:border-flyers-slate has-[:checked]:bg-flyers-slate inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-neutral-300 px-3.5 py-2 text-xs font-extrabold transition has-[:checked]:text-white"

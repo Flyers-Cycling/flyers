@@ -8,8 +8,8 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
 ---
 
 <BaseLayout
-  title="About Flyers Cycling Club & Our 501(c)(3) Mission"
-  description="Learn how Lake Mountain Bicycle Club (501c3) unites volunteer coaches, local sponsors, and NICA high school partnerships to keep youth cycling affordable."
+  title="About the Club"
+  description="Flyers Cycling Club is a volunteer-run 501(c)(3) youth mountain bike club in Utah. Learn how the club works, who runs it, and how we fit around the fall NICA season."
 >
   <section class="dark-surface flyers-banner-bg py-14 text-white sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -19,12 +19,11 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
       <h1
         class="font-display mt-3 max-w-3xl text-4xl leading-[0.98] font-black tracking-wide text-white uppercase sm:text-6xl"
       >
-        100% Volunteer-Led. Built for Utah Youth Riders &amp; Families.
+        Volunteer-run youth mountain biking in Utah
       </h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
-        Born on local Utah singletrack, Flyers Cycling Club exists to prove that youth cycling can
-        be both genuinely competitive and radically welcoming—without costing families thousands of
-        dollars.
+        Flyers Cycling Club exists so Utah kids can learn to ride well, race if they want to, and
+        feel welcome doing it, at a cost every family can manage.
       </p>
     </div>
   </section>
@@ -37,24 +36,26 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
           id="mission-heading"
           class="font-display text-flyers-slate-dark text-4xl leading-tight font-black tracking-wide uppercase"
         >
-          How Our Non-Profit Model Works
+          How the club works
         </h2>
         <p class="text-flyers-iron text-base leading-relaxed">
-          Operating legally as <strong class="text-flyers-slate-dark"
+          Flyers Cycling Club is run by <strong class="text-flyers-slate-dark"
             >{siteConfig.legalEntity}</strong
-          >, a registered 501(c)(3) non-profit organization, Flyers Cycling Club brings together <strong
-            class="text-flyers-slate-dark">Flyers XC</strong
-          > (founded in 2020), <strong class="text-flyers-slate-dark">Flyers Enduro</strong>, and <strong
-            class="text-flyers-slate-dark">Jr. Flyers</strong
-          > under one unified community umbrella.
+          >, a registered 501(c)(3) non-profit. The club brings together three programs: Flyers XC
+          (started in 2020), Flyers Enduro, and Jr. Flyers.
         </p>
         <p class="text-flyers-iron text-base leading-relaxed">
-          Every board member, program director, and pod ride leader donates their time as a
-          volunteer. When a family registers a rider for <strong class="text-flyers-slate-dark"
-            >$50 or $150</strong
-          > depending on the program, that fee goes strictly toward covering the athlete's club t-shirt
-          and rider insurance. Community businesses and tax-deductible donors fund coach safety certifications,
-          first-aid kits, pit tents, mechanical tools, and financial-hardship support.
+          Every board member, program director, and ride leader is a volunteer. Registration ({
+            siteConfig.feePhilosophy.rangeLabel
+          }, depending on the program) covers each rider's club t-shirt and insurance. Sponsors and
+          donors pay for the rest: coach safety training, first-aid kits, pit tents, tools, and help
+          for families who need it.
+        </p>
+        <p class="text-flyers-iron text-base leading-relaxed">
+          If cost is a barrier for your family, email <a
+            href={`mailto:${siteConfig.contact.email}?subject=Help%20with%20costs`}
+            class="text-flyers-red-deep font-bold underline">{siteConfig.contact.email}</a
+          >. Requests are confidential.
         </p>
       </div>
 
@@ -62,10 +63,10 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
         class="border-t-flyers-red rounded-2xl border border-t-4 border-neutral-200 bg-white p-6 shadow-xs lg:col-span-5"
       >
         <h2 class="font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase">
-          Where We Ride &amp; Connect
+          Where we ride
         </h2>
         <p class="text-flyers-iron mt-2 text-sm leading-relaxed">
-          Bringing riders and families together on trails and race venues across Utah:
+          Practices, clinics, and races happen on trails and at venues across Utah:
         </p>
         <ul class="text-flyers-slate-dark mt-4 grid grid-cols-2 gap-2.5 text-sm font-bold">
           <li class="bg-flyers-snow rounded-lg border border-neutral-200/80 px-3 py-2">
@@ -84,7 +85,7 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
             Utah Enduro Stages
           </li>
           <li class="bg-flyers-snow rounded-lg border border-neutral-200/80 px-3 py-2">
-            5 Partner NICA Schools
+            Trail Workdays
           </li>
         </ul>
       </aside>
@@ -100,20 +101,21 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
       <div class="grid gap-10 lg:grid-cols-2">
         <div>
           <p class="text-flyers-red-deep text-xs font-extrabold tracking-widest uppercase">
-            High School &amp; Junior Devo Collaboration
+            Working alongside school teams
           </p>
           <h2
             id="partnerships-heading"
             class="font-display text-flyers-slate-dark mt-2 text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
           >
-            Supporting Local NICA Teams
+            Built around the NICA season
           </h2>
           <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
-            Utah's high school mountain bike league (NICA) has transformed youth riding. Flyers
-            works alongside local NICA coaches and teams so riders have winter/spring endurance base
-            miles, gravity descending skills, and K–6 sibling programs that feed right into fall
-            school racing:
+            Many Flyers riders also race for their school team in the Utah High School Cycling
+            League (NICA) each fall. We schedule our winter, spring, and summer riding around that
+            season, so riders show up to fall practice fitter and more confident. Flyers riders come
+            from local teams including:
           </p>
+          <!-- TODO(board): confirm which of these teams are formal partners before calling any of them "partners". -->
           <ul class="mt-5 grid gap-3 sm:grid-cols-2">
             {
               siteConfig.nicaPartners.map((team) => (
@@ -138,13 +140,11 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
             <h2
               class="font-display text-flyers-slate-dark mt-2 text-3xl leading-tight font-black tracking-wide uppercase"
             >
-              Local Utah Trail Stewardship
+              Taking care of our trails
             </h2>
             <p class="text-flyers-iron mt-3 text-sm leading-relaxed">
-              Great riders respect the dirt beneath their tires. Every season, Flyers athletes and
-              parents volunteer alongside local trail builders and community partners to maintain
-              drainage, clear brush, and keep our home singletrack networks sustainable for hikers,
-              runners, and riders alike.
+              Every season, Flyers riders and parents join local trail builders to clear drains,
+              trim brush, and keep our home trails in good shape for hikers, runners, and riders.
             </p>
           </div>
           <div class="mt-6 flex flex-wrap gap-3">
@@ -152,13 +152,13 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
               href={withBase('/schedule')}
               class="bg-flyers-slate hover:bg-flyers-slate-dark font-display inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-2.5 text-sm font-extrabold tracking-wider text-white uppercase transition"
             >
-              Join Next Trail Workday &rarr;
+              See upcoming trail days &rarr;
             </a>
             <a
               href={`mailto:${siteConfig.contact.email}`}
               class="text-flyers-slate-dark inline-flex min-h-12 items-center justify-center rounded-xl border border-neutral-300 bg-white px-4 py-2.5 text-xs font-bold transition hover:bg-white/80"
             >
-              Volunteer as a Parent Coach
+              Volunteer with us
             </a>
           </div>
         </div>
@@ -173,8 +173,12 @@ const leadership = (await getCollection('leadership')).sort((a, b) => a.data.ord
         id="leadership-heading"
         class="font-display text-flyers-slate-dark text-3xl leading-tight font-black tracking-wide uppercase sm:text-4xl"
       >
-        All-Volunteer Leadership &amp; Coaching Teams
+        Who runs Flyers
       </h2>
+      <p class="text-flyers-iron mt-3 max-w-2xl text-base leading-relaxed">
+        Every role below is filled by a volunteer.
+      </p>
+      <!-- TODO(board): replace these role cards with real names, short bios, and (adult, consented) photos. -->
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
           leadership.map((leader) => (

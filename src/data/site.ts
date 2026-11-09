@@ -7,16 +7,16 @@ export interface NicaPartnerTeam {
 export const siteConfig = {
   name: 'Flyers Cycling Club',
   shortName: 'Flyers',
-  tagline: 'Gravity, Endurance & Youth Mountain Biking — Powered by Community, Not High Fees.',
+  tagline: 'Youth mountain biking for Utah kids, K–12.',
   legalEntity: 'Lake Mountain Bicycle Club, Inc.',
   nonProfitStatus: '501(c)(3) Non-Profit Organization',
   einPlaceholder: 'Available upon request for corporate & foundation matching',
-  region: 'Utah County & Surrounding Communities',
+  region: 'Utah',
   feePhilosophy: {
     rangeLabel: '$50 or $150',
-    shortSummary: '$50–$150 registration covers t-shirt & insurance only',
+    shortSummary: '$50–$150 registration covers a t-shirt and insurance',
     detail:
-      'Every Flyers program is 100% volunteer-led. Rider registration is just $50 or $150 depending on the program—strictly covering a club t-shirt and rider insurance. Community and corporate sponsors fund the rest so every kid can ride and compete.',
+      "Every Flyers program is run by volunteers. Registration is $50 or $150, depending on the program, and covers a club t-shirt and rider insurance. Sponsors and donors pay for the rest, so cost doesn't keep kids off the trail.",
   },
   contact: {
     email: 'info@lakemountainflyers.com',
@@ -30,10 +30,10 @@ export const siteConfig = {
     voltKitStore: {
       vendor: 'Volt Cyclewear',
       status: 'seasonal' as 'open' | 'seasonal' | 'closed',
-      windowLabel: 'Winter / Early Spring Order Window',
+      windowLabel: 'Orders open winter to early spring',
       url: 'https://www.lakemountainflyers.com/',
       notes:
-        'Custom 4-way stretch jerseys and Alpine Thermal layers designed to pair with standard black bibs or MTB shorts to keep kit costs low.',
+        'Optional Flyers jerseys and Alpine Thermal layers, made by Volt Cyclewear. Order in winter so kits arrive before spring.',
     },
     googleCalendarEmbedUrl: '',
     sponsorFormEndpoint: import.meta.env.PUBLIC_SPONSOR_FORM_ENDPOINT || '',

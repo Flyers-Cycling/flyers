@@ -75,13 +75,13 @@ const sorted = [...tiers].sort((a, b) => a.data.order - b.data.order);
                 <dt
                   class={`font-bold ${data.featured ? 'text-flyers-gold' : 'text-flyers-slate-dark'}`}
                 >
-                  Jersey Placement
+                  On jerseys
                 </dt>
                 <dd class="mt-0.5">{data.jerseyPlacement}</dd>
               </div>
               <div>
                 <dt class={`font-bold ${data.featured ? 'text-white' : 'text-flyers-slate-dark'}`}>
-                  Race Tent &amp; Signage
+                  At races and events
                 </dt>
                 <dd class="mt-0.5">{data.tentBannerPlacement}</dd>
               </div>
@@ -113,7 +113,7 @@ const sorted = [...tiers].sort((a, b) => a.data.order - b.data.order);
                   : 'bg-flyers-slate hover:bg-flyers-slate-dark text-white'
               }`}
             >
-              Fund {data.amountLabel} on Zeffy (0% Fee)
+              Give {data.amountLabel} on Zeffy
             </a>
             <a
               href="#sponsor-inquiry"
@@ -124,7 +124,7 @@ const sorted = [...tiers].sort((a, b) => a.data.order - b.data.order);
                   : 'text-flyers-slate-dark hover:bg-flyers-snow border-neutral-300 bg-white'
               }`}
             >
-              Pay by Check / In-Kind Inquiry
+              Pay by check or give gear
             </a>
           </div>
         </article>
