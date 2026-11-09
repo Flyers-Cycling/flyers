@@ -5,31 +5,39 @@ const programScopeEnum = z.enum(['club', 'xc', 'enduro', 'jr-flyers']);
 
 const programs = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/programs' }),
-  schema: z.object({
-    programId: z.enum(['xc', 'enduro', 'jr-flyers']),
-    title: z.string(),
-    shortTitle: z.string(),
-    discipline: z.string(),
-    tagline: z.string(),
-    summary: z.string(),
-    order: z.number().int().positive(),
-    agesLabel: z.string(),
-    gradesLabel: z.string(),
-    seasonLabel: z.string(),
-    registrationWindowLabel: z.string(),
-    registrationStatus: z.enum(['open', 'upcoming', 'waitlist', 'closed']),
-    registrationUrl: z.string().url(),
-    feeAmount: z.enum(['$50', '$150']),
-    feeIncludes: z.string(),
-    accentKey: z.enum(['xc', 'enduro', 'jr']),
-    heroImage: z.string(),
-    heroImageAlt: z.string(),
-    practiceSchedule: z.array(z.string()).min(1),
-    whoItsFor: z.array(z.string()).min(1),
-    gearChecklist: z.array(z.string()).min(1),
-    // How this program fits with fall NICA school teams. One or two sentences.
-    schoolTeamNote: z.string(),
-  }),
+  schema: z
+    .object({
+      programId: z.enum(['xc', 'enduro', 'jr-flyers']),
+      title: z.string(),
+      shortTitle: z.string(),
+      discipline: z.string(),
+      tagline: z.string(),
+      summary: z.string(),
+      order: z.number().int().positive(),
+      agesLabel: z.string(),
+      gradesLabel: z.string(),
+      seasonLabel: z.string(),
+      registrationWindowLabel: z.string(),
+      registrationStatus: z.enum(['open', 'upcoming', 'waitlist', 'closed']),
+      registrationUrl: z.string().url(),
+      feeAmount: z.enum(['$50', '$150']),
+      feeIncludes: z.string(),
+      accentKey: z.enum(['xc', 'enduro', 'jr']),
+      // Optional. A real photo of Flyers riders (never AI-generated or stock), e.g.
+      // /images/program-xc.jpg. Leave both out and the page shows a plain brand-colored block.
+      heroImage: z.string().optional(),
+      // Required when heroImage is set. Describe only what is actually in the photo.
+      heroImageAlt: z.string().optional(),
+      practiceSchedule: z.array(z.string()).min(1),
+      whoItsFor: z.array(z.string()).min(1),
+      gearChecklist: z.array(z.string()).min(1),
+      // How this program fits with fall NICA school teams. One or two sentences.
+      schoolTeamNote: z.string(),
+    })
+    .refine((data) => !data.heroImage || Boolean(data.heroImageAlt?.trim()), {
+      message: 'Add heroImageAlt describing the photo whenever heroImage is set.',
+      path: ['heroImageAlt'],
+    }),
 });
 
 const tiers = defineCollection({

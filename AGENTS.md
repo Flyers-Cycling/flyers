@@ -180,4 +180,4 @@ These are facts the site states or needs that agents can't verify. Resolve them 
 - Scholarship and assistance specifics: fee waivers, loaner bikes, who reviews requests.
 - Refund policy and waiver links.
 - Every sponsorship perk in `src/content/tiers/*.yaml` is a promise to a sponsor (jersey placement, framed photo, year-end summary, social posts). Confirm the club will deliver each one.
-- Are the current photos in `public/images/` real photos of Flyers riders, with media releases? Replace any that aren't.
+- Real photos needed. The homepage hero and the three program photos were removed in Nov 2026 because they appeared to be AI-generated (riders in Trek, Giant, and Specialized jerseys, not Flyers kits). Each spot now shows a plain brand-colored block. Send real, media-released photos for: the homepage hero, Flyers XC, Flyers Enduro, and Jr. Flyers. Add a program photo with `heroImage` and `heroImageAlt` in its `src/content/programs/*.md` file.

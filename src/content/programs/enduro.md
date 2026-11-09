@@ -15,8 +15,6 @@ registrationUrl: https://www.zeffy.com/
 feeAmount: '$150'
 feeIncludes: Covers a Flyers Enduro t-shirt and gravity rider insurance.
 accentKey: enduro
-heroImage: /images/program-enduro.jpg
-heroImageAlt: A rider in a full-face helmet and knee pads kicking up dust through a dirt corner
 practiceSchedule:
   - 'Early season (Jan–Mar): Bike setup and suspension clinics, braking practice, and skill sessions at lower, drier trails'
   - 'Core season (Apr–Jun): Weekly afternoon practices on technical trails, plus pre-rides of Utah enduro race venues'

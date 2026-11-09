@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SponsorGrid from '../../components/sponsors/SponsorGrid.astro';
+import PhotoPlaceholder from '../../components/layout/PhotoPlaceholder.astro';
 import { getProgramAccentMeta, getRegistrationStatusMeta } from '../../lib/programs';
 import { withBase } from '../../lib/urls';
 import { formatEventDate } from '../../lib/dates';
@@ -88,14 +89,20 @@ const programEvents = (await getCollection('events'))
         <div
           class="bg-flyers-slate-dark overflow-hidden rounded-2xl border border-white/20 shadow-2xl"
         >
-          <img
-            src={withBase(data.heroImage)}
-            alt={data.heroImageAlt}
-            width="1200"
-            height="669"
-            fetchpriority="high"
-            class="h-full w-full object-cover"
-          />
+          {
+            data.heroImage ? (
+              <img
+                src={withBase(data.heroImage)}
+                alt={data.heroImageAlt}
+                width="1200"
+                height="669"
+                fetchpriority="high"
+                class="h-full w-full object-cover"
+              />
+            ) : (
+              <PhotoPlaceholder tone={accentMeta.topBarClass} class="aspect-[16/9]" />
+            )
+          }
         </div>
       </div>
     </div>

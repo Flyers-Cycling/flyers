@@ -15,8 +15,6 @@ registrationUrl: https://www.zeffy.com/
 feeAmount: '$50'
 feeIncludes: Covers a Jr. Flyers t-shirt and rider insurance.
 accentKey: jr
-heroImage: /images/program-jr.jpg
-heroImageAlt: A group of young kids in helmets riding a dirt trail with an adult coach giving a thumbs-up
 practiceSchedule:
   - 'Summer (Jun–Aug): Weekly sessions at a skills park and on beginner singletrack'
   - 'Kids are grouped by age and comfort on the trail, so younger and older riders each get the right challenge'

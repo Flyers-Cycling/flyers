@@ -10,23 +10,20 @@ const gradesFor = (id: 'xc' | 'enduro' | 'jr-flyers') =>
 ---
 
 <section class="dark-surface bg-flyers-slate-dark relative overflow-hidden text-white">
-  <!-- Golden-hour Lake Mountain & Wasatch singletrack LCP photograph -->
-  <div class="pointer-events-none absolute inset-0">
+  <!--
+    TODO(board): photo needed. A real, media-released photo of Flyers riders goes here.
+    Never use AI-generated or stock images (AGENTS.md section 5). Until then, a plain brand
+    background with a faint crest.
+  -->
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="from-flyers-slate-dark to-flyers-slate absolute inset-0 bg-gradient-to-br"></div>
     <img
-      src={withBase('/images/hero-flyers.jpg')}
-      alt="Youth mountain bikers in carbon-black and crimson-red Flyers kits riding Lake Mountain singletrack overlooking Utah Lake and the Wasatch Range"
-      width="1600"
-      height="893"
-      fetchpriority="high"
-      class="h-full w-full object-cover object-[68%_center]"
+      src={withBase('/images/brand/flyers-logo-white.svg')}
+      alt=""
+      width="310"
+      height="214"
+      class="absolute top-1/2 right-[-4rem] hidden h-auto w-[36rem] -translate-y-1/2 opacity-[0.07] lg:block"
     />
-    <!-- Authentic Brand Kit Lake Mountain Petrol Slate directional overlay -->
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-[#14242E]/96 via-[#203746]/86 to-[#14242E]/35"
-    >
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#14242E] via-transparent to-[#14242E]/40">
-    </div>
   </div>
 
   <div class="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-22 lg:px-8">

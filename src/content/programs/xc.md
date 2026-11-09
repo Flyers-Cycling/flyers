@@ -15,8 +15,6 @@ registrationUrl: https://www.zeffy.com/
 feeAmount: '$50'
 feeIncludes: Covers a club t-shirt and rider insurance.
 accentKey: xc
-heroImage: /images/program-xc.jpg
-heroImageAlt: Two young cross-country racers with number plates climbing a dirt singletrack trail below rocky mountains
 practiceSchedule:
   - 'Winter (Jan–Feb): 1 ride a week, planned around the weather, with base miles and skill drills'
   - 'Spring (Mar–May): 1–2 practices a week, building toward ICUP and other spring XC races'
