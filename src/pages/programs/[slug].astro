@@ -72,7 +72,7 @@ const programEvents = (await getCollection('events'))
             href={data.registrationUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-flyers-red hover:bg-flyers-red-bright font-display inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-3 text-lg font-extrabold tracking-wider text-white uppercase shadow-md transition"
+            class={`font-display inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-3 text-lg font-extrabold tracking-wider uppercase shadow-md transition ${accentMeta.buttonClass}`}
           >
             {statusMeta.ctaLabel} ({data.feeAmount}) &rarr;
           </a>
@@ -128,7 +128,7 @@ const programEvents = (await getCollection('events'))
               data.practiceSchedule.map((item) => (
                 <li class="text-flyers-iron flex items-start gap-3 text-sm leading-relaxed">
                   <span
-                    class="bg-flyers-red mt-1.5 inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                    class={`mt-1.5 inline-block h-2.5 w-2.5 shrink-0 rounded-full ${accentMeta.topBarClass}`}
                     aria-hidden="true"
                   />
                   <span>{item}</span>

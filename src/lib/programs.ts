@@ -61,11 +61,11 @@ export function getProgramAccentMeta(accent: ProgramAccent): AccentThemeMeta {
       };
     case 'enduro':
       return {
-        badgeClass: 'bg-[#EEF3F6] text-[#14242E] border-[#C2D2DC]',
-        borderClass: 'hover:border-[#203746]',
-        topBarClass: 'bg-[#203746]',
-        darkPillClass: 'bg-[#F4CE50]/20 text-[#F4CE50] border-[#F4CE50]/45',
-        buttonClass: 'bg-[#203746] text-white hover:bg-[#14242E]',
+        badgeClass: 'bg-flyers-pink-light text-flyers-pink-dark border-flyers-pink/40',
+        borderClass: 'hover:border-flyers-pink',
+        topBarClass: 'bg-flyers-pink',
+        darkPillClass: 'bg-flyers-pink/20 text-flyers-pink-bright border-flyers-pink-bright/50',
+        buttonClass: 'bg-flyers-pink-deep text-white hover:bg-flyers-pink-dark',
       };
     case 'jr':
       return {
