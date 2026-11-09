@@ -7,6 +7,13 @@
   --color-flyers-red-bright: #d12323;
   --color-flyers-red-deep: #8f1616;
   --color-flyers-berry: #9d112a;
+  /* Flyers Enduro pink, from the team jerseys. Use -deep or -dark behind white text and
+     -bright for text on dark slate; the base pink is for bars, dots, and blocks only. */
+  --color-flyers-pink: #e6197d;
+  --color-flyers-pink-bright: #f472b6;
+  --color-flyers-pink-deep: #b8125f;
+  --color-flyers-pink-dark: #8a0c45;
+  --color-flyers-pink-light: #fdf0f6;
 
   --color-flyers-slate: #203746;
   --color-flyers-slate-dark: #14242e;
