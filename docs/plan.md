@@ -85,8 +85,8 @@ Each program becomes its own section, the way the club runs.
 
 For families already in the club.
 
-- [ ] Parent handbook: how communication works (Slack, email, calendar), weather calls, what to bring
-- [ ] Rider knowledge library: bike fit, basic maintenance, trail etiquette, nutrition and hydration, race day basics
+- [x] Parent handbook: how communication works (Slack, email, calendar), weather calls, what to bring. At /onboarding ("Parent handbook"); Slack, email, and calendar links and the waiver are still `TODO(board)`.
+- [ ] Rider knowledge library: bike fit, basic maintenance, trail etiquette, nutrition and hydration, race day basics. At /learn as Markdown in `src/content/guides/`: bike check, trail manners, food and water, race day. Bike fit and maintenance still to write.
 - [ ] Coach resources: ride leader checklists, emergency plan, skills progressions
 - [ ] Simple contact form that routes to the right person by topic (`TODO`: pick how to run a working form on a static site)
 

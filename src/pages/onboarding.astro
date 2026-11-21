@@ -1,60 +1,120 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/layout/PageHero.astro';
 import ComingSoon from '../components/layout/ComingSoon.astro';
 import { siteConfig } from '../data/site';
+import { programTheme } from '../lib/programs';
 import { withBase } from '../lib/urls';
+
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+const { email } = siteConfig.contact;
+const link = 'text-flyers-red-deep font-bold underline';
+const card = 'rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs sm:p-8';
+const heading = 'font-display text-flyers-slate-dark text-2xl font-black tracking-wide uppercase';
 ---
 
 <BaseLayout
-  title="New Family Onboarding"
-  description="What to expect after you register with Flyers Cycling Club: calendars, team communication, forms, and your rider's first ride."
+  title="Parent handbook"
+  description="How Flyers Cycling Club works for families: Slack and email, weather calls, what to bring, safety, and where to get help."
 >
-  <PageHero eyebrow="New families" title="Welcome to Flyers">
-    <p>
-      Just registered? Here's how to get set up for the season. We're still filling in this page, so
-      check back soon.
-    </p>
+  <PageHero eyebrow="New families" title="Parent handbook">
+    <p>How the season works once you've registered. Keep this page handy.</p>
   </PageHero>
 
-  <!-- TODO(board): fill in each section below with the club's real calendar, comms, and forms. -->
-  <section class="py-14 sm:py-16">
+  <div class="py-14 sm:py-16">
     <div class="mx-auto grid max-w-5xl gap-6 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
-      <ComingSoon id="onboarding-calendar-heading" title="Google Calendar">
-        <!-- TODO(board): add the club's Google Calendar link (also siteConfig.integrations.googleCalendarEmbedUrl). -->
-        <p>
-          Rides, practices, and events go on the club's Google Calendar. We'll add a link here so
-          you can add it to your phone. Until then, see the <a
-            href={withBase('/schedule')}
-            class="text-flyers-red-deep font-bold underline">schedule</a
+      <section aria-labelledby="handbook-comms-heading" class={`${card} md:col-span-2`}>
+        <h2 id="handbook-comms-heading" class={heading}>How we stay in touch</h2>
+        <dl class="mt-4 grid gap-4 text-sm sm:grid-cols-3">
+          <div>
+            <dt class="text-flyers-slate-dark font-extrabold">Slack</dt>
+            <dd class="text-flyers-iron mt-1 leading-relaxed">
+              Ride plans, meeting spots, and weather calls. Check it before every ride.
+            </dd>
+          </div>
+          <div>
+            <dt class="text-flyers-slate-dark font-extrabold">Email</dt>
+            <dd class="text-flyers-iron mt-1 leading-relaxed">
+              Big announcements, like registration and season kickoffs.
+            </dd>
+          </div>
+          <div>
+            <dt class="text-flyers-slate-dark font-extrabold">Google Calendar</dt>
+            <dd class="text-flyers-iron mt-1 leading-relaxed">
+              Rides and events. Until the link is up, use the <a
+                href={withBase('/schedule')}
+                class={link}>schedule</a
+              >.
+            </dd>
+          </div>
+        </dl>
+        <!-- TODO(board): add the Slack invite, email sign-up, and Google Calendar links
+             (calendar: siteConfig.integrations.googleCalendarEmbedUrl). -->
+        <p class="text-flyers-iron mt-4 text-xs leading-relaxed">
+          Invite and sign-up links go out to registered families. Missing one? Email <a
+            href={`mailto:${email}`}
+            class={link}>{email}</a
           >.
         </p>
-      </ComingSoon>
+      </section>
 
-      <ComingSoon id="onboarding-comms-heading" title="Slack and email">
-        <!-- TODO(board): add the Slack invite link and the email sign-up link. -->
-        <p>
-          Coaches share ride plans, weather changes, and updates in the club Slack. Important
-          announcements also go out by email. We'll add the invite and sign-up links here.
+      <section aria-labelledby="handbook-weather-heading" class={card}>
+        <h2 id="handbook-weather-heading" class={heading}>Weather calls</h2>
+        <p class="text-flyers-iron mt-2 text-sm leading-relaxed">
+          {siteConfig.weatherCalls} No message means the ride is on.
         </p>
-      </ComingSoon>
+      </section>
 
-      <ComingSoon id="onboarding-forms-heading" title="Forms and waivers">
+      <section aria-labelledby="handbook-bring-heading" class={card}>
+        <h2 id="handbook-bring-heading" class={heading}>Bring to every ride</h2>
+        <ul class="text-flyers-iron mt-2 list-disc space-y-1 pl-5 text-sm leading-relaxed">
+          <li>A helmet that fits</li>
+          <li>Water and a snack</li>
+          <li>Layers for the weather</li>
+          <li>Your program's gear (below)</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="handbook-gear-heading" class={`${card} md:col-span-2`}>
+        <h2 id="handbook-gear-heading" class={heading}>Bikes and gear</h2>
+        <p class="text-flyers-iron mt-2 text-sm leading-relaxed">
+          Each program has its own gear list. Before the first ride, do the <a
+            href={withBase('/learn/pre-ride-check')}
+            class={link}>two-minute bike check</a
+          >.
+        </p>
+        <ul class="mt-4 grid gap-3 sm:grid-cols-3">
+          {
+            programs.map(({ data }) => (
+              <li data-program={programTheme(data.accentKey)}>
+                <a
+                  href={withBase(`/programs/${data.programId}#gear`)}
+                  class="border-l-program-accent bg-flyers-snow hover:border-program-accent text-flyers-slate-dark flex min-h-12 items-center rounded-xl border border-l-4 border-neutral-200 px-4 py-3 text-sm font-extrabold transition"
+                >
+                  {data.title} gear &rarr;
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <ComingSoon id="handbook-forms-heading" title="Forms and waivers">
+        <!-- TODO(board): link the waiver and any other forms each rider needs. -->
         <p>The forms each rider needs before their first ride.</p>
       </ComingSoon>
 
-      <ComingSoon id="onboarding-first-ride-heading" title="Your first ride">
-        <p>
-          What to bring and what to expect. Each program page has a gear checklist you can use now.
-        </p>
-      </ComingSoon>
+      <section aria-labelledby="handbook-more-heading" class={card}>
+        <h2 id="handbook-more-heading" class={heading}>Good to know</h2>
+        <ul class="mt-2 space-y-2 text-sm">
+          <li><a href={withBase('/safety')} class={link}>How we keep riders safe</a></li>
+          <li><a href={withBase('/scholarships')} class={link}>Help with costs</a></li>
+          <li><a href={withBase('/volunteer')} class={link}>Ways to volunteer</a></li>
+          <li><a href={withBase('/learn')} class={link}>Rider guides</a></li>
+          <li><a href={withBase('/faq')} class={link}>Questions from families</a></li>
+        </ul>
+      </section>
     </div>
-
-    <p class="text-flyers-iron mx-auto mt-10 max-w-5xl px-4 text-sm sm:px-6 lg:px-8">
-      Questions? Email <a
-        href={`mailto:${siteConfig.contact.email}`}
-        class="text-flyers-red-deep font-bold underline">{siteConfig.contact.email}</a
-      >.
-    </p>
-  </section>
+  </div>
 </BaseLayout>

@@ -47,6 +47,19 @@ Flyers XC and Flyers Enduro/Gravity each have their own registration form. Jr. F
 - Click **Print / Save as PDF** in the top bar (the navigation bar automatically hides in the PDF).
 - Any edits made to `src/content/tiers/*.yaml` automatically flow into both `/sponsors` and the printable PDF prospectus.
 
+### 4. Adding a Rider Guide
+
+1. In `src/content/guides/`, add a Markdown file named with a number and a short name, like `05-bike-fit.md`. The page appears at `/learn/bike-fit`.
+2. Start it with:
+   ```yaml
+   ---
+   title: How to fit your bike
+   summary: One sentence for the guide list.
+   order: 5
+   ---
+   ```
+3. Write the guide below in plain Markdown, with `##` headings. Follow [docs/voice.md](./docs/voice.md).
+
 ---
 
 ## Part 2: Developer Workflow & Best Practices

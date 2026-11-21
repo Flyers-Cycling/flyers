@@ -146,7 +146,20 @@ const updates = defineCollection({
   }),
 });
 
+// Rider knowledge library (/learn). General riding know-how, written for riders and parents.
+const guides = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
+  schema: z.object({
+    title: z.string(),
+    // One sentence shown on the library page.
+    summary: z.string(),
+    // Lower numbers show first.
+    order: z.number().int().positive(),
+  }),
+});
+
 export const collections = {
+  guides,
   programs,
   tiers,
   sponsors,

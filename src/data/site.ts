@@ -60,6 +60,9 @@ export const siteConfig = {
     summary:
       "Some help with costs is available. Talk to your rider's coach, or email us. We keep every request private.",
   },
+  // Confirmed by Randall (Nov 21, 2026). Used on /safety and /onboarding.
+  weatherCalls:
+    "We call off rides for lightning and mud. You'll hear in Slack at least 2 hours before the ride starts.",
   // Enduro/Gravity has a minimum age. Shown on the Enduro/Gravity page, /register, and the FAQ.
   enduroMinimumAge: 10,
   contact: {
